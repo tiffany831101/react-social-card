@@ -18,8 +18,8 @@ const appRoot = document.getElementById('app')
 class SocialCard extends React.Component {
     state = {
         currentUser: {
-            userName: '測試人員',
-            userID: uuid()
+            name: '測試人員',
+            id: uuid()
         },
         isLiked: false,
         status: {
@@ -37,21 +37,25 @@ class SocialCard extends React.Component {
                 userID: uuid()
             }],
             comments: [{
-                userName: '路人甲',
-                userID: uuid(),
-                text: '我只是跟著鄉民進來湊熱鬧的⋯⋯請問時薪部分是不是列出一個範圍大家比較好參考？不然只寫面議有點⋯⋯'
+                id: uuid(),
+                text: '我只是跟著鄉民進來湊熱鬧的⋯⋯請問時薪部分是不是列出一個範圍大家比較好參考？不然只寫面議有點⋯⋯',
+                authorName: '路人甲',
+                authorID: uuid()
             }, {
-                userName: '賴美慧',
-                userID: uuid(),
-                text: '幫推'
+                id: uuid(),
+                text: '幫推',
+                authorName: '賴美慧',
+                authorID: uuid()
             }, {
-                userName: '大盤商',
-                userID: uuid(),
-                text: '亲，为什么给差评的呢亲？'
+                id: uuid(),
+                text: '亲，为什么给差评的呢亲？',
+                authorName: '大盤商',
+                authorID: uuid()
             }, {
-                userName: '出乃玩',
-                userID: uuid(),
-                text: '樓上下去領五百！'
+                id: uuid(),
+                text: '樓上下去領五百！',
+                authorName: '出乃玩',
+                authorID: uuid()
             }],
             shares: []
         }
@@ -64,7 +68,7 @@ class SocialCard extends React.Component {
                 status: {
                     ...prevState.status,
                     likes: [...prevState.status.likes].filter(
-                        obj => (obj.userID !== this.state.currentUser.userID)
+                        obj => (obj.userID !== this.state.currentUser.id)
                     )
                 }
             } : {
@@ -73,21 +77,22 @@ class SocialCard extends React.Component {
                 status: {
                     ...prevState.status,
                     likes: [...prevState.status.likes, {
-                        userName: this.state.currentUser.userName,
-                        userID: this.state.currentUser.userID
+                        userName: this.state.currentUser.name,
+                        userID: this.state.currentUser.id
                     }]
                 }
             }
         })
     }
-    addComment = (text) => {
+    addComment = (textInput) => {
         this.setState(prevState => ({
             status: {
                 ...prevState.status,
                 comments: [...prevState.status.comments, {
-                    userName: this.state.currentUser.userName,
-                    userID: this.state.currentUser.userID,
-                    text
+                    id: uuid(),
+                    text: textInput,
+                    authorName: this.state.currentUser.name,
+                    authorID: this.state.currentUser.id,
                 }]
             }
         }))

@@ -3,9 +3,9 @@ import React from 'react'
 const CardComments = (props) => (
     <div className="all-comments">
         {(props.comments.length > 0) &&  props.comments.map(comment => (
-            <div className="comment" key={comment.userID}>
+            <div className="comment" key={comment.id}>
                 <a className="comment__author-avatar" href="#">
-                    {comment.userName.slice(0, 1)}
+                    {comment.authorName.slice(0, 1)}
                 </a>
                 <div>
                     <p className="comment__body">
@@ -13,7 +13,7 @@ const CardComments = (props) => (
                             className="comment__author-name"
                             href="#"
                         >
-                            {comment.userName}
+                            {comment.authorName}
                         </a>
                         <span>
                             {comment.text}
@@ -35,7 +35,6 @@ const CardComments = (props) => (
                 </div>
             </div>
         ))}
-        
     </div>
 )
 
