@@ -6,7 +6,9 @@ class CardFoot extends React.Component {
     }
     handleSubmitComment = (event) => {
         if (event.key === 'Enter') {
-            console.log(event.target.value.trim())
+            event.preventDefault()
+            this.props.addComment(event.target.value.trim())
+            event.target.value = ''
         }
     }
     adjustInputHeight = (event) => {
@@ -23,9 +25,12 @@ class CardFoot extends React.Component {
         event.target.style.height = 'auto'  // 配合 rows 調整高度
     }
     render(props) {
+        const url = `/profile.php?id=${this.props.currentUser.userID}`
         return (
             <div className="user-comment">
-                <a className="user-comment__user-avatar" href="#">A</a>
+                <a className="user-comment__user-avatar" href={url}>
+                    {this.props.currentUser.userName.slice(0, 1)}
+                </a>
                 <textarea
                     rows={this.state.rows}
                     className="user-comment__input"

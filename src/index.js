@@ -80,6 +80,18 @@ class SocialCard extends React.Component {
             }
         })
     }
+    addComment = (text) => {
+        this.setState(prevState => ({
+            status: {
+                ...prevState.status,
+                comments: [...prevState.status.comments, {
+                    userName: this.state.currentUser.userName,
+                    userID: this.state.currentUser.userID,
+                    text
+                }]
+            }
+        }))
+    }
     render(props) {
         return (
             <div className="post-wrapper">
@@ -91,7 +103,10 @@ class SocialCard extends React.Component {
                     isLiked={this.state.isLiked}
                 />
                 <CardComments comments={this.state.status.comments} />
-                <CardFoot currentUser={this.state.currentUser} />
+                <CardFoot
+                    currentUser={this.state.currentUser}
+                    addComment={this.addComment}
+                />
             </div>
         )
     }
