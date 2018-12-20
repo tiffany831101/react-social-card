@@ -7,7 +7,6 @@
     font-size: $m-minus-size;
     color: $dark-grey;
     display: flex;
-    align-items: baseline;
 }
 
 .comment__author-avatar {
@@ -31,6 +30,7 @@
 .comment__body {
     background-color: $light-grey;
     border-radius: $m-minus-size;
+    display: inline-block;
     margin: 0;
     padding: 0.7rem 0.9rem;
     white-space: pre-line;
