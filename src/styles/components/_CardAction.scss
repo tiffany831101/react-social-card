@@ -1,0 +1,34 @@
+.post-action {
+    border-top: 0.1rem solid $light-grey;
+    border-bottom: 0.1rem solid $light-grey;
+    display: flex;
+}
+
+.post-action__like, .post-action__comment, .post-action__share {
+    border: 0;
+    color: $grey;
+    display: block;
+    font-weight: bold;
+    height: $xl-size;
+    transition: color 100ms;
+
+    // 置中 icon
+    line-height: $xl-size;
+    text-align: center;
+    flex: 1;
+
+    // 防止反白
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.post-action__like:hover, .post-action__comment:hover, .post-action__share:hover {
+    background-color: lighten($light-grey, 5%);
+    cursor: pointer;
+}
+
+.post-action__like--liked {
+    color: $light-blue;
+}

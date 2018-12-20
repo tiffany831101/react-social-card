@@ -1,0 +1,31 @@
+.user-comment {
+    margin: $tiny-size 0 0 0;
+    display: flex;
+}
+
+.user-comment__user-avatar {
+    height: $l-size;
+    width: $l-size;
+    background-color: $fb-blue;
+    border-radius: 50%;
+    text-align: center;
+    line-height: $l-size;
+    color: white;
+    margin-right: $tiny-size;
+}
+
+.user-comment__input {
+    resize: none;   // 不給調整大小
+    flex: 1;
+    font-size: $m-size;
+    color: $dark-grey;
+    padding: 0.65rem 0.9rem;
+    height: $l-size;
+    border: none;
+    border-radius: $m-minus-size;
+    background-color: $light-grey;
+}
+
+.user-comment__input:focus {
+    outline: none;
+}
