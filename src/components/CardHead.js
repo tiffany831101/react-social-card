@@ -1,4 +1,7 @@
 import React from 'react'
+import moment from 'moment'
+import 'moment/locale/zh-tw'
+moment.locale('zh-tw')
 
 const CardHead = ({
     metaInfo: {authorName, authorID, publishedAt}
@@ -11,8 +14,12 @@ const CardHead = ({
             <span className="post-meta__author-name">
                 <a href="#">{authorName}</a>
             </span>
-            <a className="post-meta__timestamp" href="#">‎
-                {publishedAt}
+            <a
+                className="post-meta__timestamp"
+                href="#"
+                title={moment.unix(publishedAt).format('LLL')}
+            >‎
+                {moment.unix(publishedAt).format('MMMDo')}
             </a>
         </div>
     </div>

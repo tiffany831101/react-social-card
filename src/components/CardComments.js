@@ -1,4 +1,7 @@
 import React from 'react'
+import moment from 'moment'
+import 'moment/locale/zh-tw'
+moment.locale('zh-tw')
 
 const CardComments = (props) => (
     <div className="all-comments">
@@ -28,8 +31,11 @@ const CardComments = (props) => (
                             回覆
                         </span>
                         <span>．</span>
-                        <span className="comment-action__timestamp">
-                            1天
+                        <span
+                            className="comment-action__timestamp"
+                            title={moment.unix(comment.publishedAt).format('LLL')}
+                        >
+                            {moment.unix(comment.publishedAt).fromNow()}
                         </span>
                     </p>
                 </div>

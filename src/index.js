@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import 'normalize.css/normalize.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import './styles/styles.scss'
-import post from './components/DataStructure'   // Dummy Data Structure
+
 import CardHead from './components/CardHead'
 import CardBody from './components/CardBody'
 import CardStatus from './components/CardStatus'
 import CardAction from './components/CardAction'
 import CardComments from './components/CardComments'
 import CardFoot from './components/CardFoot'
+import moment from 'moment'
+import post from './components/DataStructure'   // Dummy Data
 import uuid from 'uuid/v4'
 
 
@@ -40,22 +42,26 @@ class SocialCard extends React.Component {
                 id: uuid(),
                 text: '我只是跟著鄉民進來湊熱鬧的⋯⋯請問時薪部分是不是列出一個範圍大家比較好參考？不然只寫面議有點⋯⋯',
                 authorName: '路人甲',
-                authorID: uuid()
+                authorID: uuid(),
+                publishedAt: moment('2018-12-17 13:20').unix()
             }, {
                 id: uuid(),
                 text: '幫推',
                 authorName: '賴美慧',
-                authorID: uuid()
+                authorID: uuid(),
+                publishedAt: moment('2018-12-17 15:29').unix()
             }, {
                 id: uuid(),
                 text: '亲，为什么给差评的呢亲？',
                 authorName: '大盤商',
-                authorID: uuid()
+                authorID: uuid(),
+                publishedAt: moment('2018-12-18 08:13').unix()
             }, {
                 id: uuid(),
                 text: '樓上下去領五百！',
                 authorName: '出乃玩',
-                authorID: uuid()
+                authorID: uuid(),
+                publishedAt: moment('2018-12-20 16:33').unix()
             }],
             shares: []
         }
@@ -93,6 +99,7 @@ class SocialCard extends React.Component {
                     text: textInput,
                     authorName: this.state.currentUser.name,
                     authorID: this.state.currentUser.id,
+                    publishedAt: moment().unix()
                 }]
             }
         }))
