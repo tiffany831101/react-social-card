@@ -8,11 +8,14 @@ class CardFoot extends React.Component {
         // 按 Eneter 送出訊息，按 Shift + Enter 換行
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault()  // 只按 Enter 時不換行
-            this.props.addComment(event.target.value.trim())
-            event.target.value = ''
-            if (this.state.rows > 1) {
+            const textInput = event.target.value.trim()
+            if (textInput) {
+                this.props.addComment(textInput)
+                event.target.value = ''
                 // 重置 textarea 高度
-                this.setState(() => ({rows: 1}))
+                if (this.state.rows > 1) {
+                    this.setState(() => ({rows: 1}))
+                }
             }
         }
     }
