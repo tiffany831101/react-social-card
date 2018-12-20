@@ -5,7 +5,8 @@ class CardFoot extends React.Component {
         rows: 1
     }
     handleSubmitComment = (event) => {
-        if (event.key === 'Enter') {
+        // 按 Eneter 送出訊息，按 Shift + Enter 換行
+        if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault()
             this.props.addComment(event.target.value.trim())
             event.target.value = ''
