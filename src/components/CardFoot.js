@@ -26,10 +26,9 @@ class CardFoot extends React.Component {
         event.target.style.height = 'auto'  // 配合 rows 調整高度
     }
     render(props) {
-        const url = `/profile.php?id=${this.props.currentUser.id}`
         return (
             <div className="user-comment">
-                <a className="user-comment__user-avatar" href={url}>
+                <a className="user-comment__user-avatar" href="#">
                     {this.props.currentUser.name.slice(0, 1)}
                 </a>
                 <textarea
