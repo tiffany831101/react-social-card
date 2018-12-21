@@ -56,6 +56,11 @@
     color: $fb-blue;
 }
 
+.comment-action__like--liked {
+    font-weight: bold;
+    color: $light-blue;
+}
+
 .comment-action__delete {
     color: $red;
 }

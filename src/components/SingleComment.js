@@ -18,19 +18,13 @@ const SingleComment = ({
                 >
                     {comment.authorName}
                 </a>
-                <span>
-                    {comment.text}
-                </span>
+                <span>{comment.text}</span>
             </p>
             <p className="comment-action">
                 {comment.isLiked ? (
                     <span
-                        className="comment-action__like"
+                        className="comment-action__like comment-action__like--liked"
                         onClick={() => {handleLikeComment(comment.id)}}
-                        style={{
-                            fontWeight: 'bold',
-                            color: 'rgb(76, 130, 247)'
-                        }}
                     >
                         讚
                     </span>
@@ -42,10 +36,7 @@ const SingleComment = ({
                         讚
                     </span>
                 )}
-                
-                {comment.authorID == currentUser.id && (
-                    <span>．</span>
-                )}
+                {comment.authorID == currentUser.id && <span>．</span>}
                 {comment.authorID == currentUser.id && (<span
                     className="comment-action__delete"
                     onClick={() => {deleteComment(comment.id)}}
@@ -61,25 +52,12 @@ const SingleComment = ({
                     {moment.unix(comment.publishedAt).fromNow()}
                 </span>
                 {(comment.likes.length > 0) && <span>．</span>}
-                {(comment.likes.length > 0) ? (
+                {(comment.likes.length > 0) && (
                     <span className="comment-action__like-count">
-                        <i
-                            className="fas fa-thumbs-up"
-                        />
-                        <span>{comment.likes.length}</span>
-                    </span>
-                ) : (
-                    <span
-                        className="comment-action__like-count"
-                        style={{visibility: 'hidden'}}
-                    >
-                        <i
-                            className="fas fa-thumbs-up"
-                        />
+                        <i className="fas fa-thumbs-up" />
                         <span>{comment.likes.length}</span>
                     </span>
                 )}
-                
             </p>
         </div>
     </div>
