@@ -60,6 +60,7 @@ const SingleComment = ({
                 >
                     {moment.unix(comment.publishedAt).fromNow()}
                 </span>
+                {(comment.likes.length > 0) && <span>．</span>}
                 {(comment.likes.length > 0) ? (
                     <span className="comment-action__like-count">
                         <i

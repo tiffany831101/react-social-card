@@ -45,19 +45,12 @@ class SocialCard extends React.Component {
                 authorID: uuid(),
                 publishedAt: moment('2018-12-17 13:20').unix(),
                 isLiked: false,
-                likes: [{
-                    userName: '甲同學',
-                    userID: uuid()
-                }, {
-                    userName: '乙同學',
-                    userID: uuid()
-                }, {
-                    userName: '丙同學',
-                    userID: uuid()
-                }, {
-                    userName: '丁同學',
-                    userID: uuid()
-                }]
+                likes: [
+                    {userName: '甲同學', userID: uuid()},
+                    {userName: '乙同學', userID: uuid()},
+                    {userName: '丙同學', userID: uuid()},
+                    {userName: '丁同學', userID: uuid()}
+                ]
             }, {
                 id: uuid(),
                 text: '亲，为什么给差评的呢亲？',
@@ -158,13 +151,13 @@ class SocialCard extends React.Component {
             if (targetComment.isLiked) {
                 // 把目前使用者從按讚的人裡面移除
                 targetComment.likes = targetComment.likes.filter(
-                    obj => obj.userID !== prevState.currentUser.id
+                    obj => obj.userID !== this.state.currentUser.id
                 )
             } else {
                 // 增加目前使用者進到likes
                 targetComment.likes.push({
-                    userName: prevState.currentUser.name,
-                    userID: prevState.currentUser.id
+                    userName: this.state.currentUser.name,
+                    userID: this.state.currentUser.id
                 })
             }
             targetComment.isLiked = !targetComment.isLiked
@@ -186,7 +179,9 @@ class SocialCard extends React.Component {
                     text: textInput,
                     authorName: this.state.currentUser.name,
                     authorID: this.state.currentUser.id,
-                    publishedAt: moment().unix()
+                    publishedAt: moment().unix(),
+                    isLiked: false,
+                    likes: []
                 }]
             }
         }))
