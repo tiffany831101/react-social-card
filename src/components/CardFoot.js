@@ -26,11 +26,7 @@ class CardFoot extends React.Component {
         }
     }
     adjustInputHeight = (event) => {
-        if (event.target.style.height !== '2.8rem') {
-            event.target.style.height = '2.8rem' // 重置高度
-            console.log(event.target.style.height)
-        }
-        
+        event.target.style.height = '2.8rem' // 重置高度
 
         const heightPerLine = 15 * 1.15 // 行高
         const height = event.target.scrollHeight    // 高度
@@ -41,7 +37,6 @@ class CardFoot extends React.Component {
             this.setState(() => ({rows}))
         }
         event.target.style.height = 'auto'  // 配合 rows 調整高度
-        console.log(event.target.style.height)
     }
     render(props) {
         return (
