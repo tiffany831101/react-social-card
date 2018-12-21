@@ -1,9 +1,16 @@
 import React from 'react'
 
-const CardBody = (props) => (
-    <p className="post-content">
-        {props.text}
-    </p>
+const CardBody = ({post}) => (
+    <div>
+        <p className="post-content__text">{post.text}</p>
+        <div
+            className="post-content__image"
+            style={{
+                backgroundImage: `url(${post.imageURL})`
+            }}
+        >
+        </div>
+    </div>
 )
 
 export default CardBody

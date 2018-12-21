@@ -1,4 +1,10 @@
-.post-content {
+.post-content__text {
     white-space: pre-line;  // 處理 Enter 換行問題
     word-break: break-all;  // 文字太長強制斷行
+}
+
+.post-content__image {
+    background-position: center;
+    background-size: cover;
+    height: 24rem;
 }

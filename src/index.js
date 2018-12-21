@@ -46,12 +46,6 @@ class SocialCard extends React.Component {
                 publishedAt: moment('2018-12-17 13:20').unix()
             }, {
                 id: uuid(),
-                text: '幫推',
-                authorName: '賴美慧',
-                authorID: uuid(),
-                publishedAt: moment('2018-12-17 15:29').unix()
-            }, {
-                id: uuid(),
                 text: '亲，为什么给差评的呢亲？',
                 authorName: '大盤商',
                 authorID: uuid(),
@@ -62,6 +56,18 @@ class SocialCard extends React.Component {
                 authorName: '出乃玩',
                 authorID: uuid(),
                 publishedAt: moment('2018-12-20 16:33').unix()
+            }, {
+                id: uuid(),
+                text: '我的原則很簡單 有貓就給讚',
+                authorName: '狂讚士',
+                authorID: uuid(),
+                publishedAt: moment('2018-12-21 14:17').unix()
+            }, {
+                id: uuid(),
+                text: '早安您好、平安喜樂，認同請分享。。。',
+                authorName: '賴美慧',
+                authorID: uuid(),
+                publishedAt: moment('2018-12-21 17:08').unix()
             }],
             shares: []
         }
@@ -118,7 +124,7 @@ class SocialCard extends React.Component {
         return (
             <div className="post-wrapper">
                 <CardHead metaInfo={this.props.post.metaInfo} />
-                <CardBody text={this.props.post.text} />
+                <CardBody post={this.props.post} />
                 <CardStatus post={this.state} />
                 <CardAction
                     handleLike={this.handleLike}
