@@ -8,7 +8,7 @@ const CardAction = (props) => (
                 "post-action__like post-action__like--liked" :
                 "post-action__like"
             }
-            onClick={props.handleLike}
+            onClick={props.handleLikePost}
         >
             <i className="far fa-thumbs-up" />
             <span>讚</span>

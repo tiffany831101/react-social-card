@@ -4,7 +4,7 @@ import 'moment/locale/zh-tw'
 moment.locale('zh-tw')
 
 const SingleComment = ({
-    comment, currentUser, deleteComment
+    comment, currentUser, deleteComment, handleLikeComment
 }) => (
     <div className="comment">
         <a className="comment__author-avatar" href="#">
@@ -23,7 +23,26 @@ const SingleComment = ({
                 </span>
             </p>
             <p className="comment-action">
-                <span className="comment-action__like">讚</span>
+                {comment.isLiked ? (
+                    <span
+                        className="comment-action__like"
+                        onClick={() => {handleLikeComment(comment.id)}}
+                        style={{
+                            fontWeight: 'bold',
+                            color: 'rgb(76, 130, 247)'
+                        }}
+                    >
+                        讚
+                    </span>
+                ) : (
+                    <span
+                        className="comment-action__like"
+                        onClick={() => {handleLikeComment(comment.id)}}
+                    >
+                        讚
+                    </span>
+                )}
+                
                 {comment.authorID == currentUser.id && (
                     <span>．</span>
                 )}
@@ -41,6 +60,25 @@ const SingleComment = ({
                 >
                     {moment.unix(comment.publishedAt).fromNow()}
                 </span>
+                {(comment.likes.length > 0) ? (
+                    <span className="comment-action__like-count">
+                        <i
+                            className="fas fa-thumbs-up"
+                        />
+                        <span>{comment.likes.length}</span>
+                    </span>
+                ) : (
+                    <span
+                        className="comment-action__like-count"
+                        style={{visibility: 'hidden'}}
+                    >
+                        <i
+                            className="fas fa-thumbs-up"
+                        />
+                        <span>{comment.likes.length}</span>
+                    </span>
+                )}
+                
             </p>
         </div>
     </div>

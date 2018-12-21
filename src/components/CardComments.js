@@ -9,6 +9,7 @@ const CardComments = (props) => (
                 comment={comment}
                 currentUser={props.currentUser}
                 deleteComment={props.deleteComment}
+                handleLikeComment={props.handleLikeComment}
             />
         ))}
     </div>
