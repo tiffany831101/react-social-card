@@ -104,6 +104,16 @@ class SocialCard extends React.Component {
             }
         }))
     }
+    deleteComment = (id) => {
+        this.setState(prevState => ({
+            status: {
+                ...prevState.status,
+                comments: [...prevState.status.comments].filter(
+                    comment => (comment.id !== id)
+                )
+            }
+        }))
+    }
     render(props) {
         return (
             <div className="post-wrapper">
@@ -114,7 +124,11 @@ class SocialCard extends React.Component {
                     handleLike={this.handleLike}
                     isLiked={this.state.isLiked}
                 />
-                <CardComments comments={this.state.status.comments} />
+                <CardComments
+                    comments={this.state.status.comments}
+                    currentUser={this.state.currentUser}
+                    deleteComment={this.deleteComment}
+                />
                 <CardFoot
                     currentUser={this.state.currentUser}
                     addComment={this.addComment}

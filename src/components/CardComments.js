@@ -30,6 +30,16 @@ const CardComments = (props) => (
                         <span className="comment-action__comment">
                             回覆
                         </span>
+                        {comment.authorID == props.currentUser.id && (
+                            <span>．</span>
+                        )}
+                        {comment.authorID == props.currentUser.id && (<span
+                            className="comment-action__delete"
+                            onClick={() => {props.deleteComment(comment.id)}}
+                        >
+                            刪除
+                        </span>
+                        )}
                         <span>．</span>
                         <span
                             className="comment-action__timestamp"
