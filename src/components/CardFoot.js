@@ -52,8 +52,7 @@ class CardFoot extends React.Component {
                     value={this.state.inputValue}
                     onChange={this.handleInputChange}
                     onInput={this.adjustInputHeight}
-                >
-                </textarea>
+                />
             </div>
         )
     }

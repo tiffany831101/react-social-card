@@ -10,15 +10,15 @@ const CardAction = (props) => (
             }
             onClick={props.handleLike}
         >
-            <i className="far fa-thumbs-up"></i>
+            <i className="far fa-thumbs-up" />
             <span>讚</span>
         </div>
         <div className="post-action__comment">
-            <i className="far fa-comment-alt"></i>
+            <i className="far fa-comment-alt" />
             <span>留言</span>
         </div>
         <div className="post-action__share">
-            <i className="far fa-share-square"></i>
+            <i className="far fa-share-square" />
             <span>分享</span>
         </div>
     </div>

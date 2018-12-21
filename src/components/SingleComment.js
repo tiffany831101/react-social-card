@@ -23,13 +23,9 @@ const SingleComment = ({
                 </span>
             </p>
             <p className="comment-action">
-                <span className="comment-action__like">
-                    讚
-                </span>
+                <span className="comment-action__like">讚</span>
                 <span>．</span>
-                <span className="comment-action__comment">
-                    回覆
-                </span>
+                <span className="comment-action__comment">回覆</span>
                 {comment.authorID == currentUser.id && (
                     <span>．</span>
                 )}

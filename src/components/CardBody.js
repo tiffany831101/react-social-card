@@ -8,8 +8,7 @@ const CardBody = ({post}) => (
             style={{
                 backgroundImage: `url(${post.imageURL})`
             }}
-        >
-        </div>
+        />
     </div>
 )
 
