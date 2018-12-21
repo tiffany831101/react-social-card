@@ -38,7 +38,7 @@ class CardFoot extends React.Component {
         }
         event.target.style.height = 'auto'  // 配合 rows 調整高度
     }
-    render(props) {
+    render() {
         return (
             <div className="user-comment">
                 <a className="user-comment__user-avatar" href="#">

@@ -114,7 +114,7 @@ class SocialCard extends React.Component {
             }
         }))
     }
-    render(props) {
+    render() {
         return (
             <div className="post-wrapper">
                 <CardHead metaInfo={this.props.post.metaInfo} />
