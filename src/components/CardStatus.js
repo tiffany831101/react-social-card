@@ -31,7 +31,7 @@ const CardStatus = (props) => {
         {(likes.length > 0) && (
             <p>
                 <i
-                    className="fas fa-thumbs-up"
+                    className="fab fa-gratipay"
                     style={{color: '#4c82f7'}}
                 />
                 {isLiked ? (

@@ -37,18 +37,15 @@ class SingleComment extends React.Component {
                                 comment.likes.map(obj => obj.userName).join('\n')
                             }
                         >
-                            <i className="fas fa-thumbs-up" />
+                            <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
                             <span>{comment.likes.length}</span>
                         </span>
                     ) : (
                         <span
                             className="comment__like-count"
-                            title={
-                                comment.likes.map(obj => obj.userName).join('\n')
-                            }
                             style={{visibility: 'hidden'}}
                         >
-                            <i className="fas fa-thumbs-up" />
+                            <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
                             <span>{comment.likes.length}</span>
                         </span>
                     )}
