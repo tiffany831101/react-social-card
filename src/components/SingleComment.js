@@ -53,7 +53,12 @@ const SingleComment = ({
                 </span>
                 {(comment.likes.length > 0) && <span>．</span>}
                 {(comment.likes.length > 0) && (
-                    <span className="comment-action__like-count">
+                    <span
+                        className="comment-action__like-count"
+                        title={
+                            comment.likes.map(obj => obj.userName).join('\n')
+                        }
+                    >
                         <i className="fas fa-thumbs-up" />
                         <span>{comment.likes.length}</span>
                     </span>
