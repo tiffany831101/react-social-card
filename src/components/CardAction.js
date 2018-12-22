@@ -13,7 +13,10 @@ const CardAction = (props) => (
             <i className="far fa-thumbs-up" />
             <span>讚</span>
         </div>
-        <div className="post-action__comment">
+        <div
+            className="post-action__comment"
+            onClick={props.startTyping}
+        >
             <i className="far fa-comment-alt" />
             <span>留言</span>
         </div>

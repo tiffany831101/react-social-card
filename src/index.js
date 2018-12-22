@@ -23,6 +23,7 @@ class SocialCard extends React.Component {
             name: '鄉の民',
             id: uuid()
         },
+        attemptingToType: false,
         isLiked: false,
         status: {
             likes: createFakeLikers(26, false),
@@ -448,6 +449,12 @@ class SocialCard extends React.Component {
             }
         })
     }
+    startTyping = () => {
+        this.setState(prevState => ({attemptingToType: true}))
+    }
+    quitTyping = () => {
+        this.setState(prevState => ({attemptingToType: false}))
+    }
     addComment = (textInput) => {
         this.setState(prevState => ({
             status: {
@@ -483,6 +490,8 @@ class SocialCard extends React.Component {
                 <CardAction
                     handleLikePost={this.handleLikePost}
                     isLiked={this.state.isLiked}
+                    attemptingToType={this.state.attemptingToType}
+                    startTyping={this.startTyping}
                 />
                 <CardComments
                     comments={this.state.status.comments}
@@ -493,6 +502,8 @@ class SocialCard extends React.Component {
                 <CardFoot
                     currentUser={this.state.currentUser}
                     addComment={this.addComment}
+                    attemptingToType={this.state.attemptingToType}
+                    quitTyping={this.quitTyping}
                 />
             </div>
         )

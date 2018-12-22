@@ -5,6 +5,8 @@ class CardFoot extends React.Component {
         rows: 1,
         inputValue: ''
     }
+    textArea = React.createRef()
+
     handleInputChange = (event) => {
         const value = event.target.value
         this.setState(() => ({inputValue: value}))
@@ -38,6 +40,13 @@ class CardFoot extends React.Component {
         }
         event.target.style.height = 'auto'  // 配合 rows 調整高度
     }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.attemptingToType !== prevProps.attemptingToType &&
+            this.props.attemptingToType
+        ) {
+            this.textArea.current.focus()
+        }
+    }
     render() {
         return (
             <div className="user-comment">
@@ -45,13 +54,15 @@ class CardFoot extends React.Component {
                     {this.props.currentUser.name.slice(0, 1)}
                 </a>
                 <textarea
-                    rows={this.state.rows}
                     className="user-comment__input"
+                    ref={this.textArea}
+                    rows={this.state.rows}
                     placeholder="回覆⋯⋯"
                     onKeyPress={this.handleSubmitComment}
                     value={this.state.inputValue}
                     onChange={this.handleInputChange}
                     onInput={this.adjustInputHeight}
+                    onBlur={this.props.quitTyping}
                 />
             </div>
         )
