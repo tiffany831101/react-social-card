@@ -24,13 +24,38 @@
 }
 
 .comment__body {
+    display: flex;
+}
+
+.comment__text-section {
     background-color: $light-grey;
     border-radius: $m-minus-size;
     display: inline-block;
-    margin: 0;
+    margin: 0 0.4rem 0 0;
     padding: 0.7rem 0.9rem;
     white-space: pre-line;
     word-break: break-word;
+}
+
+.comment__text-section {
+    text-align: justify;
+
+    // 文字可反白
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.comment__like-count {
+    background-color: lighten($light-blue, 3%); 
+    color: white;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    padding: 0.1rem 0.3rem;
+    box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.8rem;
+    margin-top: auto;
 }
 
 .comment-action {
@@ -39,12 +64,6 @@
     padding: 0.2rem 0 0.2rem 0.9rem;
     font-size: $s-size;
     display: flex;
-
-    // 防止反白
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .comment-action__like:hover, .comment-action__comment:hover, .comment-action__timestamp:hover, .comment-action__delete:hover {
@@ -67,16 +86,4 @@
 
 .comment-action__timestamp {
     color: $grey;
-}
-
-.comment-action__like-count {
-    color: lighten($grey, 15%);
-    // position: relative;
-    // bottom: 0.8rem;
-    // background-color: lighten($light-blue, 3%);
-    // border-radius: 0.8rem;
-    // padding: 0.3rem 0.5rem;
-    // box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.2);
-    // color: white;
-    // font-size: 1.0rem;
 }

@@ -1,3 +1,9 @@
 .all-comments {
     margin-top: $tiny-size;
+
+    // 防止反白
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

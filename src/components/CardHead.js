@@ -8,7 +8,7 @@ const CardHead = ({
 }) => (
     <div className="post-meta">
         <a className="post-meta__author-avatar" href="#">
-            {authorName.slice(0, 1)}
+            {authorName.slice(0, 1).toUpperCase()}
         </a>
         <div className="post-meta__info">
             <span className="post-meta__author-name">
