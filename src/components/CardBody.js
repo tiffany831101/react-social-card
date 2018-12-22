@@ -6,7 +6,7 @@ const CardBody = ({post}) => (
         <div
             className="post-content__image"
             style={{
-                backgroundImage: `url(${post.imageURL})`
+                backgroundImage: `url(${post.imageURL}), url('/assets/images/image-not-found.png')`
             }}
         />
     </div>
