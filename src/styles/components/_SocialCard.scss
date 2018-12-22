@@ -1,7 +1,13 @@
 .post-wrapper {
     background-color: white;
     color: $dark-grey;
-    max-width: 500px;
-    margin: $s-size auto;
     padding: $m-minus-size;
+}
+
+// 平板（直立）
+@media only screen and (min-width: 600px) {
+    .post-wrapper {
+        max-width: 500px;
+        margin: $s-size auto;
+    }
 }

@@ -9,7 +9,8 @@ html {
 
 body {
     font-family:  Helvetica, Arial, sans-serif;
-    font-size: $m-size;
+    font-size: 1.4rem;
+    line-height: 1.35;
     background-color: $light-grey;
 }
 
@@ -24,4 +25,11 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+// 桌電
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: 1.5rem;
+    }
 }
