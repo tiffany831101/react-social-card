@@ -38,13 +38,15 @@
 }
 
 .comment__text-section {
-    text-align: justify;
-
     // 文字可反白
     -moz-user-select: text;
     -webkit-user-select: text;
     -ms-user-select: text;
     user-select: text;
+}
+
+.comment__text {
+    text-align: justify;
 }
 
 .comment__like-count {
