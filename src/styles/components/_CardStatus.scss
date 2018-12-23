@@ -1,4 +1,13 @@
-.post-staus__people-who-like {
+.post-status {
     color: $grey;
     font-size: $m-minus-size;
+    display: flex;
+}
+
+.post-staus__like-count {
+    margin-right: auto;
+}
+
+.post-status__comment-count, .post-status__share-count {
+    margin-left: $tiny-size;
 }
