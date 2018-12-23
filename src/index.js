@@ -9,7 +9,7 @@ import CardBody from './components/CardBody'
 import CardStatus from './components/CardStatus'
 import CardAction from './components/CardAction'
 import CardComments from './components/CardComments'
-import CardFoot from './components/CardFoot'
+import CardInput from './components/CardInput'
 import moment from 'moment'
 import post, {createFakeLikers} from './components/DataStructure'   // Dummy Data
 import uuid from 'uuid/v4'
@@ -499,7 +499,7 @@ class SocialCard extends React.Component {
                     deleteComment={this.deleteComment}
                     handleLikeComment={this.handleLikeComment}
                 />
-                <CardFoot
+                <CardInput
                     currentUser={this.state.currentUser}
                     addComment={this.addComment}
                     attemptingToType={this.state.attemptingToType}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CardFoot extends React.Component {
+class CardInput extends React.Component {
     state = {
         rows: 1,
         inputValue: ''
@@ -69,4 +69,4 @@ class CardFoot extends React.Component {
     }
 }
 
-export default CardFoot
+export default CardInput

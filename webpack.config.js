@@ -45,6 +45,7 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
-        watchContentBase: true
+        watchContentBase: true,
+        host: '0.0.0.0'
     }
 }
