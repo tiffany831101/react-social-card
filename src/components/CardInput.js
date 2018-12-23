@@ -17,12 +17,12 @@ class CardInput extends React.Component {
             event.preventDefault()  // 只按 Enter 時不換行
             const textInput = this.state.inputValue.trim()
 
+            // 有輸入內容才送出留言，沒內容的話不會有反應
             if (textInput) {
                 this.props.addComment(textInput)
-                this.setState(() => ({inputValue: ''}))
-                // 重置 textarea 高度
+                this.setState(() => ({inputValue: ''})) // 清空文字
                 if (this.state.rows > 1) {
-                    this.setState(() => ({rows: 1}))
+                    this.setState(() => ({rows: 1}))    // 重置高度
                 }
             }
         }
@@ -41,10 +41,14 @@ class CardInput extends React.Component {
         this.textArea.current.style.height = 'auto'  // 配合 rows 調整高度
     }
     componentDidUpdate(prevProps, prevState) {
+        // 如果使用者點留言的 <div>，就滑到 <textarea> 開始閃爍游標
         if (this.props.attemptingToType !== prevProps.attemptingToType &&
-            this.props.attemptingToType
-        ) {
+            this.props.attemptingToType) {
             this.textArea.current.focus()
+        }
+        // 送出留言後畫面自動保持在最底部
+        if (!this.state.inputValue && prevState.inputValue) {
+            this.textArea.current.scrollIntoView()
         }
     }
     render() {
