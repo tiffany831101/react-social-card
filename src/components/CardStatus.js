@@ -30,19 +30,10 @@ const CardStatus = (props) => {
         <p>{isLiked}</p>
         {(likes.length > 0) && (
             <p>
-                <i
-                    className="fab fa-gratipay"
-                    style={{color: '#4c82f7'}}
-                />
-                {isLiked ? (
-                    <span className="post-staus__people-who-like">
-                        {whoLikesIt(likes, true)}
-                    </span>
-                ) : (
-                    <span className="post-staus__people-who-like">
-                        {whoLikesIt(likes)}
-                    </span>
-                )}
+                <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
+                <span className="post-staus__people-who-like">
+                    {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
+                </span>
             </p>
         )}
     </div>

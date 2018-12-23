@@ -5,19 +5,15 @@ moment.locale('zh-tw')
 
 class SingleComment extends React.Component {
     state = {
-        style: {
-            display: 'flex'
-        }
-    }
-    hideElement = () => {
-        this.setState(prevState => ({style: {display: 'none'}}))
+        isHidden: false
     }
     render() {
         const {comment, currentUser, deleteComment, handleLikeComment} = this.props
         return (
             <div
-                className="comment"
-                style={this.state.style}
+                className={
+                    this.state.isHidden ? 'comment comment--hidden' : 'comment'
+                }
             >
                 <a className="comment__author-avatar" href="#">
                     {comment.authorName.slice(0, 1).toUpperCase()}
@@ -33,18 +29,13 @@ class SingleComment extends React.Component {
                     {(comment.likes.length > 0) ? (
                         <span
                             className="comment__like-count"
-                            title={
-                                comment.likes.map(obj => obj.userName).join('\n')
-                            }
+                            title={comment.likes.map(obj => obj.userName).join('\n')}
                         >
                             <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
                             <span>{comment.likes.length}</span>
                         </span>
                     ) : (
-                        <span
-                            className="comment__like-count"
-                            style={{visibility: 'hidden'}}
-                        >
+                        <span className="comment__like-count comment__like-count--hidden">
                             <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
                             <span>{comment.likes.length}</span>
                         </span>
@@ -69,7 +60,7 @@ class SingleComment extends React.Component {
                         <span>．</span>
                         <span
                             className="comment-action__hide"
-                            onClick={this.hideElement}
+                            onClick={() => {this.setState(() => ({isHidden: true}))}}
                         >
                             隱藏
                         </span>
