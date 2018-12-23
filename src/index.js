@@ -10,15 +10,26 @@ import CardStatus from './components/CardStatus'
 import CardAction from './components/CardAction'
 import CardComments from './components/CardComments'
 import CardInput from './components/CardInput'
+
 import moment from 'moment'
-import post, {createFakeLikers} from './components/DataStructure'   // Dummy Data
 import uuid from 'uuid/v4'
+import connectTo from './functions/connect'
+import createFakeLikers from './functions/createLikers'
 
 
 const appRoot = document.getElementById('app')
 
 class SocialCard extends React.Component {
     state = {
+        post: {
+            metaInfo: {
+                authorName: '',
+                authorID: '',
+                publishedAt: ''
+            },
+            text: '',
+            imageURL: ''
+        },
         currentUser: {
             name: '鄉の民',
             id: uuid()
@@ -449,12 +460,6 @@ class SocialCard extends React.Component {
             }
         })
     }
-    startTyping = () => {
-        this.setState(prevState => ({attemptingToType: true}))
-    }
-    quitTyping = () => {
-        this.setState(prevState => ({attemptingToType: false}))
-    }
     addComment = (textInput) => {
         this.setState(prevState => ({
             status: {
@@ -481,17 +486,25 @@ class SocialCard extends React.Component {
             }
         }))
     }
+    componentDidMount() {
+        // 從 json-server 抓資料回來
+        connectTo(`//localhost:3000/post`)
+            .then(data => this.setState({post: data}))
+            .catch(error => console.log(error))
+    }
     render() {
         return (
             <div className="post-wrapper">
-                <CardHead metaInfo={this.props.post.metaInfo} />
-                <CardBody post={this.props.post} />
+                <CardHead metaInfo={this.state.post.metaInfo} />
+                <CardBody post={this.state.post} />
                 <CardStatus post={this.state} />
                 <CardAction
                     handleLikePost={this.handleLikePost}
                     isLiked={this.state.isLiked}
                     attemptingToType={this.state.attemptingToType}
-                    startTyping={this.startTyping}
+                    startTyping={() => {
+                        this.setState(prevState => ({attemptingToType: true}))
+                    }}
                 />
                 <CardComments
                     comments={this.state.status.comments}
@@ -503,11 +516,16 @@ class SocialCard extends React.Component {
                     currentUser={this.state.currentUser}
                     addComment={this.addComment}
                     attemptingToType={this.state.attemptingToType}
-                    quitTyping={this.quitTyping}
+                    startTyping={() => {
+                        this.setState(prevState => ({attemptingToType: true}))
+                    }}
+                    quitTyping={() => {
+                        this.setState(prevState => ({attemptingToType: false}))
+                    }}
                 />
             </div>
         )
     }
 }
 
-ReactDOM.render(<SocialCard post={post} />, appRoot)
+ReactDOM.render(<SocialCard />, appRoot)

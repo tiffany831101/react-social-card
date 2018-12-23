@@ -66,6 +66,7 @@ class CardInput extends React.Component {
                     value={this.state.inputValue}
                     onChange={this.handleInputChange}
                     onInput={this.adjustInputHeight}
+                    onFocus={this.props.startTyping}
                     onBlur={this.props.quitTyping}
                 />
             </div>
