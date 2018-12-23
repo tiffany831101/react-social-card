@@ -28,17 +28,17 @@ class CardInput extends React.Component {
         }
     }
     adjustInputHeight = (event) => {
-        event.target.style.height = '2.8rem' // 重置高度
+        this.textArea.current.style.height = '2.8rem' // 重置高度
 
         const heightPerLine = 15 * 1.15 // 行高
-        const height = event.target.scrollHeight    // 高度
+        const height = this.textArea.current.scrollHeight    // 高度
         const rows = Math.floor(height / heightPerLine) // 行數
 
         // 如果行數跟目前不一樣，再改變 state
         if (this.state.rows != rows) {
             this.setState(() => ({rows}))
         }
-        event.target.style.height = 'auto'  // 配合 rows 調整高度
+        this.textArea.current.style.height = 'auto'  // 配合 rows 調整高度
     }
     componentDidUpdate(prevProps, prevState) {
         if (this.props.attemptingToType !== prevProps.attemptingToType &&
