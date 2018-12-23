@@ -27,7 +27,7 @@ const CardStatus = (props) => {
 
     return (
         <div>
-            {(likes.length || comments.length || shares.length) && (
+            {(likes.length + comments.length + shares.length > 0) && (
                 <p className="post-status">
                     {(likes.length > 0) && (
                         <span className="post-staus__like-count">

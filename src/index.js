@@ -38,30 +38,31 @@ class SocialCard extends React.Component {
         },
         currentUser: {
             name: '鄉の民',
-            id: uuid()
+            id: ''
         },
         attemptingToType: false,
     }
     handleLikePost = () => {
         this.setState(prevState => {
-            return this.state.isLiked ? {
-                // 切換 isLiked 狀態、從 likes 陣列移除最後一筆按讚的 object
-                isLiked: !prevState.isLiked,
-                status: {
-                    ...prevState.post.status,
-                    likes: [...prevState.post.status.likes].filter(
-                        obj => (obj.userID !== this.state.currentUser.id)
-                    )
-                }
-            } : {
-                // 切換 isLiked 狀態、新增按讚的 object 到 likes 陣列
-                isLiked: !prevState.isLiked,
-                status: {
-                    ...prevState.post.status,
-                    likes: [...prevState.post.status.likes, {
-                        userName: this.state.currentUser.name,
-                        userID: this.state.currentUser.id
-                    }]
+            let likes = [...prevState.post.status.likes]
+            if (this.state.post.isLiked) {
+                // 把目前使用者從按讚的人當中移除
+                likes = likes.filter(
+                    client => client.userID !== this.state.currentUser.id
+                )
+            } else {
+                // 把目前使用者加進按讚的人裡
+                likes.push({
+                    userName: this.state.currentUser.name,
+                    userID: this.state.currentUser.id
+                })
+            }
+            return {
+                ...prevState,
+                post: {
+                    ...prevState.post,
+                    isLiked: !prevState.post.isLiked,
+                    status: {...prevState.post.status, likes}
                 }
             }
         })
