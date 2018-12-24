@@ -69,26 +69,26 @@ class SocialCard extends React.Component {
     }
     handleLikeComment = (commentID) => {
         this.setState(prevState => {
-            const newComments = [...prevState.post.status.comments]
-            const targetComment = newComments.find(obj => obj.id === commentID)
-            if (targetComment.isLiked) {
-                // 把目前使用者從按讚的人裡面移除
-                targetComment.likes = targetComment.likes.filter(
-                    obj => obj.userID !== this.state.currentUser.id
+            const comments = [...prevState.post.status.comments]
+            const comment = comments.find(comment => comment.id === commentID)
+            if (comment.isLiked) {
+                // 把目前使用者從按讚的人當中移除
+                comment.likes = comment.likes.filter(
+                    client => client.userID !== this.state.currentUser.id
                 )
             } else {
-                // 增加目前使用者進到likes
-                targetComment.likes.push({
+                // 把目前使用者加進按讚的人裡
+                comment.likes.push({
                     userName: this.state.currentUser.name,
                     userID: this.state.currentUser.id
                 })
             }
-            targetComment.isLiked = !targetComment.isLiked
-
+            comment.isLiked = !comment.isLiked
             return {
-                status: {
-                    ...prevState.post.status,
-                    comments: newComments
+                ...prevState,
+                post: {
+                    ...prevState.post,
+                    status: {...prevState.post.status, comments}
                 }
             }
         })
