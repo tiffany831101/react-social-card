@@ -24,6 +24,7 @@ class SocialCard extends React.Component {
         isLoading: false,
         loadingError: null,
         // 貼文狀態
+        postID: '',
         postIsLiked: false,
         postAuthorName: '',
         postAuthorID: '',
@@ -38,7 +39,7 @@ class SocialCard extends React.Component {
         currentUserName: '鄉の民',
         attemptingToType: false,
     }
-    handleLikePost = () => {
+    handleLikePost = async (postID) => {
         this.setState(prevState => (this.state.postIsLiked ? {
             // 把目前使用者從按讚的人當中移除（已按讚 -> 收回讚）
             postIsLiked: !prevState.postIsLiked,
@@ -53,6 +54,25 @@ class SocialCard extends React.Component {
                 userID: this.state.currentUserID
             }]
         }))
+        // 丟資料到伺服器
+        try {
+            const dataToUpload = {likes: this.state.postLikes}
+            const resp = await fetch(
+                `//localhost:3000/posts/${postID}`, {
+                method: 'PATCH',
+                body: JSON.stringify(dataToUpload),
+                headers:{'Content-Type': 'application/json'}
+            })
+            if (!resp.ok) {
+                throw new Error(`${resp.status} ${resp.statusText}`)
+            }
+        } catch(err) {
+            console.log(err)
+            this.setState(() => ({
+                isLoading: false,
+                loadingError: true
+            }))
+        }
     }
     handleAddComment = (text) => {
         this.setState(prevState => ({
@@ -100,30 +120,29 @@ class SocialCard extends React.Component {
         })
     }
     async componentDidMount() {
-        // 第一次渲染頁面時抓資料回來
+        // 第一次渲染時從伺服器拿資料
         this.setState(() => ({isLoading: true}))
-        // 建立連線
-        let resp
         try {
-            resp = await fetch('//localhost:3000/posts')
-            if (resp.ok) {
-                resp = await resp.json()
-                const post = resp[0]
-                this.setState(() => ({
-                    postAuthorName: post.authorName,
-                    postAuthorID: post.authorID,
-                    postPublishedAt: post.publishedAt,
-                    postText: post.text,
-                    postImageURL: post.imageURL,
-                    postLikes: post.likes,
-                    postComments: post.comments,
-                    postShares: post.shares,
-                    isLoading: false,
-                    loadingError: false
-                }))
-            } else {throw new Error(`${resp.status} ${resp.statusText}`)}
-        } catch(error) {
-            console.log(error)
+            const resp = await fetch('//localhost:3000/posts')
+            if (!resp.ok) {
+                throw new Error(`${resp.status} ${resp.statusText}`)
+            }
+            const data = await resp.json()
+            const post = data[1]
+            this.setState(() => ({
+                postID: post.id,
+                postAuthorName: post.authorName,
+                postAuthorID: post.authorID,
+                postPublishedAt: post.publishedAt,
+                postText: post.text,
+                postImageURL: post.imageURL,
+                postLikes: post.likes,
+                postComments: post.comments,
+                postShares: post.shares,
+                isLoading: false,
+                loadingError: false
+            }))
+        } catch(err) {
             this.setState(() => ({
                 isLoading: false,
                 loadingError: true
@@ -158,6 +177,7 @@ class SocialCard extends React.Component {
                     />
                     <CardAction
                         isLiked={this.state.postIsLiked}
+                        postID={this.state.postID}
                         handleLikePost={this.handleLikePost}
                         startTyping={() => {
                             this.setState(prevState => ({attemptingToType: true}))

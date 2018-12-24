@@ -12,10 +12,7 @@ class CardComments extends React.Component {
                 {comments.length > 5 && (
                     <p
                         className="all-comments__unfold"
-                        style={{
-                            display: this.state.isFolded || 'none',
-                            marginBottom: '0'
-                        }}
+                        style={{display: this.state.isFolded || 'none'}}
                         onClick={() => {this.setState(() => ({isFolded: false}))}}
                     >
                         查看其他{comments.length - 5}則留言
