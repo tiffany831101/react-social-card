@@ -1,15 +1,17 @@
 import React from 'react'
 import SingleComment from './SingleComment'
 
-const CardComments = (props) => (
+const CardComments = ({
+    comments, currentUserName, currentUserID, handleDeleteComment, handleLikeComment
+}) => (
     <div className="all-comments">
-        {(props.comments.length > 0) &&  props.comments.map(comment => (
+        {(comments.length > 0) && comments.map(comment => (
             <SingleComment
                 key={comment.id}
                 comment={comment}
-                currentUser={props.currentUser}
-                deleteComment={props.deleteComment}
-                handleLikeComment={props.handleLikeComment}
+                currentUserID={currentUserID}
+                handleDeleteComment={handleDeleteComment}
+                handleLikeComment={handleLikeComment}
             />
         ))}
     </div>

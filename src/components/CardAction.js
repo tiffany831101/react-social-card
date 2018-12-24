@@ -1,21 +1,20 @@
 import React from 'react'
 
-const CardAction = (props) => (
+const CardAction = ({isLiked, startTyping, handleLikePost}) => (
     <div className="post-action">
         <div
-            className={
-                props.isLiked ?
+            className={isLiked ?
                 "post-action__like post-action__like--liked" :
                 "post-action__like"
             }
-            onClick={props.handleLikePost}
+            onClick={handleLikePost}
         >
             <i className="far fa-thumbs-up" />
             <span>讚</span>
         </div>
         <div
             className="post-action__comment"
-            onClick={props.startTyping}
+            onClick={startTyping}
         >
             <i className="far fa-comment-alt" />
             <span>留言</span>

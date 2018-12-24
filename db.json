@@ -1,809 +1,756 @@
 {
-    "data": {
-        "posts": [
-            {
-                "isLiked": false,
-                "metaInfo": {
-                    "authorName": "ArimuraChika",
-                    "authorID": "19301ca2-58e5-46c6-a6af-c1fc8d43fe97",
-                    "publishedAt": 1545448920
+    "posts": [
+        {
+            "authorName": "ArimuraChika",
+            "authorID": "19301ca2-58e5-46c6-a6af-c1fc8d43fe97",
+            "publishedAt": 1545448920,
+            "text": "台灣 天然能源缺乏的地方\n20多年前的小學社會課本 甚至寫了97%的能源得靠進口\n\n核能? 大家說核爆了 死半個台灣\n火力? 空氣汙染 中電北送? 南電北送?\n風力? 蓋那一根站在那 20億以上?\n潮汐? 台灣明明環海 八成是因為被政客貪汙經費沒了搞不下去\n\n我覺得受刑人踩腳踏車發電 真的不賴\n台灣犯罪率低 現在廢死又要死刑犯人權 本身就很可笑\n現在又因為兩人權宣言 不可酷刑\n那至少讓他們入獄期間 好好壓榨有生力量 為社會做出貢獻 這樣也不賴\n\n到底啥款的發電 適合台灣?",
+            "imageURL": "",
+            "likes": [
+                {
+                    "userName": "cvpqopsr",
+                    "userID": "5d4dad3c-b2db-4740-bab4-a9220457bcde"
                 },
-                "text": "台灣 天然能源缺乏的地方\n20多年前的小學社會課本 甚至寫了97%的能源得靠進口\n\n核能? 大家說核爆了 死半個台灣\n火力? 空氣汙染 中電北送? 南電北送?\n風力? 蓋那一根站在那 20億以上?\n潮汐? 台灣明明環海 八成是因為被政客貪汙經費沒了搞不下去\n\n我覺得受刑人踩腳踏車發電 真的不賴\n台灣犯罪率低 現在廢死又要死刑犯人權 本身就很可笑\n現在又因為兩人權宣言 不可酷刑\n那至少讓他們入獄期間 好好壓榨有生力量 為社會做出貢獻 這樣也不賴\n\n到底啥款的發電 適合台灣?",
-                "imageURL": "",
-                "status": {
+                {
+                    "userName": "tkts",
+                    "userID": "5d711603-5386-444d-aa55-f141e4b42dc1"
+                },
+                {
+                    "userName": "amcrri5",
+                    "userID": "41408711-ee6e-4306-befc-31a324e1d7cc"
+                },
+                {
+                    "userName": "mhxbbiiy",
+                    "userID": "298bd6bf-08fa-4d7f-846b-e643256ad427"
+                },
+                {
+                    "userName": "k4p9x08hua",
+                    "userID": "788b7a70-fb2e-41b3-8210-15d91ee54e9e"
+                },
+                {
+                    "userName": "bnb4yc3tf",
+                    "userID": "6b4ab885-df0e-4651-ab36-3dfd671d290f"
+                },
+                {
+                    "userName": "vy32az",
+                    "userID": "75657266-9ab0-4bc4-89e4-3698f2b17877"
+                },
+                {
+                    "userName": "enp0sa",
+                    "userID": "66aed338-0c2d-47df-80f6-f99fe8bb0473"
+                },
+                {
+                    "userName": "appi1dj",
+                    "userID": "009f1138-445a-431a-83d5-2ba0a93ec20e"
+                },
+                {
+                    "userName": "qa6pc",
+                    "userID": "5c3fcd4a-5eda-48ed-89ba-63edfe8a0419"
+                },
+                {
+                    "userName": "jilkztg",
+                    "userID": "21fb72fb-bd8a-485e-94fe-8e9bf1a01f5b"
+                },
+                {
+                    "userName": "cg26jh",
+                    "userID": "0f8ffd4a-4c4a-4bf7-af37-22a0bf45ec2c"
+                },
+                {
+                    "userName": "npgw3iui",
+                    "userID": "18413d37-efc4-4a46-b403-c3813b7f9640"
+                },
+                {
+                    "userName": "du0k",
+                    "userID": "7992b74d-1ccb-4550-bed6-39e67fa3dafb"
+                },
+                {
+                    "userName": "xzmcx0ynbf",
+                    "userID": "61d1ad12-2547-4f6a-80f7-be0b59059600"
+                },
+                {
+                    "userName": "zhxz",
+                    "userID": "540826e5-d3fb-4e83-897d-4860dd0594f7"
+                },
+                {
+                    "userName": "d7ovih",
+                    "userID": "baeb5614-8ffa-4ec7-b9b1-f46839937917"
+                },
+                {
+                    "userName": "faw4gd",
+                    "userID": "e8e0480b-3524-4933-b3a4-f464953a0932"
+                },
+                {
+                    "userName": "tzhg",
+                    "userID": "10236664-0a37-4a1f-a917-45157f75ff6b"
+                },
+                {
+                    "userName": "t5kzuxf",
+                    "userID": "ace1ffec-b47a-4211-93b0-bbf09642c1d1"
+                },
+                {
+                    "userName": "teip8",
+                    "userID": "f27fed1d-b912-4062-bca6-f0802ce1eb24"
+                },
+                {
+                    "userName": "yj2ezqnr39",
+                    "userID": "f4003a0b-8535-48e8-a05f-334f9b69e5f8"
+                },
+                {
+                    "userName": "x66c4",
+                    "userID": "89a39ca3-5ddf-4dc8-ba4d-d6b5bfd03c69"
+                },
+                {
+                    "userName": "k6jngrcymj",
+                    "userID": "ec06b05e-a01e-481c-9cf4-93564c2c4635"
+                },
+                {
+                    "userName": "m4zf",
+                    "userID": "76d1990c-ec4b-4be8-89d6-e9e9aa028f4d"
+                },
+                {
+                    "userName": "e0m8",
+                    "userID": "979f24de-2bdf-43e6-b58d-fa07dd67931d"
+                }
+            ],
+            "comments": [
+                {
+                    "id": "7c759731-5e85-451c-a202-c1194c5e1561",
+                    "text": "愛",
+                    "authorName": "eklfky544l",
+                    "authorID": "f4ece933-cb6b-45df-b06e-5800d7d784b9",
+                    "publishedAt": 1545448920,
                     "likes": [
                         {
-                            "userName": "cvpqopsr",
-                            "userID": "5d4dad3c-b2db-4740-bab4-a9220457bcde"
+                            "userName": "vlaa",
+                            "userID": "18a0fee5-c153-4a32-8a48-4dcee69149a8"
                         },
                         {
-                            "userName": "tkts",
-                            "userID": "5d711603-5386-444d-aa55-f141e4b42dc1"
-                        },
-                        {
-                            "userName": "amcrri5",
-                            "userID": "41408711-ee6e-4306-befc-31a324e1d7cc"
-                        },
-                        {
-                            "userName": "mhxbbiiy",
-                            "userID": "298bd6bf-08fa-4d7f-846b-e643256ad427"
-                        },
-                        {
-                            "userName": "k4p9x08hua",
-                            "userID": "788b7a70-fb2e-41b3-8210-15d91ee54e9e"
-                        },
-                        {
-                            "userName": "bnb4yc3tf",
-                            "userID": "6b4ab885-df0e-4651-ab36-3dfd671d290f"
-                        },
-                        {
-                            "userName": "vy32az",
-                            "userID": "75657266-9ab0-4bc4-89e4-3698f2b17877"
-                        },
-                        {
-                            "userName": "enp0sa",
-                            "userID": "66aed338-0c2d-47df-80f6-f99fe8bb0473"
-                        },
-                        {
-                            "userName": "appi1dj",
-                            "userID": "009f1138-445a-431a-83d5-2ba0a93ec20e"
-                        },
-                        {
-                            "userName": "qa6pc",
-                            "userID": "5c3fcd4a-5eda-48ed-89ba-63edfe8a0419"
-                        },
-                        {
-                            "userName": "jilkztg",
-                            "userID": "21fb72fb-bd8a-485e-94fe-8e9bf1a01f5b"
-                        },
-                        {
-                            "userName": "cg26jh",
-                            "userID": "0f8ffd4a-4c4a-4bf7-af37-22a0bf45ec2c"
-                        },
-                        {
-                            "userName": "npgw3iui",
-                            "userID": "18413d37-efc4-4a46-b403-c3813b7f9640"
-                        },
-                        {
-                            "userName": "du0k",
-                            "userID": "7992b74d-1ccb-4550-bed6-39e67fa3dafb"
-                        },
-                        {
-                            "userName": "xzmcx0ynbf",
-                            "userID": "61d1ad12-2547-4f6a-80f7-be0b59059600"
-                        },
-                        {
-                            "userName": "zhxz",
-                            "userID": "540826e5-d3fb-4e83-897d-4860dd0594f7"
-                        },
-                        {
-                            "userName": "d7ovih",
-                            "userID": "baeb5614-8ffa-4ec7-b9b1-f46839937917"
-                        },
-                        {
-                            "userName": "faw4gd",
-                            "userID": "e8e0480b-3524-4933-b3a4-f464953a0932"
-                        },
-                        {
-                            "userName": "tzhg",
-                            "userID": "10236664-0a37-4a1f-a917-45157f75ff6b"
-                        },
-                        {
-                            "userName": "t5kzuxf",
-                            "userID": "ace1ffec-b47a-4211-93b0-bbf09642c1d1"
-                        },
-                        {
-                            "userName": "teip8",
-                            "userID": "f27fed1d-b912-4062-bca6-f0802ce1eb24"
-                        },
-                        {
-                            "userName": "yj2ezqnr39",
-                            "userID": "f4003a0b-8535-48e8-a05f-334f9b69e5f8"
-                        },
-                        {
-                            "userName": "x66c4",
-                            "userID": "89a39ca3-5ddf-4dc8-ba4d-d6b5bfd03c69"
-                        },
-                        {
-                            "userName": "k6jngrcymj",
-                            "userID": "ec06b05e-a01e-481c-9cf4-93564c2c4635"
-                        },
-                        {
-                            "userName": "m4zf",
-                            "userID": "76d1990c-ec4b-4be8-89d6-e9e9aa028f4d"
-                        },
-                        {
-                            "userName": "e0m8",
-                            "userID": "979f24de-2bdf-43e6-b58d-fa07dd67931d"
+                            "userName": "n7skoz8v",
+                            "userID": "192312d0-3041-4d2a-bdfd-ea85b2531598"
                         }
-                    ],
-                    "comments": [
+                    ]
+                },
+                {
+                    "id": "6ae0c54f-a8ec-4066-a2ae-cc3fe9549dbb",
+                    "text": "情",
+                    "authorName": "bz16hrnjs",
+                    "authorID": "16d9618c-9849-41b8-818a-bd21ee3bafc1",
+                    "publishedAt": 1545448920,
+                    "likes": []
+                },
+                {
+                    "id": "d431c3e4-d9ff-4d6a-b229-b626fb16fc94",
+                    "text": "嘴砲",
+                    "authorName": "mf78f05ad",
+                    "authorID": "ce372e5c-b60b-4f2f-bca6-9ffe13c85168",
+                    "publishedAt": 1545448920,
+                    "likes": [
                         {
-                            "id": "7c759731-5e85-451c-a202-c1194c5e1561",
-                            "text": "愛",
-                            "authorName": "eklfky544l",
-                            "authorID": "f4ece933-cb6b-45df-b06e-5800d7d784b9",
-                            "publishedAt": 1545448920,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "vlaa",
-                                    "userID": "18a0fee5-c153-4a32-8a48-4dcee69149a8"
-                                },
-                                {
-                                    "userName": "n7skoz8v",
-                                    "userID": "192312d0-3041-4d2a-bdfd-ea85b2531598"
-                                }
-                            ]
+                            "userName": "xah6in8qs7",
+                            "userID": "f34b3b2c-d23b-48df-9b11-1cc2b020d688"
                         },
                         {
-                            "id": "6ae0c54f-a8ec-4066-a2ae-cc3fe9549dbb",
-                            "text": "情",
-                            "authorName": "bz16hrnjs",
-                            "authorID": "16d9618c-9849-41b8-818a-bd21ee3bafc1",
-                            "publishedAt": 1545448920,
-                            "isLiked": false,
-                            "likes": []
+                            "userName": "har",
+                            "userID": "78d522b6-a6cf-4944-8a39-e168c1ab3d94"
                         },
                         {
-                            "id": "d431c3e4-d9ff-4d6a-b229-b626fb16fc94",
-                            "text": "嘴砲",
-                            "authorName": "mf78f05ad",
-                            "authorID": "ce372e5c-b60b-4f2f-bca6-9ffe13c85168",
-                            "publishedAt": 1545448920,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "xah6in8qs7",
-                                    "userID": "f34b3b2c-d23b-48df-9b11-1cc2b020d688"
-                                },
-                                {
-                                    "userName": "har",
-                                    "userID": "78d522b6-a6cf-4944-8a39-e168c1ab3d94"
-                                },
-                                {
-                                    "userName": "q9oeru6",
-                                    "userID": "f13b0c15-11a3-47ef-9228-47d6e0ad73eb"
-                                },
-                                {
-                                    "userName": "wre37bot",
-                                    "userID": "62cb8bd3-c69b-4e44-96c3-dcea97420d7b"
-                                }
-                            ]
+                            "userName": "q9oeru6",
+                            "userID": "f13b0c15-11a3-47ef-9228-47d6e0ad73eb"
                         },
                         {
-                            "id": "36370197-d4ac-48d3-9873-5c052f23bf3e",
-                            "text": "毛衣發電",
-                            "authorName": "yeg7on",
-                            "authorID": "61cae8b5-7744-4a36-8042-5c155b85b032",
-                            "publishedAt": 1545448920,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "7d04f65f-6d32-4a30-ac24-8bdde39ea321",
-                            "text": "可惡沒搶到",
-                            "authorName": "shduibyk",
-                            "authorID": "09586ac9-9d93-491e-995e-553304b841df",
-                            "publishedAt": 1545448980,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "jojwbjh",
-                                    "userID": "7e4482ec-89e4-4cf6-9499-30a3da3e32f5"
-                                },
-                                {
-                                    "userName": "beajcb",
-                                    "userID": "1a40d0cc-04b2-4711-aa88-c88d57e65d0e"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "b4fc140f-cbb4-4812-ab79-643f72346583",
-                            "text": "愛",
-                            "authorName": "h06ktq7y",
-                            "authorID": "173ea9b2-ad42-4d4d-9292-8d0a7e7ba245",
-                            "publishedAt": 1545448980,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "wo0fb0k842",
-                                    "userID": "15050481-f8fc-42ed-9e66-15f911189448"
-                                },
-                                {
-                                    "userName": "ofpi",
-                                    "userID": "ea70c1f9-b20d-4468-a0b6-e94f70300339"
-                                },
-                                {
-                                    "userName": "rznm824kj",
-                                    "userID": "b65559aa-1eb7-49f2-ad47-de7ec4c2753b"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "b8836d16-ff92-4f00-91b8-74c3de59612e",
-                            "text": "皮卡丘發電",
-                            "authorName": "e9gkchu",
-                            "authorID": "6cb8ebf5-18a3-4cad-839b-d00c92aaa86d",
-                            "publishedAt": 1545448980,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "izku",
-                                    "userID": "51d468fa-c1ab-45a3-861c-a911fd3c42ad"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "a04aae95-801a-4206-b9a3-ecd6d12a4288",
-                            "text": "用踩的效率那麼差又不穩定 浪費錢買設備",
-                            "authorName": "q8peu6fi",
-                            "authorID": "a6e934bb-21cb-4878-8cc3-0dd50ae3a7e0",
-                            "publishedAt": 1545448980,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "vgdqn",
-                                    "userID": "9cb42f5c-7956-4481-bcad-774c71505fe5"
-                                },
-                                {
-                                    "userName": "o6iv7wn",
-                                    "userID": "5e874238-e2f4-4640-8e18-a85a8b87e7b3"
-                                },
-                                {
-                                    "userName": "lkj8kc6qol",
-                                    "userID": "ca145393-7e69-43dc-8486-eb5e51940a8b"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "51aaf4f7-e6b8-4c36-9d42-d01912a63a53",
-                            "text": "兩兆燒完了 還是沒電",
-                            "authorName": "asoqaebk",
-                            "authorID": "47e05841-fea6-45f8-a53e-721f90a3ac44",
-                            "publishedAt": 1545449040,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "g3ntooov1",
-                                    "userID": "5cf67e66-9af2-45af-b62f-34c48db9ff96"
-                                },
-                                {
-                                    "userName": "m4x1sow5j",
-                                    "userID": "9bb6a6f2-4868-4b5c-95ca-dede65e14534"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "4a089921-b133-4c1a-bb68-7bbbcf12dec2",
-                            "text": "台灣本來贏南韓，可是反核後，投資萎縮，慢慢被南韓超越，2000年反核後成為高跳電國家，投資轉往不會跳電的國家，南韓於2004超越台灣",
-                            "authorName": "plzjylj",
-                            "authorID": "ef317da9-1e44-4471-9a91-2912a67dcabd",
-                            "publishedAt": 1545449100,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "2ecdfa66-3d28-48f2-a26f-c3b6677eb7b7",
-                            "text": "愛",
-                            "authorName": "pk7a2",
-                            "authorID": "442558a3-9f1e-4e55-99ac-cf2af7f1cd0a",
-                            "publishedAt": 1545449220,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "c36a9e31-e886-4c90-a342-f92f9ddcb66b",
-                            "text": "再次展現台灣花一大把錢浪費時間，結果什麼也沒做回原點",
-                            "authorName": "xng3f",
-                            "authorID": "784bda85-b1e7-473b-acf2-62092db5ae1e",
-                            "publishedAt": 1545449280,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "yteb3z",
-                                    "userID": "caf18519-b949-48e8-8fe3-c607f667f06b"
-                                },
-                                {
-                                    "userName": "zoftwp",
-                                    "userID": "b284b2a1-8ce7-4ddb-a5e1-13d9511e679a"
-                                },
-                                {
-                                    "userName": "zpa4c",
-                                    "userID": "55746abf-2e10-46b2-a25b-2c6d8ff21e6a"
-                                },
-                                {
-                                    "userName": "s2lm",
-                                    "userID": "e8d89358-1df3-4d19-a4e6-eabf9e601759"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "0e280278-f400-40eb-bf9d-6e99876a3c5f",
-                            "text": "先把高耗能產業趕出台灣 就可免吵缺電 用什麼發電好一陣子了",
-                            "authorName": "vv7v",
-                            "authorID": "8c923b7e-64d0-4015-b999-090038902b0c",
-                            "publishedAt": 1545449280,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "xj27vtcu8l",
-                                    "userID": "4bd35aad-63bc-4e98-a728-7b14cfb1047a"
-                                },
-                                {
-                                    "userName": "bidf3e",
-                                    "userID": "f682959f-4360-4bac-aa0a-aaf857448667"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "bde4735d-74b9-4b56-9efa-8d20f3e982cd",
-                            "text": "謙卑發電",
-                            "authorName": "yxv",
-                            "authorID": "acdca1d9-671f-4ad4-a1ff-4f30276bf856",
-                            "publishedAt": 1545449400,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "d7a2e500-f811-4622-9789-da5d0208c777",
-                            "text": "核電、風力、太陽能",
-                            "authorName": "nesxc5bm",
-                            "authorID": "e8eec9fb-aadd-4ae0-b84a-02d652dc31b1",
-                            "publishedAt": 1545449460,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "7c0a61b1-5e4c-44a2-be57-c93904504f5d",
-                            "text": "+ OK",
-                            "authorName": "bpk5tig6rk",
-                            "authorID": "06b7969b-3176-42e8-9024-57869e4683c8",
-                            "publishedAt": 1545449460,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "khj1pj0a",
-                                    "userID": "bb054036-beb0-49fc-bb07-789333e56263"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "99208ed6-c8f0-4d34-96bd-51ba16660f4d",
-                            "text": "人力",
-                            "authorName": "tszm",
-                            "authorID": "4db6785d-acd2-4e41-9b2e-a950618984c2",
-                            "publishedAt": 1545448920,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "l28pol",
-                                    "userID": "eae0f896-debe-4380-b06b-a7e5d3e2c522"
-                                },
-                                {
-                                    "userName": "portk",
-                                    "userID": "85ea2c00-185b-4a6f-9e21-353978d1ed8c"
-                                },
-                                {
-                                    "userName": "fh2qbsd39",
-                                    "userID": "58f05616-6fed-4040-a4fa-cb6d0992c54d"
-                                },
-                                {
-                                    "userName": "ifbo4lpxrc",
-                                    "userID": "74bc886e-6fe5-45dd-ac71-0ca3c8dc3c4e"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "2536201a-30fd-4546-9595-4d78f8d6a0dc",
-                            "text": "情",
-                            "authorName": "ok7evis7",
-                            "authorID": "e1213f94-b952-4f8e-906f-0b4b7600c90c",
-                            "publishedAt": 1545449520,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "gd58ycu6w",
-                                    "userID": "827148c4-ec07-4b7c-bca4-c3b13b32c3da"
-                                },
-                                {
-                                    "userName": "qeh8bpo7p4",
-                                    "userID": "7eae7a71-fcc6-49a6-9d90-34e972565701"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "d8ead2d0-7064-4069-9200-cb31f14f81b2",
-                            "text": "肥宅燃燒火力發電 順便清一些垃圾解決人口過多的問題",
-                            "authorName": "smygq5k",
-                            "authorID": "55c21b9f-143b-4346-be89-d3a2bf3b0d97",
-                            "publishedAt": 1545449580,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "9335cf83-e3b0-490c-bf5f-50619098ae85",
-                            "text": "離岸風電",
-                            "authorName": "awhl5e",
-                            "authorID": "1af56e8f-99b0-4792-ad61-39bc19dd3fc9",
-                            "publishedAt": 1545449700,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "9f56772d-b986-4656-b2d6-b8839e4bd7a2",
-                            "text": "插鼻孔阿！",
-                            "authorName": "7n9f",
-                            "authorID": "758aa13f-203b-4a29-8cf8-cbad96e0a801",
-                            "publishedAt": 1545449760,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "9f318759-552e-44cd-bf52-e3ec2be63964",
-                            "text": "愛",
-                            "authorName": "fmgxhkw",
-                            "authorID": "d614d003-3465-46c1-94b6-a76df5b80185",
-                            "publishedAt": 1545449760,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "21358bd5-3d6c-4992-9589-9836d785f170",
-                            "text": "惜",
-                            "authorName": "ggusthc",
-                            "authorID": "a01d0b58-944d-4f26-a6ae-a97ba4f3e358",
-                            "publishedAt": 1545449760,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "a4005c5b-0c01-4aa4-8243-81e54fb9a890",
-                            "text": "天然氣 可是台灣有人會喊好貴喔 企業不想辦法節能 只想用便宜的電 新加坡有用核能嗎？人家的經濟有變差嗎？政黨和企業把人民唬得團團轉 讓國際看笑話",
-                            "authorName": "ecidfq",
-                            "authorID": "acb762b1-8225-404e-85d1-ea61312415a2",
-                            "publishedAt": 1545449760,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "vpwvpm5",
-                                    "userID": "fe8da7e8-ed33-47b3-8cb4-afe1c01fe469"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "06e85bdd-cdad-4be0-86ce-560a452307d3",
-                            "text": "環團發電",
-                            "authorName": "ny1q",
-                            "authorID": "dda652b5-2482-4ffd-82fc-0cc9a4d51dd3",
-                            "publishedAt": 1545449820,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "l04i",
-                                    "userID": "c279240e-dac7-427d-ab27-88a842672d2a"
-                                },
-                                {
-                                    "userName": "pdah8xovtj",
-                                    "userID": "1b234428-bcd0-4b3c-84e5-9f3e68c65f06"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "ca2c1762-5d3a-4c29-8c1e-43301fe5980e",
-                            "text": "用愛",
-                            "authorName": "xbkwkr3ah",
-                            "authorID": "77528cf7-13d1-4ce5-8300-b75ef3eba698",
-                            "publishedAt": 1545450000,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "xtqj",
-                                    "userID": "4c65d686-da77-4b87-a55d-fd340a0bf0df"
-                                },
-                                {
-                                    "userName": "tyrvkqfr",
-                                    "userID": "1e311ffd-572b-45b6-b69a-772d180d8e7a"
-                                },
-                                {
-                                    "userName": "qmrljryq8i",
-                                    "userID": "4934fa73-c129-4202-90fa-52405e5a6e58"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "75e526aa-029d-4620-8d6a-06ffe5036ee7",
-                            "text": "核能吧才幾台就能撐10%還舊式的",
-                            "authorName": "lpirm0v",
-                            "authorID": "8847751a-1d2f-458a-b173-7016679877bf",
-                            "publishedAt": 1545450060,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "7d75bddb-77f2-4d31-9dc5-c1ec9717b111",
-                            "text": "母豬超多 建議用綠帽發電",
-                            "authorName": "hyh2",
-                            "authorID": "6b63e2ab-b7b0-405f-9d68-d9a8e80de388",
-                            "publishedAt": 1545450060,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "etzx",
-                                    "userID": "e95a2b78-56c2-41d6-a5de-abc5649752fe"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "b8b62594-e45e-4507-9325-c9b69a479fae",
-                            "text": "全部都插滿核能啦",
-                            "authorName": "jwcq3o5eh",
-                            "authorID": "102f0ee5-da19-4dca-8c01-8d3078527808",
-                            "publishedAt": 1545450300,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "pcgrgxt",
-                                    "userID": "d0a39913-8df1-4a70-877d-d7dedd0314de"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "624bfbde-518d-4574-a6ff-b662b4cefa0a",
-                            "text": "帶頭反核四真的是罪人",
-                            "authorName": "os1x1be",
-                            "authorID": "6ef52c93-b34b-4a4d-8069-4bfa3abd9b85",
-                            "publishedAt": 1545450360,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "81608694-1a4a-47ea-8cfb-252b08b49296",
-                            "text": "https://goo.gl/E1p7bE  新加坡發電廠列表 燃油 燃氣 燃垃圾",
-                            "authorName": "fvr5x55m",
-                            "authorID": "19091ccd-18b3-4e2c-8238-3171c1639dec",
-                            "publishedAt": 1545450540,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "qnsf",
-                                    "userID": "0c8712eb-7baa-424c-b33d-2aa738203667"
-                                },
-                                {
-                                    "userName": "nmagmdk",
-                                    "userID": "bc324cf3-e383-446b-8c5d-7cf2e02790c0"
-                                },
-                                {
-                                    "userName": "wl5",
-                                    "userID": "a5407838-e3b7-4d0f-94e4-83348cce1c58"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "46979bb2-5dfa-4c01-ba60-723f30069163",
-                            "text": "空汙發電，這才創新",
-                            "authorName": "ky5hk",
-                            "authorID": "2e1d1726-6f0b-4ffa-a59e-5cd460321a3a",
-                            "publishedAt": 1545450660,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "o7wpihbq2f",
-                                    "userID": "155b7ee7-5908-4267-a5ae-cab1c2ef7450"
-                                },
-                                {
-                                    "userName": "uvrk",
-                                    "userID": "9cef18ca-75e3-4046-81f5-08f94e582877"
-                                },
-                                {
-                                    "userName": "roqmdpr5h",
-                                    "userID": "cf38b15d-4970-4f40-850b-9cfd8d61535c"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "5717bfaf-9b87-45c6-909b-fe04428629db",
-                            "text": "核能會爆炸死半個台灣的 跟你講再多也沒用",
-                            "authorName": "frrq",
-                            "authorID": "6a46bc4a-04d7-4de1-97f9-6f778ceaccc8",
-                            "publishedAt": 1545451080,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "k3mv5i",
-                                    "userID": "ddb86168-3188-4232-931f-931a4f616fe5"
-                                },
-                                {
-                                    "userName": "ozl2my",
-                                    "userID": "e3705fc0-7981-4394-9d87-be650be481f9"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "fa288ce4-00ab-42d9-bc80-ce2d84e0a1d2",
-                            "text": "疆屍發電",
-                            "authorName": "zfnxi",
-                            "authorID": "9a906343-5301-4813-9e24-de3690567e5b",
-                            "publishedAt": 1545451140,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "dfud",
-                                    "userID": "c5325955-1e21-40f7-be10-8f9db2c50bf5"
-                                },
-                                {
-                                    "userName": "r1y",
-                                    "userID": "4d009e19-f100-43a0-93a0-2f9e6ac7d265"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "3a98307c-84f5-47f3-a849-56cc607015f8",
-                            "text": "高耗能產業趕出台灣，例如半導體？",
-                            "authorName": "ywd1n",
-                            "authorID": "29ee1d03-1d06-40c3-b073-05d65e82fe8f",
-                            "publishedAt": 1545451140,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "6feaf90d-da91-411e-adb8-1289cb89c7dc",
-                            "text": "先把白癡趕出去啦",
-                            "authorName": "xgflf3h2f",
-                            "authorID": "6e30eb35-bda7-4579-bafd-b1ab0409bc44",
-                            "publishedAt": 1545451320,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "b187acghw",
-                                    "userID": "05c07ad4-7376-4f56-ad10-b8628ace2d56"
-                                },
-                                {
-                                    "userName": "nzzom61tnk",
-                                    "userID": "791a9c90-aa18-4864-ad4a-7ce3645605b8"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "fa101561-fe2a-4004-8b89-10c4b90e0ba6",
-                            "text": "豈止半導體 石化 金屬工業等也順便趕出去",
-                            "authorName": "ledjjbnew",
-                            "authorID": "0be26d0f-ce4f-483a-a397-516c0ce9767d",
-                            "publishedAt": 1545451380,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "bs99fu2o",
-                                    "userID": "80274d62-0345-4e3b-b9c1-63dd9d7abe4b"
-                                },
-                                {
-                                    "userName": "lk4kvt",
-                                    "userID": "780d4d0d-f0f7-4019-b1ce-30e63dab6dae"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "2ceddfd3-a24d-406c-b960-980e005638d9",
-                            "text": "愛",
-                            "authorName": "mfche",
-                            "authorID": "58b35995-e6e3-4f9f-a7f1-0ecc42277f8d",
-                            "publishedAt": 1545451560,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "be0ubfis08",
-                                    "userID": "17bf76ee-b038-4a67-bdf5-260b0a5d9ae6"
-                                },
-                                {
-                                    "userName": "qy21ir",
-                                    "userID": "d929f82c-5e16-4334-ba3f-1c42650ea7a8"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "ef1b3c69-7bdd-4d30-b5eb-112112f8430a",
-                            "text": "愛",
-                            "authorName": "sf9gnf0ox",
-                            "authorID": "ff36b6e4-c168-4797-a479-11c9a5106a9f",
-                            "publishedAt": 1545451680,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "b543db9b-a167-4236-9e92-0737281d99d2",
-                            "text": "地熱  但是要解決 流磺侵蝕機器問題",
-                            "authorName": "lpanowm",
-                            "authorID": "a2290193-e42a-4258-b203-8bf242ef4aee",
-                            "publishedAt": 1545451860,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "3fdd0cad-05ac-42b9-8277-283cb183179d",
-                            "text": "台灣價值",
-                            "authorName": "w9u",
-                            "authorID": "dce626b3-9d16-4a2a-ad89-651e0537454d",
-                            "publishedAt": 1545451860,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "cz8743kf",
-                                    "userID": "90a8125e-d585-4a1d-95d0-eb587104577a"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "158dea1d-6194-441f-ab15-127a3d873b4b",
-                            "text": "愛",
-                            "authorName": "na2f9nahsb",
-                            "authorID": "844b63b9-3ef3-4e3e-8a03-a9fb94695fe8",
-                            "publishedAt": 1545451560,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "ox1n",
-                                    "userID": "83687631-11d0-44df-a052-e6d8a1e24ccb"
-                                },
-                                {
-                                    "userName": "oaz63g",
-                                    "userID": "71ba9c4e-65c2-4620-a64d-346ebad7d0cd"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "5e96d803-52ed-4f9c-a14e-251c0ba983ec",
-                            "text": "愛啊 到底要問幾次",
-                            "authorName": "oe60u99b6",
-                            "authorID": "17942f9f-82d3-433f-9963-c705d3b76025",
-                            "publishedAt": 1545452340,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "pz552",
-                                    "userID": "218e76c2-6062-41b7-a647-3764e2837e01"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "760a98de-8c7f-4916-85bc-967fc9821422",
-                            "text": "不是適合甚麼發電 而是台灣根本不適合能源密集的產業 不過台灣高科技產值高 根本取代不了 慘 產業不轉型 永遠不夠電",
-                            "authorName": "u7ch92d1",
-                            "authorID": "29f09faf-969a-4982-991b-3de4fed4dc22",
-                            "publishedAt": 1545455220,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "881cd3d7-1df9-4c36-820d-f16bd44e38d3",
-                            "text": "love",
-                            "authorName": "fxo",
-                            "authorID": "399ff9d0-789f-48dc-8974-a7d8ec946776",
-                            "publishedAt": 1545456180,
-                            "isLiked": false,
-                            "likes": []
-                        },
-                        {
-                            "id": "240c0f01-4e8e-49cc-beef-4940eb21b028",
-                            "text": "愛",
-                            "authorName": "vqdwe46",
-                            "authorID": "c27d1f50-6462-46c2-8fe0-cdcb10a79bbe",
-                            "publishedAt": 1545457440,
-                            "isLiked": false,
-                            "likes": [
-                                {
-                                    "userName": "o4czdu",
-                                    "userID": "be014afb-05b0-403f-811a-ef7eb2cc2d6a"
-                                },
-                                {
-                                    "userName": "snh7ni938",
-                                    "userID": "5f07804a-6b5c-4cdb-b5b0-b9c55ba3cd5e"
-                                }
-                            ]
+                            "userName": "wre37bot",
+                            "userID": "62cb8bd3-c69b-4e44-96c3-dcea97420d7b"
                         }
-                    ],
-                    "shares": []
+                    ]
+                },
+                {
+                    "id": "36370197-d4ac-48d3-9873-5c052f23bf3e",
+                    "text": "毛衣發電",
+                    "authorName": "yeg7on",
+                    "authorID": "61cae8b5-7744-4a36-8042-5c155b85b032",
+                    "publishedAt": 1545448920,
+                    "likes": []
+                },
+                {
+                    "id": "7d04f65f-6d32-4a30-ac24-8bdde39ea321",
+                    "text": "可惡沒搶到",
+                    "authorName": "shduibyk",
+                    "authorID": "09586ac9-9d93-491e-995e-553304b841df",
+                    "publishedAt": 1545448980,
+                    "likes": [
+                        {
+                            "userName": "jojwbjh",
+                            "userID": "7e4482ec-89e4-4cf6-9499-30a3da3e32f5"
+                        },
+                        {
+                            "userName": "beajcb",
+                            "userID": "1a40d0cc-04b2-4711-aa88-c88d57e65d0e"
+                        }
+                    ]
+                },
+                {
+                    "id": "b4fc140f-cbb4-4812-ab79-643f72346583",
+                    "text": "愛",
+                    "authorName": "h06ktq7y",
+                    "authorID": "173ea9b2-ad42-4d4d-9292-8d0a7e7ba245",
+                    "publishedAt": 1545448980,
+                    "likes": [
+                        {
+                            "userName": "wo0fb0k842",
+                            "userID": "15050481-f8fc-42ed-9e66-15f911189448"
+                        },
+                        {
+                            "userName": "ofpi",
+                            "userID": "ea70c1f9-b20d-4468-a0b6-e94f70300339"
+                        },
+                        {
+                            "userName": "rznm824kj",
+                            "userID": "b65559aa-1eb7-49f2-ad47-de7ec4c2753b"
+                        }
+                    ]
+                },
+                {
+                    "id": "b8836d16-ff92-4f00-91b8-74c3de59612e",
+                    "text": "皮卡丘發電",
+                    "authorName": "e9gkchu",
+                    "authorID": "6cb8ebf5-18a3-4cad-839b-d00c92aaa86d",
+                    "publishedAt": 1545448980,
+                    "likes": [
+                        {
+                            "userName": "izku",
+                            "userID": "51d468fa-c1ab-45a3-861c-a911fd3c42ad"
+                        }
+                    ]
+                },
+                {
+                    "id": "a04aae95-801a-4206-b9a3-ecd6d12a4288",
+                    "text": "用踩的效率那麼差又不穩定 浪費錢買設備",
+                    "authorName": "q8peu6fi",
+                    "authorID": "a6e934bb-21cb-4878-8cc3-0dd50ae3a7e0",
+                    "publishedAt": 1545448980,
+                    "likes": [
+                        {
+                            "userName": "vgdqn",
+                            "userID": "9cb42f5c-7956-4481-bcad-774c71505fe5"
+                        },
+                        {
+                            "userName": "o6iv7wn",
+                            "userID": "5e874238-e2f4-4640-8e18-a85a8b87e7b3"
+                        },
+                        {
+                            "userName": "lkj8kc6qol",
+                            "userID": "ca145393-7e69-43dc-8486-eb5e51940a8b"
+                        }
+                    ]
+                },
+                {
+                    "id": "51aaf4f7-e6b8-4c36-9d42-d01912a63a53",
+                    "text": "兩兆燒完了 還是沒電",
+                    "authorName": "asoqaebk",
+                    "authorID": "47e05841-fea6-45f8-a53e-721f90a3ac44",
+                    "publishedAt": 1545449040,
+                    "likes": [
+                        {
+                            "userName": "g3ntooov1",
+                            "userID": "5cf67e66-9af2-45af-b62f-34c48db9ff96"
+                        },
+                        {
+                            "userName": "m4x1sow5j",
+                            "userID": "9bb6a6f2-4868-4b5c-95ca-dede65e14534"
+                        }
+                    ]
+                },
+                {
+                    "id": "4a089921-b133-4c1a-bb68-7bbbcf12dec2",
+                    "text": "台灣本來贏南韓，可是反核後，投資萎縮，慢慢被南韓超越，2000年反核後成為高跳電國家，投資轉往不會跳電的國家，南韓於2004超越台灣",
+                    "authorName": "plzjylj",
+                    "authorID": "ef317da9-1e44-4471-9a91-2912a67dcabd",
+                    "publishedAt": 1545449100,
+                    "likes": []
+                },
+                {
+                    "id": "2ecdfa66-3d28-48f2-a26f-c3b6677eb7b7",
+                    "text": "愛",
+                    "authorName": "pk7a2",
+                    "authorID": "442558a3-9f1e-4e55-99ac-cf2af7f1cd0a",
+                    "publishedAt": 1545449220,
+                    "likes": []
+                },
+                {
+                    "id": "c36a9e31-e886-4c90-a342-f92f9ddcb66b",
+                    "text": "再次展現台灣花一大把錢浪費時間，結果什麼也沒做回原點",
+                    "authorName": "xng3f",
+                    "authorID": "784bda85-b1e7-473b-acf2-62092db5ae1e",
+                    "publishedAt": 1545449280,
+                    "likes": [
+                        {
+                            "userName": "yteb3z",
+                            "userID": "caf18519-b949-48e8-8fe3-c607f667f06b"
+                        },
+                        {
+                            "userName": "zoftwp",
+                            "userID": "b284b2a1-8ce7-4ddb-a5e1-13d9511e679a"
+                        },
+                        {
+                            "userName": "zpa4c",
+                            "userID": "55746abf-2e10-46b2-a25b-2c6d8ff21e6a"
+                        },
+                        {
+                            "userName": "s2lm",
+                            "userID": "e8d89358-1df3-4d19-a4e6-eabf9e601759"
+                        }
+                    ]
+                },
+                {
+                    "id": "0e280278-f400-40eb-bf9d-6e99876a3c5f",
+                    "text": "先把高耗能產業趕出台灣 就可免吵缺電 用什麼發電好一陣子了",
+                    "authorName": "vv7v",
+                    "authorID": "8c923b7e-64d0-4015-b999-090038902b0c",
+                    "publishedAt": 1545449280,
+                    "likes": [
+                        {
+                            "userName": "xj27vtcu8l",
+                            "userID": "4bd35aad-63bc-4e98-a728-7b14cfb1047a"
+                        },
+                        {
+                            "userName": "bidf3e",
+                            "userID": "f682959f-4360-4bac-aa0a-aaf857448667"
+                        }
+                    ]
+                },
+                {
+                    "id": "bde4735d-74b9-4b56-9efa-8d20f3e982cd",
+                    "text": "謙卑發電",
+                    "authorName": "yxv",
+                    "authorID": "acdca1d9-671f-4ad4-a1ff-4f30276bf856",
+                    "publishedAt": 1545449400,
+                    "likes": []
+                },
+                {
+                    "id": "d7a2e500-f811-4622-9789-da5d0208c777",
+                    "text": "核電、風力、太陽能",
+                    "authorName": "nesxc5bm",
+                    "authorID": "e8eec9fb-aadd-4ae0-b84a-02d652dc31b1",
+                    "publishedAt": 1545449460,
+                    "likes": []
+                },
+                {
+                    "id": "7c0a61b1-5e4c-44a2-be57-c93904504f5d",
+                    "text": "+ OK",
+                    "authorName": "bpk5tig6rk",
+                    "authorID": "06b7969b-3176-42e8-9024-57869e4683c8",
+                    "publishedAt": 1545449460,
+                    "likes": [
+                        {
+                            "userName": "khj1pj0a",
+                            "userID": "bb054036-beb0-49fc-bb07-789333e56263"
+                        }
+                    ]
+                },
+                {
+                    "id": "99208ed6-c8f0-4d34-96bd-51ba16660f4d",
+                    "text": "人力",
+                    "authorName": "tszm",
+                    "authorID": "4db6785d-acd2-4e41-9b2e-a950618984c2",
+                    "publishedAt": 1545448920,
+                    "likes": [
+                        {
+                            "userName": "l28pol",
+                            "userID": "eae0f896-debe-4380-b06b-a7e5d3e2c522"
+                        },
+                        {
+                            "userName": "portk",
+                            "userID": "85ea2c00-185b-4a6f-9e21-353978d1ed8c"
+                        },
+                        {
+                            "userName": "fh2qbsd39",
+                            "userID": "58f05616-6fed-4040-a4fa-cb6d0992c54d"
+                        },
+                        {
+                            "userName": "ifbo4lpxrc",
+                            "userID": "74bc886e-6fe5-45dd-ac71-0ca3c8dc3c4e"
+                        }
+                    ]
+                },
+                {
+                    "id": "2536201a-30fd-4546-9595-4d78f8d6a0dc",
+                    "text": "情",
+                    "authorName": "ok7evis7",
+                    "authorID": "e1213f94-b952-4f8e-906f-0b4b7600c90c",
+                    "publishedAt": 1545449520,
+                    "likes": [
+                        {
+                            "userName": "gd58ycu6w",
+                            "userID": "827148c4-ec07-4b7c-bca4-c3b13b32c3da"
+                        },
+                        {
+                            "userName": "qeh8bpo7p4",
+                            "userID": "7eae7a71-fcc6-49a6-9d90-34e972565701"
+                        }
+                    ]
+                },
+                {
+                    "id": "d8ead2d0-7064-4069-9200-cb31f14f81b2",
+                    "text": "肥宅燃燒火力發電 順便清一些垃圾解決人口過多的問題",
+                    "authorName": "smygq5k",
+                    "authorID": "55c21b9f-143b-4346-be89-d3a2bf3b0d97",
+                    "publishedAt": 1545449580,
+                    "likes": []
+                },
+                {
+                    "id": "9335cf83-e3b0-490c-bf5f-50619098ae85",
+                    "text": "離岸風電",
+                    "authorName": "awhl5e",
+                    "authorID": "1af56e8f-99b0-4792-ad61-39bc19dd3fc9",
+                    "publishedAt": 1545449700,
+                    "likes": []
+                },
+                {
+                    "id": "9f56772d-b986-4656-b2d6-b8839e4bd7a2",
+                    "text": "插鼻孔阿！",
+                    "authorName": "7n9f",
+                    "authorID": "758aa13f-203b-4a29-8cf8-cbad96e0a801",
+                    "publishedAt": 1545449760,
+                    "likes": []
+                },
+                {
+                    "id": "9f318759-552e-44cd-bf52-e3ec2be63964",
+                    "text": "愛",
+                    "authorName": "fmgxhkw",
+                    "authorID": "d614d003-3465-46c1-94b6-a76df5b80185",
+                    "publishedAt": 1545449760,
+                    "likes": []
+                },
+                {
+                    "id": "21358bd5-3d6c-4992-9589-9836d785f170",
+                    "text": "惜",
+                    "authorName": "ggusthc",
+                    "authorID": "a01d0b58-944d-4f26-a6ae-a97ba4f3e358",
+                    "publishedAt": 1545449760,
+                    "likes": []
+                },
+                {
+                    "id": "a4005c5b-0c01-4aa4-8243-81e54fb9a890",
+                    "text": "天然氣 可是台灣有人會喊好貴喔 企業不想辦法節能 只想用便宜的電 新加坡有用核能嗎？人家的經濟有變差嗎？政黨和企業把人民唬得團團轉 讓國際看笑話",
+                    "authorName": "ecidfq",
+                    "authorID": "acb762b1-8225-404e-85d1-ea61312415a2",
+                    "publishedAt": 1545449760,
+                    "likes": [
+                        {
+                            "userName": "vpwvpm5",
+                            "userID": "fe8da7e8-ed33-47b3-8cb4-afe1c01fe469"
+                        }
+                    ]
+                },
+                {
+                    "id": "06e85bdd-cdad-4be0-86ce-560a452307d3",
+                    "text": "環團發電",
+                    "authorName": "ny1q",
+                    "authorID": "dda652b5-2482-4ffd-82fc-0cc9a4d51dd3",
+                    "publishedAt": 1545449820,
+                    "likes": [
+                        {
+                            "userName": "l04i",
+                            "userID": "c279240e-dac7-427d-ab27-88a842672d2a"
+                        },
+                        {
+                            "userName": "pdah8xovtj",
+                            "userID": "1b234428-bcd0-4b3c-84e5-9f3e68c65f06"
+                        }
+                    ]
+                },
+                {
+                    "id": "ca2c1762-5d3a-4c29-8c1e-43301fe5980e",
+                    "text": "用愛",
+                    "authorName": "xbkwkr3ah",
+                    "authorID": "77528cf7-13d1-4ce5-8300-b75ef3eba698",
+                    "publishedAt": 1545450000,
+                    "likes": [
+                        {
+                            "userName": "xtqj",
+                            "userID": "4c65d686-da77-4b87-a55d-fd340a0bf0df"
+                        },
+                        {
+                            "userName": "tyrvkqfr",
+                            "userID": "1e311ffd-572b-45b6-b69a-772d180d8e7a"
+                        },
+                        {
+                            "userName": "qmrljryq8i",
+                            "userID": "4934fa73-c129-4202-90fa-52405e5a6e58"
+                        }
+                    ]
+                },
+                {
+                    "id": "75e526aa-029d-4620-8d6a-06ffe5036ee7",
+                    "text": "核能吧才幾台就能撐10%還舊式的",
+                    "authorName": "lpirm0v",
+                    "authorID": "8847751a-1d2f-458a-b173-7016679877bf",
+                    "publishedAt": 1545450060,
+                    "likes": []
+                },
+                {
+                    "id": "7d75bddb-77f2-4d31-9dc5-c1ec9717b111",
+                    "text": "母豬超多 建議用綠帽發電",
+                    "authorName": "hyh2",
+                    "authorID": "6b63e2ab-b7b0-405f-9d68-d9a8e80de388",
+                    "publishedAt": 1545450060,
+                    "likes": [
+                        {
+                            "userName": "etzx",
+                            "userID": "e95a2b78-56c2-41d6-a5de-abc5649752fe"
+                        }
+                    ]
+                },
+                {
+                    "id": "b8b62594-e45e-4507-9325-c9b69a479fae",
+                    "text": "全部都插滿核能啦",
+                    "authorName": "jwcq3o5eh",
+                    "authorID": "102f0ee5-da19-4dca-8c01-8d3078527808",
+                    "publishedAt": 1545450300,
+                    "likes": [
+                        {
+                            "userName": "pcgrgxt",
+                            "userID": "d0a39913-8df1-4a70-877d-d7dedd0314de"
+                        }
+                    ]
+                },
+                {
+                    "id": "624bfbde-518d-4574-a6ff-b662b4cefa0a",
+                    "text": "帶頭反核四真的是罪人",
+                    "authorName": "os1x1be",
+                    "authorID": "6ef52c93-b34b-4a4d-8069-4bfa3abd9b85",
+                    "publishedAt": 1545450360,
+                    "likes": []
+                },
+                {
+                    "id": "81608694-1a4a-47ea-8cfb-252b08b49296",
+                    "text": "https://goo.gl/E1p7bE  新加坡發電廠列表 燃油 燃氣 燃垃圾",
+                    "authorName": "fvr5x55m",
+                    "authorID": "19091ccd-18b3-4e2c-8238-3171c1639dec",
+                    "publishedAt": 1545450540,
+                    "likes": [
+                        {
+                            "userName": "qnsf",
+                            "userID": "0c8712eb-7baa-424c-b33d-2aa738203667"
+                        },
+                        {
+                            "userName": "nmagmdk",
+                            "userID": "bc324cf3-e383-446b-8c5d-7cf2e02790c0"
+                        },
+                        {
+                            "userName": "wl5",
+                            "userID": "a5407838-e3b7-4d0f-94e4-83348cce1c58"
+                        }
+                    ]
+                },
+                {
+                    "id": "46979bb2-5dfa-4c01-ba60-723f30069163",
+                    "text": "空汙發電，這才創新",
+                    "authorName": "ky5hk",
+                    "authorID": "2e1d1726-6f0b-4ffa-a59e-5cd460321a3a",
+                    "publishedAt": 1545450660,
+                    "likes": [
+                        {
+                            "userName": "o7wpihbq2f",
+                            "userID": "155b7ee7-5908-4267-a5ae-cab1c2ef7450"
+                        },
+                        {
+                            "userName": "uvrk",
+                            "userID": "9cef18ca-75e3-4046-81f5-08f94e582877"
+                        },
+                        {
+                            "userName": "roqmdpr5h",
+                            "userID": "cf38b15d-4970-4f40-850b-9cfd8d61535c"
+                        }
+                    ]
+                },
+                {
+                    "id": "5717bfaf-9b87-45c6-909b-fe04428629db",
+                    "text": "核能會爆炸死半個台灣的 跟你講再多也沒用",
+                    "authorName": "frrq",
+                    "authorID": "6a46bc4a-04d7-4de1-97f9-6f778ceaccc8",
+                    "publishedAt": 1545451080,
+                    "likes": [
+                        {
+                            "userName": "k3mv5i",
+                            "userID": "ddb86168-3188-4232-931f-931a4f616fe5"
+                        },
+                        {
+                            "userName": "ozl2my",
+                            "userID": "e3705fc0-7981-4394-9d87-be650be481f9"
+                        }
+                    ]
+                },
+                {
+                    "id": "fa288ce4-00ab-42d9-bc80-ce2d84e0a1d2",
+                    "text": "疆屍發電",
+                    "authorName": "zfnxi",
+                    "authorID": "9a906343-5301-4813-9e24-de3690567e5b",
+                    "publishedAt": 1545451140,
+                    "likes": [
+                        {
+                            "userName": "dfud",
+                            "userID": "c5325955-1e21-40f7-be10-8f9db2c50bf5"
+                        },
+                        {
+                            "userName": "r1y",
+                            "userID": "4d009e19-f100-43a0-93a0-2f9e6ac7d265"
+                        }
+                    ]
+                },
+                {
+                    "id": "3a98307c-84f5-47f3-a849-56cc607015f8",
+                    "text": "高耗能產業趕出台灣，例如半導體？",
+                    "authorName": "ywd1n",
+                    "authorID": "29ee1d03-1d06-40c3-b073-05d65e82fe8f",
+                    "publishedAt": 1545451140,
+                    "likes": []
+                },
+                {
+                    "id": "6feaf90d-da91-411e-adb8-1289cb89c7dc",
+                    "text": "先把白癡趕出去啦",
+                    "authorName": "xgflf3h2f",
+                    "authorID": "6e30eb35-bda7-4579-bafd-b1ab0409bc44",
+                    "publishedAt": 1545451320,
+                    "likes": [
+                        {
+                            "userName": "b187acghw",
+                            "userID": "05c07ad4-7376-4f56-ad10-b8628ace2d56"
+                        },
+                        {
+                            "userName": "nzzom61tnk",
+                            "userID": "791a9c90-aa18-4864-ad4a-7ce3645605b8"
+                        }
+                    ]
+                },
+                {
+                    "id": "fa101561-fe2a-4004-8b89-10c4b90e0ba6",
+                    "text": "豈止半導體 石化 金屬工業等也順便趕出去",
+                    "authorName": "ledjjbnew",
+                    "authorID": "0be26d0f-ce4f-483a-a397-516c0ce9767d",
+                    "publishedAt": 1545451380,
+                    "likes": [
+                        {
+                            "userName": "bs99fu2o",
+                            "userID": "80274d62-0345-4e3b-b9c1-63dd9d7abe4b"
+                        },
+                        {
+                            "userName": "lk4kvt",
+                            "userID": "780d4d0d-f0f7-4019-b1ce-30e63dab6dae"
+                        }
+                    ]
+                },
+                {
+                    "id": "2ceddfd3-a24d-406c-b960-980e005638d9",
+                    "text": "愛",
+                    "authorName": "mfche",
+                    "authorID": "58b35995-e6e3-4f9f-a7f1-0ecc42277f8d",
+                    "publishedAt": 1545451560,
+                    "likes": [
+                        {
+                            "userName": "be0ubfis08",
+                            "userID": "17bf76ee-b038-4a67-bdf5-260b0a5d9ae6"
+                        },
+                        {
+                            "userName": "qy21ir",
+                            "userID": "d929f82c-5e16-4334-ba3f-1c42650ea7a8"
+                        }
+                    ]
+                },
+                {
+                    "id": "ef1b3c69-7bdd-4d30-b5eb-112112f8430a",
+                    "text": "愛",
+                    "authorName": "sf9gnf0ox",
+                    "authorID": "ff36b6e4-c168-4797-a479-11c9a5106a9f",
+                    "publishedAt": 1545451680,
+                    "likes": []
+                },
+                {
+                    "id": "b543db9b-a167-4236-9e92-0737281d99d2",
+                    "text": "地熱  但是要解決 流磺侵蝕機器問題",
+                    "authorName": "lpanowm",
+                    "authorID": "a2290193-e42a-4258-b203-8bf242ef4aee",
+                    "publishedAt": 1545451860,
+                    "likes": []
+                },
+                {
+                    "id": "3fdd0cad-05ac-42b9-8277-283cb183179d",
+                    "text": "台灣價值",
+                    "authorName": "w9u",
+                    "authorID": "dce626b3-9d16-4a2a-ad89-651e0537454d",
+                    "publishedAt": 1545451860,
+                    "likes": [
+                        {
+                            "userName": "cz8743kf",
+                            "userID": "90a8125e-d585-4a1d-95d0-eb587104577a"
+                        }
+                    ]
+                },
+                {
+                    "id": "158dea1d-6194-441f-ab15-127a3d873b4b",
+                    "text": "愛",
+                    "authorName": "na2f9nahsb",
+                    "authorID": "844b63b9-3ef3-4e3e-8a03-a9fb94695fe8",
+                    "publishedAt": 1545451560,
+                    "likes": [
+                        {
+                            "userName": "ox1n",
+                            "userID": "83687631-11d0-44df-a052-e6d8a1e24ccb"
+                        },
+                        {
+                            "userName": "oaz63g",
+                            "userID": "71ba9c4e-65c2-4620-a64d-346ebad7d0cd"
+                        }
+                    ]
+                },
+                {
+                    "id": "5e96d803-52ed-4f9c-a14e-251c0ba983ec",
+                    "text": "愛啊 到底要問幾次",
+                    "authorName": "oe60u99b6",
+                    "authorID": "17942f9f-82d3-433f-9963-c705d3b76025",
+                    "publishedAt": 1545452340,
+                    "likes": [
+                        {
+                            "userName": "pz552",
+                            "userID": "218e76c2-6062-41b7-a647-3764e2837e01"
+                        }
+                    ]
+                },
+                {
+                    "id": "760a98de-8c7f-4916-85bc-967fc9821422",
+                    "text": "不是適合甚麼發電 而是台灣根本不適合能源密集的產業 不過台灣高科技產值高 根本取代不了 慘 產業不轉型 永遠不夠電",
+                    "authorName": "u7ch92d1",
+                    "authorID": "29f09faf-969a-4982-991b-3de4fed4dc22",
+                    "publishedAt": 1545455220,
+                    "likes": []
+                },
+                {
+                    "id": "881cd3d7-1df9-4c36-820d-f16bd44e38d3",
+                    "text": "love",
+                    "authorName": "fxo",
+                    "authorID": "399ff9d0-789f-48dc-8974-a7d8ec946776",
+                    "publishedAt": 1545456180,
+                    "likes": []
+                },
+                {
+                    "id": "240c0f01-4e8e-49cc-beef-4940eb21b028",
+                    "text": "愛",
+                    "authorName": "vqdwe46",
+                    "authorID": "c27d1f50-6462-46c2-8fe0-cdcb10a79bbe",
+                    "publishedAt": 1545457440,
+                    "likes": [
+                        {
+                            "userName": "o4czdu",
+                            "userID": "be014afb-05b0-403f-811a-ef7eb2cc2d6a"
+                        },
+                        {
+                            "userName": "snh7ni938",
+                            "userID": "5f07804a-6b5c-4cdb-b5b0-b9c55ba3cd5e"
+                        }
+                    ]
                 }
-            }
-        ]
-    }
+            ],
+            "shares": []
+        }
+    ]
 }

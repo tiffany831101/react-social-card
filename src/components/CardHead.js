@@ -3,9 +3,7 @@ import moment from 'moment'
 import 'moment/locale/zh-tw'
 moment.locale('zh-tw')
 
-const CardHead = ({
-    metaInfo: {authorName, authorID, publishedAt}
-}) => (
+const CardHead = ({authorName, authorID, publishedAt}) => (
     <div className="post-meta">
         <a className="post-meta__author-avatar" href="#">
             {authorName.slice(0, 1).toUpperCase()}

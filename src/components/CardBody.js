@@ -1,14 +1,14 @@
 import React from 'react'
 
-const CardBody = ({post}) => (
+const CardBody = ({text, imageURL}) => (
     <div>
-        <p className="post-content__text">{post.text}</p>
-        {post.imageURL && (
+        <p className="post-content__text">{text}</p>
+        {imageURL && (
             <div
                 className="post-content__image"
                 style={{
                     backgroundImage: `
-                        url(${post.imageURL}),
+                        url(${imageURL}),
                         url('/assets/images/image-not-found.png')
                     `
                 }}

@@ -8,7 +8,12 @@ class SingleComment extends React.Component {
         isHidden: false
     }
     render() {
-        const {comment, currentUser, deleteComment, handleLikeComment} = this.props
+        const {
+            comment,
+            currentUserID,
+            handleDeleteComment,
+            handleLikeComment
+        } = this.props
         return (
             <div
                 className={
@@ -64,10 +69,10 @@ class SingleComment extends React.Component {
                         >
                             隱藏
                         </span>
-                        {comment.authorID === currentUser.id && <span>．</span>}
-                        {comment.authorID === currentUser.id && (<span
+                        {comment.authorID === currentUserID && <span>．</span>}
+                        {comment.authorID === currentUserID && (<span
                             className="comment-action__delete"
-                            onClick={() => {deleteComment(comment.id)}}
+                            onClick={() => {handleDeleteComment(comment.id)}}
                         >
                             刪除
                         </span>

@@ -2,7 +2,7 @@ import React from 'react'
 
 class CardInput extends React.Component {
     state = {
-        rows: 1,
+        inputRows: 1,
         inputValue: ''
     }
     textArea = React.createRef()
@@ -19,9 +19,9 @@ class CardInput extends React.Component {
 
             // 有輸入內容才送出留言，沒內容的話不會有反應
             if (textInput) {
-                this.props.addComment(textInput)
+                this.props.handleAddComment(textInput)
                 this.setState(() => ({inputValue: ''})) // 清空文字
-                if (this.state.rows > 1) {
+                if (this.state.inputRows > 1) {
                     this.setState(() => ({rows: 1}))    // 重置高度
                 }
             }
@@ -35,8 +35,8 @@ class CardInput extends React.Component {
         const rows = Math.floor(height / heightPerLine) // 行數
 
         // 如果行數跟目前不一樣，再改變 state
-        if (this.state.rows != rows) {
-            this.setState(() => ({rows}))
+        if (this.state.inputRows != rows) {
+            this.setState(() => ({inputRows: rows}))
         }
         this.textArea.current.style.height = 'auto'  // 配合 rows 調整高度
     }
@@ -55,15 +55,15 @@ class CardInput extends React.Component {
         return (
             <div className="user-comment">
                 <a className="user-comment__user-avatar" href="#">
-                    {this.props.currentUser.name.slice(0, 1)}
+                    {this.props.currentUserName.slice(0, 1)}
                 </a>
                 <textarea
-                    className="user-comment__input"
                     ref={this.textArea}
-                    rows={this.state.rows}
+                    className="user-comment__input"
+                    rows={this.state.inputRows}
                     placeholder="回覆⋯⋯"
-                    onKeyPress={this.handleSubmitComment}
                     value={this.state.inputValue}
+                    onKeyPress={this.handleSubmitComment}
                     onChange={this.handleInputChange}
                     onInput={this.adjustInputHeight}
                     onFocus={this.props.startTyping}
