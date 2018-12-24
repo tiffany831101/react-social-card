@@ -4,6 +4,7 @@ import 'normalize.css/normalize.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import './styles/styles.scss'
 
+import Loading from './components/Loading'
 import CardHead from './components/CardHead'
 import CardBody from './components/CardBody'
 import CardStatus from './components/CardStatus'
@@ -13,13 +14,15 @@ import CardInput from './components/CardInput'
 
 import moment from 'moment'
 import uuid from 'uuid/v4'
-import connectTo from './functions/connect'
 
 
 const appRoot = document.getElementById('app')
 
 class SocialCard extends React.Component {
     state = {
+        // 頁面狀態
+        isLoading: false,
+        loadingError: null,
         // 貼文狀態
         postIsLiked: false,
         postAuthorName: '',
@@ -96,12 +99,17 @@ class SocialCard extends React.Component {
             return {postComments: comments}
         })
     }
-    componentDidMount() {
-        // 第一次渲染時抓資料回來
-        connectTo(`//localhost:3000/posts`)
-            .then(posts => {
-                const post = posts[0]
-                this.setState(prevState => ({
+    async componentDidMount() {
+        // 第一次渲染頁面時抓資料回來
+        this.setState(() => ({isLoading: true}))
+        // 建立連線
+        let resp
+        try {
+            resp = await fetch('//localhost:3000/posts')
+            if (resp.ok) {
+                resp = await resp.json()
+                const post = resp[0]
+                this.setState(() => ({
                     postAuthorName: post.authorName,
                     postAuthorID: post.authorID,
                     postPublishedAt: post.publishedAt,
@@ -109,57 +117,74 @@ class SocialCard extends React.Component {
                     postImageURL: post.imageURL,
                     postLikes: post.likes,
                     postComments: post.comments,
-                    postShares: post.shares
+                    postShares: post.shares,
+                    isLoading: false,
+                    loadingError: false
                 }))
-            })
-            .catch(error => console.log(error))
+            } else {throw new Error(`${resp.status} ${resp.statusText}`)}
+        } catch(error) {
+            console.log(error)
+            this.setState(() => ({
+                isLoading: false,
+                loadingError: true
+            }))
+        }
     }
     render() {
-        return (
-            <div className="post-wrapper">
-                <CardHead
-                    authorName={this.state.postAuthorName}
-                    authorID={this.state.postAuthorID}
-                    publishedAt={this.state.postPublishedAt}
-                />
-                <CardBody
-                    text={this.state.postText}
-                    imageURL={this.state.postImageURL}
-                />
-                <CardStatus
-                    isLiked={this.state.postIsLiked}
-                    likes={this.state.postLikes}
-                    commentCount={this.state.postComments.length}
-                    shareCount={this.state.postShares.length}
-                />
-                <CardAction
-                    isLiked={this.state.postIsLiked}
-                    handleLikePost={this.handleLikePost}
-                    startTyping={() => {
-                        this.setState(prevState => ({attemptingToType: true}))
-                    }}
-                />
-                <CardComments
-                    comments={this.state.postComments}
-                    currentUserName={this.state.currentUserName}
-                    currentUserID={this.state.currentUserID}
-                    handleDeleteComment={this.handleDeleteComment}
-                    handleLikeComment={this.handleLikeComment}
-                />
-                <CardInput
-                    currentUserName={this.state.currentUserName}
-                    currentUserID={this.state.currentUserID}
-                    handleAddComment={this.handleAddComment}
-                    attemptingToType={this.state.attemptingToType}
-                    startTyping={() => {
-                        this.setState(prevState => ({attemptingToType: true}))
-                    }}
-                    quitTyping={() => {
-                        this.setState(prevState => ({attemptingToType: false}))
-                    }}
-                />
-            </div>
-        )
+        if (this.state.isLoading) {
+            // 顯示讀取中頁面
+            return <Loading />
+        } else if (this.state.loadingError) {
+            // 顯示錯誤頁面
+            return <h1 className="status-icon-container">Error</h1>
+        } else {
+            // 顯示正常頁面
+            return (
+                <div className="post-wrapper">
+                    <CardHead
+                        authorName={this.state.postAuthorName}
+                        authorID={this.state.postAuthorID}
+                        publishedAt={this.state.postPublishedAt}
+                    />
+                    <CardBody
+                        text={this.state.postText}
+                        imageURL={this.state.postImageURL}
+                    />
+                    <CardStatus
+                        isLiked={this.state.postIsLiked}
+                        likes={this.state.postLikes}
+                        commentCount={this.state.postComments.length}
+                        shareCount={this.state.postShares.length}
+                    />
+                    <CardAction
+                        isLiked={this.state.postIsLiked}
+                        handleLikePost={this.handleLikePost}
+                        startTyping={() => {
+                            this.setState(prevState => ({attemptingToType: true}))
+                        }}
+                    />
+                    <CardComments
+                        comments={this.state.postComments}
+                        currentUserName={this.state.currentUserName}
+                        currentUserID={this.state.currentUserID}
+                        handleDeleteComment={this.handleDeleteComment}
+                        handleLikeComment={this.handleLikeComment}
+                    />
+                    <CardInput
+                        currentUserName={this.state.currentUserName}
+                        currentUserID={this.state.currentUserID}
+                        handleAddComment={this.handleAddComment}
+                        attemptingToType={this.state.attemptingToType}
+                        startTyping={() => {
+                            this.setState(prevState => ({attemptingToType: true}))
+                        }}
+                        quitTyping={() => {
+                            this.setState(prevState => ({attemptingToType: false}))
+                        }}
+                    />
+                </div>
+            )
+        }
     }
 }
 
