@@ -7,6 +7,9 @@ class SingleComment extends React.Component {
     state = {
         isHidden: false
     }
+    handleHideComment = () => {
+        this.setState(() => ({isHidden: true}))
+    }
     render() {
         const {
             comment,
@@ -14,6 +17,7 @@ class SingleComment extends React.Component {
             handleDeleteComment,
             handleLikeComment
         } = this.props
+        const isLiked = comment.likes.find(client => client.userID === currentUserID)
         return (
             <div
                 className={
@@ -47,25 +51,19 @@ class SingleComment extends React.Component {
                     )}
                     </div>
                     <p className="comment-action">
-                        {comment.isLiked ? (
-                            <span
-                                className="comment-action__like comment-action__like--liked"
-                                onClick={() => {handleLikeComment(comment.id)}}
-                            >
-                                讚
-                            </span>
-                        ) : (
-                            <span
-                                className="comment-action__like"
-                                onClick={() => {handleLikeComment(comment.id)}}
-                            >
-                                讚
-                            </span>
-                        )}
+                        <span
+                            className={isLiked ?
+                                "comment-action__like comment-action__like--liked" :
+                                "comment-action__like"
+                            }
+                            onClick={() => {handleLikeComment(comment.id)}}
+                        >
+                            讚
+                        </span>
                         <span>．</span>
                         <span
                             className="comment-action__hide"
-                            onClick={() => {this.setState(() => ({isHidden: true}))}}
+                            onClick={this.handleHideComment}
                         >
                             隱藏
                         </span>

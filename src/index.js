@@ -51,76 +51,50 @@ class SocialCard extends React.Component {
             }]
         }))
     }
+    handleAddComment = (text) => {
+        this.setState(prevState => ({
+            postComments: [
+                ...prevState.postComments, {
+                    id: uuid(),
+                    text,
+                    authorName: this.state.currentUserName,
+                    authorID: this.state.currentUserID,
+                    publishedAt: moment().unix(),
+                    likes: []
+                }
+            ]
+        }))
+    }
+    handleDeleteComment = (commentID) => {
+        this.setState(prevState => ({
+            postComments: [
+                ...prevState.postComments.filter(
+                    comment => comment.id !== commentID
+                )
+            ]
+        }))
+    }
     handleLikeComment = (commentID) => {
         this.setState(prevState => {
             const comments = [...prevState.postComments]
             const comment = comments.find(obj => obj.id === commentID)
-            if (comment) {
-                //
-            } else {
-
-            }
-        })
-
-        this.setState(prevState => {
-            const comments = [...prevState.post.status.comments]
-            const comment = comments.find(comment => comment.id === commentID)
-            if (comment.isLiked) {
+            const commentIsLiked = comment.likes.find(
+                client => client.userID === this.state.currentUserID
+            )
+            if (commentIsLiked) {
                 // 把目前使用者從按讚的人當中移除
                 comment.likes = comment.likes.filter(
-                    client => client.userID !== this.state.currentUser.id
+                    client => client.userID !== this.state.currentUserID
                 )
             } else {
                 // 把目前使用者加進按讚的人裡
                 comment.likes.push({
-                    userName: this.state.currentUser.name,
-                    userID: this.state.currentUser.id
+                    userName: this.state.currentUserName,
+                    userID: this.state.currentUserID
                 })
             }
-            comment.isLiked = !comment.isLiked
-            return {
-                ...prevState,
-                post: {
-                    ...prevState.post,
-                    status: {
-                        ...prevState.post.status,
-                        comments
-                    }
-                }
-            }
+            return {postComments: comments}
         })
-    }
-    handleAddComment = (text) => {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                post: {
-                    ...prevState.post,
-                    status: {
-                        ...prevState.post.status,
-                        comments: [...prevState.post.status.comments, {
-                            id: uuid(),
-                            text,
-                            authorName: this.state.currentUser.name,
-                            authorID: this.state.currentUser.id,
-                            publishedAt: moment().unix(),
-                            isLiked: false,
-                            likes: []
-                        }]
-                    }
-                }
-            }
-        })
-    }
-    deleteComment = (id) => {
-        this.setState(prevState => ({
-            status: {
-                ...prevState.post.status,
-                comments: [...prevState.post.status.comments].filter(
-                    comment => (comment.id !== id)
-                )
-            }
-        }))
     }
     componentDidMount() {
         // 第一次渲染時抓資料回來
@@ -169,10 +143,13 @@ class SocialCard extends React.Component {
                     comments={this.state.postComments}
                     currentUserName={this.state.currentUserName}
                     currentUserID={this.state.currentUserID}
+                    handleDeleteComment={this.handleDeleteComment}
+                    handleLikeComment={this.handleLikeComment}
                 />
                 <CardInput
                     currentUserName={this.state.currentUserName}
                     currentUserID={this.state.currentUserID}
+                    handleAddComment={this.handleAddComment}
                     attemptingToType={this.state.attemptingToType}
                     startTyping={() => {
                         this.setState(prevState => ({attemptingToType: true}))
