@@ -22,9 +22,9 @@ const whoLikesIt = (arr, meIncluded=false) => {
     }
 }
 
-const CardStatus = ({isLiked, likes, comments, shares}) => (
+const CardStatus = ({isLiked, likes, commentCount, shareCount}) => (
     <div>
-        {(likes.length + comments.length + shares.length > 0) && (
+        {(likes.length + commentCount + shareCount > 0) && (
             <p className="post-status">
                 {(likes.length > 0) && (
                     <span className="post-staus__like-count">
@@ -32,14 +32,14 @@ const CardStatus = ({isLiked, likes, comments, shares}) => (
                         {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
                     </span>
                 )}
-                {(comments.length > 0) && (
+                {(commentCount > 0) && (
                     <span className="post-status__comment-count">
-                        {`${comments.length}則留言`}
+                        {`${commentCount}則留言`}
                     </span>
                 )}
-                {(shares.length > 0) && (
+                {(shareCount > 0) && (
                     <span className="post-status__share-count">
-                        {`${shares.length}次分享`}
+                        {`${shareCount}次分享`}
                     </span>
                 )}
             </p>
