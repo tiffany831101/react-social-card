@@ -6,7 +6,7 @@
     "scripts": {
         "dist": "webpack --mode production",
         "dev": "webpack-dev-server --mode development",
-        "json": "json-server --host 0.0.0.0 --watch db.json"
+        "json": "json-server --host 0.0.0.0 --watch db.json --delay 2000"
     },
     "author": "",
     "license": "ISC",
