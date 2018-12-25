@@ -21,7 +21,7 @@ const appRoot = document.getElementById('app')
 class SocialCard extends React.Component {
     state = {
         // 頁面狀態
-        isLoading: false,
+        isLoading: null,
         loadingError: null,
         // 貼文狀態
         postID: '',
@@ -35,37 +35,35 @@ class SocialCard extends React.Component {
         postComments: [],
         postShares: [],
         // 使用者狀態
-        currentUserID: uuid(),
+        currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
         currentUserName: '鄉の民',
         attemptingToType: false,
     }
-    handleLikePost = async (postID) => {
-        this.setState(prevState => (this.state.postIsLiked ? {
-            // 把目前使用者從按讚的人當中移除（已按讚 -> 收回讚）
+    handleLikePost = async () => {
+        // 更新按讚的人
+        const {postID, postIsLiked, postLikes, currentUserID, currentUserName} = this.state
+        const updatedPostLikes = postIsLiked ?
+            // 已按讚 -> 收回讚
+            [...postLikes].filter(client => client.userID !== currentUserID) :
+            // 沒按讚 -> 已按讚
+            [...postLikes, {userName: currentUserName, userID: currentUserID}]
+
+        // 更新狀態
+        this.setState(prevState => ({
             postIsLiked: !prevState.postIsLiked,
-            postLikes: prevState.postLikes.filter(
-                client => client.userID !== this.state.currentUserID
-            )
-        } : {
-            // 把目前使用者加進按讚的人裡（沒按讚 -> 已按讚）
-            postIsLiked: !prevState.postIsLiked,
-            postLikes: [...prevState.postLikes, {
-                userName: this.state.currentUserName,
-                userID: this.state.currentUserID
-            }]
+            postLikes: updatedPostLikes
         }))
-        // 丟資料到伺服器
+
+        // 上傳新的按讚陣列
         try {
-            const dataToUpload = {likes: this.state.postLikes}
+            const dataToUpload = {likes: updatedPostLikes}
             const resp = await fetch(
                 `//localhost:3000/posts/${postID}`, {
-                method: 'PATCH',
+                method: 'PATCH',    // 只更新其中一個 property
                 body: JSON.stringify(dataToUpload),
                 headers:{'Content-Type': 'application/json'}
             })
-            if (!resp.ok) {
-                throw new Error(`${resp.status} ${resp.statusText}`)
-            }
+            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
         } catch(err) {
             console.log(err)
             this.setState(() => ({
@@ -74,50 +72,106 @@ class SocialCard extends React.Component {
             }))
         }
     }
-    handleAddComment = (text) => {
-        this.setState(prevState => ({
-            postComments: [
-                ...prevState.postComments, {
-                    id: uuid(),
-                    text,
-                    authorName: this.state.currentUserName,
-                    authorID: this.state.currentUserID,
-                    publishedAt: moment().unix(),
-                    likes: []
-                }
-            ]
-        }))
+    handleAddComment = async (text) => {
+        // 新增一則留言到複製的留言陣列裡面
+        const {postID, currentUserName, currentUserID} = this.state
+        const updatedPostComments = [
+            ...this.state.postComments, {
+            id: uuid(),
+            text,
+            authorName: currentUserName,
+            authorID: currentUserID,
+            publishedAt: moment().unix(),
+            likes: []
+        }]
+        // 更新狀態
+        this.setState(() => ({postComments: updatedPostComments}))
+
+        // 上傳新的留言陣列
+        try {
+            const dataToUpload = {comments: updatedPostComments}
+            const resp = await fetch(
+                `//localhost:3000/posts/${postID}`, {
+                method: 'PATCH',    // 只更新其中一個 property
+                body: JSON.stringify(dataToUpload),
+                headers:{'Content-Type': 'application/json'}
+            })
+            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
+        } catch(err) {
+            console.log(err)
+            this.setState(() => ({
+                isLoading: false,
+                loadingError: true
+            }))
+        }
     }
-    handleDeleteComment = (commentID) => {
-        this.setState(prevState => ({
-            postComments: [
-                ...prevState.postComments.filter(
-                    comment => comment.id !== commentID
-                )
-            ]
-        }))
+    handleDeleteComment = async (commentID) => {
+        // 從複製的留言陣列裡移除 ID 和 commentID 相同的留言
+        const {postID, postComments} = this.state
+        const updatedPostComments = [...postComments].filter(
+            comment => comment.id !== commentID
+        )
+        // 更新狀態
+        this.setState(() => ({postComments: updatedPostComments}))
+
+        // 上傳新的留言陣列
+        try {
+            const dataToUpload = {comments: updatedPostComments}
+            const resp = await fetch(
+                `//localhost:3000/posts/${postID}`, {
+                method: 'PATCH',    // 只更新其中一個 property
+                body: JSON.stringify(dataToUpload),
+                headers:{'Content-Type': 'application/json'}
+            })
+            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
+        } catch(err) {
+            console.log(err)
+            this.setState(() => ({
+                isLoading: false,
+                loadingError: true
+            }))
+        }
     }
-    handleLikeComment = (commentID) => {
-        this.setState(prevState => {
-            const comments = [...prevState.postComments]
-            const comment = comments.find(obj => obj.id === commentID)
-            const commentIsLiked = comment.likes.find(
-                client => client.userID === this.state.currentUserID
+    handleLikeComment = async (commentID) => {
+        // 複製留言陣列，找出符合 commentID 的留言
+        const {postID, postComments, currentUserName, currentUserID} = this.state
+        const updatedPostComments = [...postComments]
+        const comment = updatedPostComments.find(obj => obj.id === commentID)
+        const commentIsLiked = comment.likes.find(
+            client => client.userID === currentUserID
+        )
+        if (commentIsLiked) {
+            // 把目前使用者從按留言讚的人當中移除
+            comment.likes = comment.likes.filter(
+                client => client.userID !== currentUserID
             )
-            if (commentIsLiked) {
-                // 把目前使用者從按讚的人當中移除
-                comment.likes = comment.likes.filter(
-                    client => client.userID !== this.state.currentUserID
-                )
-            } else {
-                // 把目前使用者加進按讚的人裡
-                comment.likes.push({
-                    userName: this.state.currentUserName,
-                    userID: this.state.currentUserID
-                })
-            }
-            return {postComments: comments}
-        })
+        } else {
+            // 把目前使用者加進按留言讚的人裡
+            comment.likes.push({
+                userName: currentUserName,
+                userID: currentUserID
+            })
+        }
+        // 更新狀態
+        this.setState(() => ({postComments: updatedPostComments}))
+
+        // 上傳新的留言陣列
+        try {
+            const dataToUpload = {comments: updatedPostComments}
+            const resp = await fetch(
+                `//localhost:3000/posts/${postID}`, {
+                method: 'PATCH',    // 只更新其中一個 property
+                body: JSON.stringify(dataToUpload),
+                headers:{'Content-Type': 'application/json'}
+            })
+            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
+        } catch(err) {
+            console.log(err)
+            this.setState(() => ({
+                isLoading: false,
+                loadingError: true
+            }))
+        }
     }
     async componentDidMount() {
         // 第一次渲染時從伺服器拿資料
@@ -128,9 +182,15 @@ class SocialCard extends React.Component {
                 throw new Error(`${resp.status} ${resp.statusText}`)
             }
             const data = await resp.json()
-            const post = data[1]
+            const post = data[1]    // 先只用其中一筆資料
+            const isLiked = post.likes.find(
+                client => client.userID === this.state.currentUserID
+            ) ? true : false
+
+            // 用伺服器的資料更新狀態
             this.setState(() => ({
                 postID: post.id,
+                postIsLiked: isLiked,
                 postAuthorName: post.authorName,
                 postAuthorID: post.authorID,
                 postPublishedAt: post.publishedAt,

@@ -7,7 +7,7 @@ const CardAction = ({postID, isLiked, startTyping, handleLikePost}) => (
                 "post-action__like post-action__like--liked" :
                 "post-action__like"
             }
-            onClick={() => {handleLikePost('ad5edc15-1577-46be-aedc-906fa3f17951')}}
+            onClick={handleLikePost}
         >
             <i className="far fa-thumbs-up" />
             <span>讚</span>

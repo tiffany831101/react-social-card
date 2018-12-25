@@ -22,7 +22,7 @@ class CardInput extends React.Component {
                 this.props.handleAddComment(textInput)
                 this.setState(() => ({inputValue: ''})) // 清空文字
                 if (this.state.inputRows > 1) {
-                    this.setState(() => ({rows: 1}))    // 重置高度
+                    this.setState(() => ({inputRows: 1}))    // 重置高度
                 }
             }
         }
