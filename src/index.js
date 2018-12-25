@@ -70,7 +70,7 @@ class SocialCard extends React.Component {
             postLikes: updatedPostLikes
         }))
 
-        const requestResult = await this.sendRequest(
+        this.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {likes: updatedPostLikes}
@@ -92,7 +92,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        const requestResult = await this.sendRequest(
+        this.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}
@@ -108,7 +108,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        const requestResult = await this.sendRequest(
+        this.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}
@@ -138,7 +138,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        const requestResult = await this.sendRequest(
+        this.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}
@@ -202,7 +202,7 @@ class SocialCard extends React.Component {
                         postID={this.state.postID}
                         handleLikePost={this.handleLikePost}
                         startTyping={() => {
-                            this.setState(prevState => ({attemptingToType: true}))
+                            this.setState(() => ({attemptingToType: true}))
                         }}
                     />
                     <CardComments
@@ -218,10 +218,10 @@ class SocialCard extends React.Component {
                         handleAddComment={this.handleAddComment}
                         attemptingToType={this.state.attemptingToType}
                         startTyping={() => {
-                            this.setState(prevState => ({attemptingToType: true}))
+                            this.setState(() => ({attemptingToType: true}))
                         }}
                         quitTyping={() => {
-                            this.setState(prevState => ({attemptingToType: false}))
+                            this.setState(() => ({attemptingToType: false}))
                         }}
                     />
                 </div>
