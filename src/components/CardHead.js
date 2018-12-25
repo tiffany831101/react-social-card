@@ -12,13 +12,12 @@ const CardHead = ({authorName, authorID, publishedAt}) => (
             <span className="post-meta__author-name">
                 <a href="#">{authorName}</a>
             </span>
-            <a
+            <span
                 className="post-meta__timestamp"
-                href="#"
                 title={moment.unix(publishedAt).format('LLL')}
             >‎
                 {moment.unix(publishedAt).format('MMMDo')}
-            </a>
+            </span>
         </div>
     </div>
 )

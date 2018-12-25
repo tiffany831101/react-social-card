@@ -24,7 +24,11 @@
     user-select: none;
 }
 
-.post-action__like:hover, .post-action__comment:hover, .post-action__share:hover {
+.post-action__share--disabled {
+    filter: brightness(150%);
+}
+
+.post-action__like:hover, .post-action__comment:hover {
     background-color: lighten($light-grey, 5%);
     cursor: pointer;
 }

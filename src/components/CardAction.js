@@ -19,7 +19,7 @@ const CardAction = ({postID, isLiked, startTyping, handleLikePost}) => (
             <i className="far fa-comment-alt" />
             <span>留言</span>
         </div>
-        <div className="post-action__share">
+        <div className="post-action__share post-action__share--disabled">
             <i className="far fa-share-square" />
             <span>分享</span>
         </div>

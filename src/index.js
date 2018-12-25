@@ -36,7 +36,7 @@ class SocialCard extends React.Component {
         postShares: [],
         // 使用者狀態
         currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
-        currentUserName: '鄉の民',
+        currentUserName: '測試員',
         attemptingToType: false,
     }
     sendRequest = async (url, method=null, data=null) => {
