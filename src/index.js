@@ -145,31 +145,38 @@ class SocialCard extends React.Component {
         )
     }
     async componentDidMount() {
-        // 狀態：讀取中
+        // 狀態 -> 讀取中
         this.setState(() => ({isLoading: true}))
 
-        // 第一次渲染時從伺服器拿資料
-        const requestResult = await this.sendRequest('//localhost:3000/posts')
-        const post = requestResult[1]    // 先只用其中一筆資料
-        const isLiked = post.likes.find(
-            client => client.userID === this.state.currentUserID
-        ) ? true : false
+        try {
+            // 第一次渲染時從伺服器拿資料
+            const requestResult = await this.sendRequest('//localhost:3000/posts')
+            const post = requestResult[1]    // 先只用其中一筆資料
+            const isLiked = post.likes.find(
+                client => client.userID === this.state.currentUserID
+            ) ? true : false
 
-        // 用伺服器的資料更新狀態
-        this.setState(() => ({
-            postID: post.id,
-            postIsLiked: isLiked,
-            postAuthorName: post.authorName,
-            postAuthorID: post.authorID,
-            postPublishedAt: post.publishedAt,
-            postText: post.text,
-            postImageURL: post.imageURL,
-            postLikes: post.likes,
-            postComments: post.comments,
-            postShares: post.shares,
-            isLoading: false,
-            loadingError: false
-        }))
+            // 用伺服器的資料更新狀態
+            this.setState(() => ({
+                postID: post.id,
+                postIsLiked: isLiked,
+                postAuthorName: post.authorName,
+                postAuthorID: post.authorID,
+                postPublishedAt: post.publishedAt,
+                postText: post.text,
+                postImageURL: post.imageURL,
+                postLikes: post.likes,
+                postComments: post.comments,
+                postShares: post.shares,
+                isLoading: false,
+                loadingError: false
+            }))
+        } catch(err) {
+            console.log(err)
+            // 狀態 -> 發生錯誤
+            this.setState(() => ({isLoading: false, loadingError: true}))
+            return err
+        }
     }
     render() {
         if (this.state.isLoading) {
