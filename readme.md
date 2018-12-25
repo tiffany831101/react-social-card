@@ -6,7 +6,12 @@ A mini-project inspired by Dave Ceddia's article [*6 Fun React Projects You Can 
 npm install
 ```
 
+### Run json-server
+```bash
+npm run json
+```
+
 ### Run Webpack Dev Server
 ```bash
-npm run live
+npm run dev
 ```

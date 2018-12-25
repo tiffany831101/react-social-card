@@ -7,3 +7,15 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+.all-comments__unfold {
+    color: $fb-blue;
+    font-size: $m-minus-size;
+    margin: 0;
+    padding: $tiny-size 0;
+}
+
+.all-comments__unfold:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -22,33 +22,29 @@ const whoLikesIt = (arr, meIncluded=false) => {
     }
 }
 
-const CardStatus = (props) => {
-    const {isLiked, status: {likes, comments, shares}} = props.post
-
-    return (
-        <div>
-            {(likes.length || comments.length || shares.length) && (
-                <p className="post-status">
-                    {(likes.length > 0) && (
-                        <span className="post-staus__like-count">
-                            <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
-                            {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
-                        </span>
-                    )}
-                    {(comments.length > 0) && (
-                        <span className="post-status__comment-count">
-                            {`${comments.length}則留言`}
-                        </span>
-                    )}
-                    {(shares.length > 0) && (
-                        <span className="post-status__share-count">
-                            {`${shares.length}次分享`}
-                        </span>
-                    )}
-                </p>
-            )}
-        </div>
-    )
-}
+const CardStatus = ({isLiked, likes, commentCount, shareCount}) => (
+    <div>
+        {(likes.length + commentCount + shareCount > 0) && (
+            <p className="post-status">
+                {(likes.length > 0) && (
+                    <span className="post-staus__like-count">
+                        <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
+                        {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
+                    </span>
+                )}
+                {(commentCount > 0) && (
+                    <span className="post-status__comment-count">
+                        {`${commentCount}則留言`}
+                    </span>
+                )}
+                {(shareCount > 0) && (
+                    <span className="post-status__share-count">
+                        {`${shareCount}次分享`}
+                    </span>
+                )}
+            </p>
+        )}
+    </div>
+)
 
 export default CardStatus
