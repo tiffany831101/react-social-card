@@ -39,6 +39,22 @@ class SocialCard extends React.Component {
         currentUserName: '鄉の民',
         attemptingToType: false,
     }
+    sendRequest = async (url, method=null, data=null) => {
+        try {
+            const resp = (!method && !data) ? await fetch(url) :
+                await fetch(url, {
+                    method,
+                    body: JSON.stringify(data),
+                    headers:{'Content-Type': 'application/json'}
+                })
+            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
+            return await resp.json()
+        } catch(err) {
+            console.log(err)
+            this.setState(() => ({isLoading: false, loadingError: true}))
+            return err
+        }
+    }
     handleLikePost = async () => {
         // 更新按讚的人
         const {postID, postIsLiked, postLikes, currentUserID, currentUserName} = this.state
@@ -54,23 +70,11 @@ class SocialCard extends React.Component {
             postLikes: updatedPostLikes
         }))
 
-        // 上傳新的按讚陣列
-        try {
-            const dataToUpload = {likes: updatedPostLikes}
-            const resp = await fetch(
-                `//localhost:3000/posts/${postID}`, {
-                method: 'PATCH',    // 只更新其中一個 property
-                body: JSON.stringify(dataToUpload),
-                headers:{'Content-Type': 'application/json'}
-            })
-            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-        } catch(err) {
-            console.log(err)
-            this.setState(() => ({
-                isLoading: false,
-                loadingError: true
-            }))
-        }
+        const requestResult = await this.sendRequest(
+            `//localhost:3000/posts/${postID}`,
+            'PATCH',
+            {likes: updatedPostLikes}
+        )
     }
     handleAddComment = async (text) => {
         // 新增一則留言到複製的留言陣列裡面
@@ -88,22 +92,11 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        try {
-            const dataToUpload = {comments: updatedPostComments}
-            const resp = await fetch(
-                `//localhost:3000/posts/${postID}`, {
-                method: 'PATCH',    // 只更新其中一個 property
-                body: JSON.stringify(dataToUpload),
-                headers:{'Content-Type': 'application/json'}
-            })
-            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-        } catch(err) {
-            console.log(err)
-            this.setState(() => ({
-                isLoading: false,
-                loadingError: true
-            }))
-        }
+        const requestResult = await this.sendRequest(
+            `//localhost:3000/posts/${postID}`,
+            'PATCH',
+            {comments: updatedPostComments}
+        )
     }
     handleDeleteComment = async (commentID) => {
         // 從複製的留言陣列裡移除 ID 和 commentID 相同的留言
@@ -115,22 +108,11 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        try {
-            const dataToUpload = {comments: updatedPostComments}
-            const resp = await fetch(
-                `//localhost:3000/posts/${postID}`, {
-                method: 'PATCH',    // 只更新其中一個 property
-                body: JSON.stringify(dataToUpload),
-                headers:{'Content-Type': 'application/json'}
-            })
-            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-        } catch(err) {
-            console.log(err)
-            this.setState(() => ({
-                isLoading: false,
-                loadingError: true
-            }))
-        }
+        const requestResult = await this.sendRequest(
+            `//localhost:3000/posts/${postID}`,
+            'PATCH',
+            {comments: updatedPostComments}
+        )
     }
     handleLikeComment = async (commentID) => {
         // 複製留言陣列，找出符合 commentID 的留言
@@ -156,58 +138,38 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        try {
-            const dataToUpload = {comments: updatedPostComments}
-            const resp = await fetch(
-                `//localhost:3000/posts/${postID}`, {
-                method: 'PATCH',    // 只更新其中一個 property
-                body: JSON.stringify(dataToUpload),
-                headers:{'Content-Type': 'application/json'}
-            })
-            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-        } catch(err) {
-            console.log(err)
-            this.setState(() => ({
-                isLoading: false,
-                loadingError: true
-            }))
-        }
+        const requestResult = await this.sendRequest(
+            `//localhost:3000/posts/${postID}`,
+            'PATCH',
+            {comments: updatedPostComments}
+        )
     }
     async componentDidMount() {
-        // 第一次渲染時從伺服器拿資料
+        // 狀態：讀取中
         this.setState(() => ({isLoading: true}))
-        try {
-            const resp = await fetch('//localhost:3000/posts')
-            if (!resp.ok) {
-                throw new Error(`${resp.status} ${resp.statusText}`)
-            }
-            const data = await resp.json()
-            const post = data[1]    // 先只用其中一筆資料
-            const isLiked = post.likes.find(
-                client => client.userID === this.state.currentUserID
-            ) ? true : false
 
-            // 用伺服器的資料更新狀態
-            this.setState(() => ({
-                postID: post.id,
-                postIsLiked: isLiked,
-                postAuthorName: post.authorName,
-                postAuthorID: post.authorID,
-                postPublishedAt: post.publishedAt,
-                postText: post.text,
-                postImageURL: post.imageURL,
-                postLikes: post.likes,
-                postComments: post.comments,
-                postShares: post.shares,
-                isLoading: false,
-                loadingError: false
-            }))
-        } catch(err) {
-            this.setState(() => ({
-                isLoading: false,
-                loadingError: true
-            }))
-        }
+        // 第一次渲染時從伺服器拿資料
+        const requestResult = await this.sendRequest('//localhost:3000/posts')
+        const post = requestResult[1]    // 先只用其中一筆資料
+        const isLiked = post.likes.find(
+            client => client.userID === this.state.currentUserID
+        ) ? true : false
+
+        // 用伺服器的資料更新狀態
+        this.setState(() => ({
+            postID: post.id,
+            postIsLiked: isLiked,
+            postAuthorName: post.authorName,
+            postAuthorID: post.authorID,
+            postPublishedAt: post.publishedAt,
+            postText: post.text,
+            postImageURL: post.imageURL,
+            postLikes: post.likes,
+            postComments: post.comments,
+            postShares: post.shares,
+            isLoading: false,
+            loadingError: false
+        }))
     }
     render() {
         if (this.state.isLoading) {
