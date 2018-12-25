@@ -3,10 +3,20 @@ import SingleComment from './SingleComment'
 
 class CardComments extends React.Component {
     state = {
-        isFolded: true
+        isFolded: true,
+        initCommentsLength: 0
+    }
+    componentDidMount() {
+        this.setState(() => ({initCommentsLength: this.props.comments.length}))
     }
     render() {
-        const {comments, currentUserName, currentUserID, handleDeleteComment, handleLikeComment} = this.props
+        const {
+            comments,
+            currentUserID,
+            handleDeleteComment,
+            handleLikeComment
+        } = this.props
+        const {isFolded, initCommentsLength} = this.state
         return (
             <div className="all-comments">
                 {comments.length > 5 && (
@@ -19,7 +29,7 @@ class CardComments extends React.Component {
                     </p>
                 )}
                 {(comments.length > 0) && comments.map((comment, index) => {
-                    if (this.state.isFolded && comments.length - index > 5) {
+                    if (isFolded && initCommentsLength - index > 5) {
                         return null  // 舊的留言不渲染
                     }
                     return (

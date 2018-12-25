@@ -155,7 +155,6 @@ class SocialCard extends React.Component {
             const isLiked = post.likes.find(
                 client => client.userID === this.state.currentUserID
             ) ? true : false
-
             // 用伺服器的資料更新狀態
             this.setState(() => ({
                 postID: post.id,
