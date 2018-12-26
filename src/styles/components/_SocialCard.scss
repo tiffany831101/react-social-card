@@ -2,12 +2,25 @@
     background-color: white;
     color: $dark-grey;
     padding: $m-minus-size;
+    border: 0.1rem solid darken($light-grey, 4%);
+    border-left: none;
+    border-right: none;
+    margin: $s-size auto 0 auto;
 }
 
-// 平板（直立）
+.post-wrapper__first-post {
+    margin: 0 auto;
+    border-top: none;
+}
+
+// 平板尺寸（直立）以上
 @media only screen and (min-width: 600px) {
     .post-wrapper {
         max-width: 500px;
-        margin: $s-size auto;
+        border: 0.1rem solid darken($light-grey, 4%);
+    }
+
+    .post-wrapper__first-post {
+        margin: $s-size auto 0 auto;
     }
 }
