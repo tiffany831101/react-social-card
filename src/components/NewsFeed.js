@@ -7,6 +7,7 @@ class NewsFeed extends React.Component {
     state = {
         // 頁面狀態
         isLoading: null,
+        isRequesting: null,
         loadingError: null,
         // 使用者狀態
         currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
@@ -30,12 +31,37 @@ class NewsFeed extends React.Component {
             return err
         }
     }
+    handleMorePosts = async () => {
+        // 狀態 -> 下載資料中
+        this.setState(() => ({isRequesting: true}))
+
+        try {
+            // 跟伺服器要資料
+            const {postsFromServer} = this.state
+            const queryString = `?_start=${postsFromServer.length}&_end=${postsFromServer.length+20}`
+            const requestResult = await this.sendRequest(`//localhost:3000/posts${queryString}`)
+            // 狀態：讀取完畢、更新陣列
+            this.setState(prevState => ({
+                isRequesting: false,
+                loadingError: false,
+                postsFromServer: [
+                    ...prevState.postsFromServer,
+                    ...requestResult
+                ]
+            }))
+        } catch(err) {
+            console.log(err)
+            // 狀態 -> 發生錯誤
+            this.setState(() => ({isRequesting: false, loadingError: true}))
+            return err
+        }
+    }
     async componentDidMount() {
         // 狀態 -> 讀取中
         this.setState(() => ({isLoading: true}))
         try {
             // 第一次渲染時從伺服器拿資料
-            const requestResult = await this.sendRequest('//localhost:3000/posts')
+            const requestResult = await this.sendRequest('//localhost:3000/posts?_start=0&_end=20')
             const posts = [...requestResult].sort((a, b) => (
                 b.publishedAt - a.publishedAt   // 文章順序：新 -> 舊
             ))
@@ -92,6 +118,18 @@ class NewsFeed extends React.Component {
                             />
                         )
                     })}
+                    <p
+                        style={{
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            textAlign: 'center',
+                            color: '#4868ad',
+                            maxWidth: '500px',
+                        }}
+                        onClick={this.handleMorePosts}
+                    >
+                        {this.state.isRequesting ? '讀取中' : '點我載入更多貼文'}
+                    </p>
                 </div>
             )   // End of return()
         }   // End of else
