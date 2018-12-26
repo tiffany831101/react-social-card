@@ -46,10 +46,6 @@ class CardInput extends React.Component {
             this.props.attemptingToType) {
             this.textArea.current.focus()
         }
-        // 送出留言後畫面自動保持在最底部
-        if (!this.state.inputValue && prevState.inputValue) {
-            this.textArea.current.scrollIntoView()
-        }
     }
     render() {
         return (

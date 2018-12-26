@@ -3,11 +3,16 @@ import SingleComment from './SingleComment'
 
 class CardComments extends React.Component {
     state = {
-        isFolded: true,
-        initCommentsLength: 0
+        isFolded: null,
+        initCommentsLength: null
     }
-    componentDidMount() {
-        this.setState(() => ({initCommentsLength: this.props.comments.length}))
+    componentDidUpdate() {
+        if (typeof this.state.initCommentsLength !== 'number') {
+            this.setState(() => ({
+                isFolded: (this.props.comments.length > 5) ? true : false,
+                initCommentsLength: this.props.comments.length
+            }))
+        }
     }
     render() {
         const {
@@ -19,7 +24,7 @@ class CardComments extends React.Component {
         const {isFolded, initCommentsLength} = this.state
         return (
             <div className="all-comments">
-                {comments.length > 5 && (
+                {(comments.length > 5 && isFolded) && (
                     <p
                         className="all-comments__unfold"
                         style={{display: this.state.isFolded || 'none'}}

@@ -20,25 +20,10 @@ class SocialCard extends React.Component {
         // 使用者狀態
         attemptingToType: false,
     }
-    sendRequest = async (url, method=null, data=null) => {
-        try {
-            const resp = (!method && !data) ? await fetch(url) :
-                await fetch(url, {
-                    method,
-                    body: JSON.stringify(data),
-                    headers:{'Content-Type': 'application/json'}
-                })
-            if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-            return await resp.json()
-        } catch(err) {
-            console.log(err)
-            this.setState(() => ({isLoading: false, loadingError: true}))
-            return err
-        }
-    }
     handleLikePost = async () => {
         // 更新按讚的人
-        const {postIsLiked, postLikes, currentUserID, currentUserName} = this.state
+        const {postIsLiked, postLikes} = this.state
+        const {currentUserID, currentUserName, post: {postID}} = this.props
         const updatedPostLikes = postIsLiked ?
             // 已按讚 -> 收回讚
             [...postLikes].filter(client => client.userID !== currentUserID) :
@@ -51,7 +36,7 @@ class SocialCard extends React.Component {
             postLikes: updatedPostLikes
         }))
 
-        this.sendRequest(
+        this.props.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {likes: updatedPostLikes}
@@ -59,7 +44,7 @@ class SocialCard extends React.Component {
     }
     handleAddComment = async (text) => {
         // 新增一則留言到複製的留言陣列裡面
-        const {currentUserName, currentUserID} = this.state
+        const {currentUserID, currentUserName, post: {postID}} = this.props
         const updatedPostComments = [
             ...this.state.postComments, {
             id: uuid(),
@@ -73,7 +58,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        this.sendRequest(
+        this.props.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}
@@ -82,6 +67,7 @@ class SocialCard extends React.Component {
     handleDeleteComment = async (commentID) => {
         // 從複製的留言陣列裡移除 ID 和 commentID 相同的留言
         const {postComments} = this.state
+        const {postID} = this.props.post
         const updatedPostComments = [...postComments].filter(
             comment => comment.id !== commentID
         )
@@ -89,7 +75,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        this.sendRequest(
+        this.props.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}
@@ -97,7 +83,8 @@ class SocialCard extends React.Component {
     }
     handleLikeComment = async (commentID) => {
         // 複製留言陣列，找出符合 commentID 的留言
-        const {postComments, currentUserName, currentUserID} = this.state
+        const {postComments} = this.state
+        const {currentUserID, currentUserName, post: {postID}} = this.props
         const updatedPostComments = [...postComments]
         const comment = updatedPostComments.find(obj => obj.id === commentID)
         const commentIsLiked = comment.likes.find(
@@ -119,7 +106,7 @@ class SocialCard extends React.Component {
         this.setState(() => ({postComments: updatedPostComments}))
 
         // 上傳新的留言陣列
-        this.sendRequest(
+        this.props.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
             {comments: updatedPostComments}

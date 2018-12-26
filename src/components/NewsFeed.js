@@ -88,6 +88,7 @@ class NewsFeed extends React.Component {
                                 currentUserID={this.state.currentUserID}
                                 currentUserName={this.state.currentUserName}
                                 post={restructuredPost}
+                                sendRequest={this.sendRequest}
                             />
                         )
                     })}
