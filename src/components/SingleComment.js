@@ -51,9 +51,9 @@ class SingleComment extends React.Component {
                         </span>
                     )}
                     </div>
-                    <p
+                    <div
                         className="comment-action"
-                        style={{display: this.state.confirmDelete ? 'none' : 'block'}}
+                        style={{display: this.state.confirmDelete ? 'none' : 'flex'}}
                     >
                         <span
                             className={isLiked ?
@@ -71,15 +71,18 @@ class SingleComment extends React.Component {
                         >
                             隱藏
                         </span>
-                        {comment.authorID === currentUserID && <span>．</span>}
-                        {comment.authorID === currentUserID && (<span
-                            className="comment-action__delete"
-                            onClick={() => {
-                                this.setState(() => ({confirmDelete: true}))
-                            }}
-                        >
-                            刪除
-                        </span>
+                        {comment.authorID === currentUserID && (
+                            <React.Fragment>
+                                <span>．</span>
+                                <span
+                                    className="comment-action__delete"
+                                    onClick={() => {
+                                        this.setState(() => ({confirmDelete: true}))
+                                    }}
+                                >
+                                    刪除
+                                </span>
+                            </React.Fragment>
                         )}
                         <span>．</span>
                         <span
@@ -88,7 +91,16 @@ class SingleComment extends React.Component {
                         >
                             {moment.unix(comment.publishedAt).fromNow()}
                         </span>
-                    </p>
+                        {(comment.likes.length > 0) && (
+                            <div className="comnment-action__inline-like-count">
+                                <span>．</span>
+                                <span>
+                                    <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
+                                    <span>{comment.likes.length}</span>
+                                </span>
+                            </div>
+                        )}
+                    </div>
                     <p
                         className="comment-action"
                         style={{display: this.state.confirmDelete ? 'block' : 'none'}}
@@ -96,7 +108,6 @@ class SingleComment extends React.Component {
                         <React.Fragment>
                             <span>確定要刪除留言？</span>
                             <span
-                                // style={{textDecoration: 'underline'}}
                                 className="comment-action__delete"
                                 onClick={() => {handleDeleteComment(comment.id)}}
                             >
@@ -104,7 +115,6 @@ class SingleComment extends React.Component {
                             </span>
                             <span>．</span>
                             <span
-                                // style={{textDecoration: 'underline'}}
                                 className="comment-action__cancel"
                                 onClick={() => {this.setState(() => ({confirmDelete: false}))}}
                             >

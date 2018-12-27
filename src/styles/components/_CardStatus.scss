@@ -8,6 +8,21 @@
     margin-right: auto;
 }
 
+.post-staus__like-count--expanded {
+    display: none;
+}
+
 .post-status__comment-count, .post-status__share-count {
     margin-left: $tiny-size;
+}
+
+// 平板尺寸（直立）以上
+@media only screen and (min-width: 600px) {
+    .post-staus__like-count--expanded {
+        display: initial;
+    }
+
+    .post-status__like-count-text {
+        display: none;
+    }
 }
