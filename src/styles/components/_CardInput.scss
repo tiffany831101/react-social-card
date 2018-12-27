@@ -1,9 +1,18 @@
-.user-comment {
-    padding-top: 0.7rem;
+.user-comment, .user-post {
     display: flex;
 }
 
-.user-comment__user-avatar {
+.header-above-user-input {
+    display: none;
+}
+
+.user-post {
+    padding: $s-size;
+    background-color: white;
+    align-items: baseline;
+}
+
+.user-comment__user-avatar, .user-post__user-avatar {
     height: $l-size;
     width: $l-size;
     background-color: $fb-blue;
@@ -14,17 +23,37 @@
     margin-right: $tiny-size;
 }
 
-.user-comment__input {
+.user-comment__input, .user-post__input {
     resize: none;   // 不給調整大小
     flex: 1;
     font-size: $m-size;
     color: $dark-grey;
-    padding: 0.65rem 0.9rem;
+    padding: 0.65rem $xs-size;
     border: none;
+}
+
+.user-comment__input {
     border-radius: $m-minus-size;
     background-color: $light-grey;
 }
 
-.user-comment__input:focus {
+.user-post__input {
+    font-size: $m-size;
+}
+
+.user-comment__input:focus, .user-post__input:focus {
     outline: none;
+}
+
+// 平板尺寸（直立）以上
+@media only screen and (min-width: 500px) {
+    .header-above-user-input {
+        display: block;
+        margin: $xs-size 0 0 0;
+        padding: 0.4rem 1.2rem;
+        background-color: #f5f6f7;
+        border: 0.1rem solid #dde1e5;
+        border-left: none;
+        border-right: none;
+    }
 }

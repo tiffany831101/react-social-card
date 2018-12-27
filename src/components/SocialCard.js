@@ -122,7 +122,6 @@ class SocialCard extends React.Component {
     }
     render() {
         const {
-            firstPost,
             currentUserID,
             currentUserName,
             post: {
@@ -135,12 +134,7 @@ class SocialCard extends React.Component {
             }
         } = this.props
         return (
-            <div
-                className={
-                    firstPost ?
-                    'post-wrapper post-wrapper__first-post' :
-                    'post-wrapper'
-                }>
+            <div className="post-wrapper">
                 <CardHead
                     authorName={postAuthorName}
                     authorID={postAuthorID}
@@ -172,9 +166,10 @@ class SocialCard extends React.Component {
                     handleLikeComment={this.handleLikeComment}
                 />
                 <CardInput
+                    inputType='comment'
                     currentUserName={currentUserName}
                     currentUserID={currentUserID}
-                    handleAddComment={this.handleAddComment}
+                    handleUserSubmit={this.handleAddComment}
                     attemptingToType={this.state.attemptingToType}
                     startTyping={() => {
                         this.setState(() => ({attemptingToType: true}))

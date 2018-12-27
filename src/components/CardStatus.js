@@ -26,17 +26,19 @@ const CardStatus = ({isLiked, likes, commentCount, shareCount}) => (
     <div>
         {(likes.length + commentCount + shareCount > 0) && (
             <div className="post-status">
-                {(likes.length > 0) && (
-                    <p className="post-staus__like-count">
-                        <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
-                        <span className="post-status__like-count-text">{likes.length}</span>
-                        <span
-                            className="post-staus__like-count post-staus__like-count--expanded"
-                        >
-                            {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
-                        </span>
-                    </p>
-                )}
+                <p className={
+                    (likes.length > 0) ?
+                    'post-status__like-count' :
+                    'post-status__like-count post-status__like-count--hidden'
+                }>
+                    <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
+                    <span className="post-status__like-count-text">{likes.length}</span>
+                    <span
+                        className="post-status__like-count post-status__like-count--expanded"
+                    >
+                        {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
+                    </span>
+                </p>
                 {(commentCount > 0) && (
                     <p className="post-status__comment-count">
                         <span>{`${commentCount}則留言`}</span>

@@ -4,11 +4,11 @@
     display: flex;
 }
 
-.post-staus__like-count {
+.post-status__like-count {
     margin-right: auto;
 }
 
-.post-staus__like-count--expanded {
+.post-status__like-count--expanded {
     display: none;
 }
 
@@ -16,9 +16,13 @@
     margin-left: $tiny-size;
 }
 
+.post-status__like-count--hidden {
+    visibility: hidden;
+}
+
 // 平板尺寸（直立）以上
-@media only screen and (min-width: 600px) {
-    .post-staus__like-count--expanded {
+@media only screen and (min-width: 500px) {
+    .post-status__like-count--expanded {
         display: initial;
     }
 
