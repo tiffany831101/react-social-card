@@ -41,7 +41,7 @@ class NewsFeed extends React.Component {
             const url = '//localhost:3000/posts'
             const [start, end] = [postsFromServer.length, postsFromServer.length + 20]
             const queryString = `_sort=publishedAt&_order=desc&_start=${start}&_end=${end}`
-            const requestResult = await this.sendRequest(`${url}?${queryString}`)
+            const posts = await this.sendRequest(`${url}?${queryString}`)
 
             // 狀態：讀取完畢、更新陣列
             this.setState(prevState => ({
@@ -49,14 +49,13 @@ class NewsFeed extends React.Component {
                 loadingError: false,
                 postsFromServer: [
                     ...prevState.postsFromServer,
-                    ...requestResult
+                    ...posts
                 ]
             }))
         } catch(err) {
             console.log(err)
             // 狀態 -> 發生錯誤
             this.setState(() => ({isRequesting: false, loadingError: true}))
-            return err
         }
     }
     async componentDidMount() {
@@ -65,11 +64,9 @@ class NewsFeed extends React.Component {
         try {
             // 第一次渲染時從伺服器拿資料
             const url = '//localhost:3000/posts'
+            // 伺服器先「由新到舊」排序文章，之後再回傳最前面 20 筆
             const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=20'
-            const requestResult = await this.sendRequest(`${url}?${queryString}`)
-            const posts = [...requestResult].sort((a, b) => (
-                b.publishedAt - a.publishedAt   // 文章順序：新 -> 舊
-            ))
+            const posts = await this.sendRequest(`${url}?${queryString}`)
             // 狀態 -> 讀取完畢、無錯誤、更新貼文
             this.setState(() => ({
                 isLoading: false,
@@ -80,7 +77,6 @@ class NewsFeed extends React.Component {
             console.log(err)
             // 狀態 -> 發生錯誤
             this.setState(() => ({isLoading: false, loadingError: true}))
-            return err
         }
     }
     render() {

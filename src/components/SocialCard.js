@@ -36,6 +36,7 @@ class SocialCard extends React.Component {
             postLikes: updatedPostLikes
         }))
 
+        // 上傳新的按讚陣列
         this.props.sendRequest(
             `//localhost:3000/posts/${postID}`,
             'PATCH',
