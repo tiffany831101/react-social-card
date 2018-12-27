@@ -38,8 +38,11 @@ class NewsFeed extends React.Component {
         try {
             // 跟伺服器要資料
             const {postsFromServer} = this.state
-            const queryString = `?_start=${postsFromServer.length}&_end=${postsFromServer.length+20}`
-            const requestResult = await this.sendRequest(`//localhost:3000/posts${queryString}`)
+            const url = '//localhost:3000/posts'
+            const [start, end] = [postsFromServer.length, postsFromServer.length + 20]
+            const queryString = `_sort=publishedAt&_order=desc&_start=${start}&_end=${end}`
+            const requestResult = await this.sendRequest(`${url}?${queryString}`)
+
             // 狀態：讀取完畢、更新陣列
             this.setState(prevState => ({
                 isRequesting: false,
@@ -61,7 +64,9 @@ class NewsFeed extends React.Component {
         this.setState(() => ({isLoading: true}))
         try {
             // 第一次渲染時從伺服器拿資料
-            const requestResult = await this.sendRequest('//localhost:3000/posts?_start=0&_end=20')
+            const url = '//localhost:3000/posts'
+            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=20'
+            const requestResult = await this.sendRequest(`${url}?${queryString}`)
             const posts = [...requestResult].sort((a, b) => (
                 b.publishedAt - a.publishedAt   // 文章順序：新 -> 舊
             ))
