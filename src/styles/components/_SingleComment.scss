@@ -74,10 +74,13 @@
     margin: 0;
     padding: 0.2rem 0 0.2rem 0.9rem;
     font-size: $s-size;
-    display: flex;
 }
 
-.comment-action__like:hover, .comment-action__comment:hover, .comment-action__hide:hover, .comment-action__delete:hover {
+.comment-action__like:hover,
+.comment-action__comment:hover,
+.comment-action__hide:hover,
+.comment-action__delete:hover,
+.comment-action__cancel:hover {
     cursor: pointer;
     text-decoration: underline;
 }
@@ -93,8 +96,4 @@
 
 .comment-action__delete {
     color: $red;
-}
-
-.comment-action__timestamp {
-    color: $grey;
 }

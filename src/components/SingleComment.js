@@ -5,7 +5,8 @@ moment.locale('zh-tw')
 
 class SingleComment extends React.Component {
     state = {
-        isHidden: false
+        isHidden: false,
+        confirmDelete: false
     }
     handleHideComment = () => {
         this.setState(() => ({isHidden: true}))
@@ -50,7 +51,10 @@ class SingleComment extends React.Component {
                         </span>
                     )}
                     </div>
-                    <p className="comment-action">
+                    <p
+                        className="comment-action"
+                        style={{display: this.state.confirmDelete ? 'none' : 'block'}}
+                    >
                         <span
                             className={isLiked ?
                                 "comment-action__like comment-action__like--liked" :
@@ -70,7 +74,9 @@ class SingleComment extends React.Component {
                         {comment.authorID === currentUserID && <span>．</span>}
                         {comment.authorID === currentUserID && (<span
                             className="comment-action__delete"
-                            onClick={() => {handleDeleteComment(comment.id)}}
+                            onClick={() => {
+                                this.setState(() => ({confirmDelete: true}))
+                            }}
                         >
                             刪除
                         </span>
@@ -82,6 +88,29 @@ class SingleComment extends React.Component {
                         >
                             {moment.unix(comment.publishedAt).fromNow()}
                         </span>
+                    </p>
+                    <p
+                        className="comment-action"
+                        style={{display: this.state.confirmDelete ? 'block' : 'none'}}
+                    >
+                        <React.Fragment>
+                            <span>確定要刪除留言？</span>
+                            <span
+                                // style={{textDecoration: 'underline'}}
+                                className="comment-action__delete"
+                                onClick={() => {handleDeleteComment(comment.id)}}
+                            >
+                                確定
+                            </span>
+                            <span>．</span>
+                            <span
+                                // style={{textDecoration: 'underline'}}
+                                className="comment-action__cancel"
+                                onClick={() => {this.setState(() => ({confirmDelete: false}))}}
+                            >
+                                取消
+                            </span>
+                        </React.Fragment>
                     </p>
                 </div>
             </div>
