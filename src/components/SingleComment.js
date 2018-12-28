@@ -16,7 +16,8 @@ class SingleComment extends React.Component {
             comment,
             currentUserID,
             handleDeleteComment,
-            handleLikeComment
+            handleLikeComment,
+            postID
         } = this.props
         const isLiked = comment.likes.find(client => client.userID === currentUserID)
         return (
@@ -60,7 +61,7 @@ class SingleComment extends React.Component {
                                 "comment-action__like comment-action__like--liked" :
                                 "comment-action__like"
                             }
-                            onClick={() => {handleLikeComment(comment.id)}}
+                            onClick={() => {handleLikeComment(comment.id, postID)}}
                         >
                             讚
                         </span>
@@ -106,19 +107,19 @@ class SingleComment extends React.Component {
                         style={{display: this.state.confirmDelete ? 'block' : 'none'}}
                     >
                         <React.Fragment>
-                            <span>確定要刪除留言？</span>
-                            <span
-                                className="comment-action__delete"
-                                onClick={() => {handleDeleteComment(comment.id)}}
-                            >
-                                確定
-                            </span>
-                            <span>．</span>
+                            <span style={{color: '#1d2129'}}>確定要刪除留言？</span>
                             <span
                                 className="comment-action__cancel"
                                 onClick={() => {this.setState(() => ({confirmDelete: false}))}}
                             >
                                 取消
+                            </span>
+                            <span>．</span>
+                            <span
+                                className="comment-action__delete"
+                                onClick={() => {handleDeleteComment(comment.id, postID)}}
+                            >
+                                確定
                             </span>
                         </React.Fragment>
                     </p>

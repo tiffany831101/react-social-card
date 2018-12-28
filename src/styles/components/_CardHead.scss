@@ -32,3 +32,12 @@
     color: $grey;
     font-size: $s-size;
 }
+
+.post-meta__delete-icon {
+    color: darken($light-grey, 20%);
+}
+
+.post-meta__delete-icon:hover {
+    cursor: pointer;
+    color: $grey;
+}

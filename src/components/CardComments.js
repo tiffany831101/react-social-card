@@ -6,20 +6,19 @@ class CardComments extends React.Component {
         isFolded: null,
         initCommentsLength: null
     }
-    componentDidUpdate() {
-        if (typeof this.state.initCommentsLength !== 'number') {
-            this.setState(() => ({
-                isFolded: (this.props.comments.length > 5) ? true : false,
-                initCommentsLength: this.props.comments.length
-            }))
-        }
+    componentDidMount() {
+        this.setState(() => ({
+            isFolded: (this.props.comments.length > 5) ? true : false,
+            initCommentsLength: this.props.comments.length
+        }))
     }
     render() {
         const {
             comments,
             currentUserID,
             handleDeleteComment,
-            handleLikeComment
+            handleLikeComment,
+            postID
         } = this.props
         const {isFolded, initCommentsLength} = this.state
         return (
@@ -44,6 +43,7 @@ class CardComments extends React.Component {
                             currentUserID={currentUserID}
                             handleDeleteComment={handleDeleteComment}
                             handleLikeComment={handleLikeComment}
+                            postID={postID}
                         />
                     )
                 })}

@@ -19,7 +19,7 @@ class CardInput extends React.Component {
 
             // 有輸入內容才送出留言，沒內容的話不會有反應
             if (textInput) {
-                this.props.handleUserSubmit(textInput)
+                this.props.handleUserSubmit(textInput, this.props.postID)
                 this.setState(() => ({inputValue: ''})) // 清空文字
                 if (this.state.inputRows > 1) {
                     this.setState(() => ({inputRows: 1}))    // 重置高度
@@ -27,7 +27,7 @@ class CardInput extends React.Component {
             }
         }
     }
-    adjustInputHeight = (event) => {
+    adjustInputHeight = () => {
         this.textArea.current.style.height = '2.8rem' // 重置高度
 
         const heightPerLine = 15 * 1.15 // 行高

@@ -3,7 +3,14 @@ import moment from 'moment'
 import 'moment/locale/zh-tw'
 moment.locale('zh-tw')
 
-const CardHead = ({authorName, authorID, publishedAt}) => (
+const CardHead = ({
+    authorName,
+    authorID,
+    publishedAt,
+    currentUserID,
+    postID,
+    handleDeletePost
+}) => (
     <div className="post-meta">
         <a className="post-meta__author-avatar" href="#">
             {authorName.slice(0, 1).toUpperCase()}
@@ -19,6 +26,14 @@ const CardHead = ({authorName, authorID, publishedAt}) => (
                 {moment.unix(publishedAt).format('MMMDo')}
             </span>
         </div>
+        {authorID === currentUserID && (
+            <div style={{marginLeft: 'auto'}}>
+                <i
+                    className="fas fa-times post-meta__delete-icon"
+                    onClick={() => {handleDeletePost(postID)}}
+                />
+            </div>
+        )}
     </div>
 )
 

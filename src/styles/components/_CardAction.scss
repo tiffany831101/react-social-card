@@ -28,6 +28,10 @@
     filter: brightness(150%);
 }
 
+.post-action__share--disabled:hover {
+    cursor: not-allowed;
+}
+
 .post-action__like:hover, .post-action__comment:hover {
     background-color: lighten($light-grey, 5%);
     cursor: pointer;
