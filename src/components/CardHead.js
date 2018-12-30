@@ -3,7 +3,7 @@ import moment from 'moment'
 import 'moment/locale/zh-tw'
 moment.locale('zh-tw')
 
-const CardHead = ({
+const CardHead = React.memo(({
     authorName,
     authorID,
     publishedAt,
@@ -35,6 +35,6 @@ const CardHead = ({
             </div>
         )}
     </div>
-)
+))
 
 export default CardHead

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CardBody = ({text, imageURL}) => (
+const CardBody = React.memo(({text, imageURL}) => (
     <div>
         <p className="post-content__text">{text}</p>
         {imageURL && (
@@ -15,6 +15,6 @@ const CardBody = ({text, imageURL}) => (
             />
         )}
     </div>
-)
+))
 
 export default CardBody

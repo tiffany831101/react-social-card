@@ -22,7 +22,7 @@ const whoLikesIt = (arr, meIncluded=false) => {
     }
 }
 
-const CardStatus = ({isLiked, likes, commentCount, shareCount}) => (
+const CardStatus = React.memo(({isLiked, likes, commentCount, shareCount}) => (
     <div>
         {(likes.length + commentCount + shareCount > 0) && (
             <div className="post-status">
@@ -52,6 +52,6 @@ const CardStatus = ({isLiked, likes, commentCount, shareCount}) => (
             </div>
         )}
     </div>
-)
+))
 
 export default CardStatus

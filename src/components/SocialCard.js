@@ -21,7 +21,18 @@ class SocialCard extends React.Component {
         const {
             currentUserID,
             currentUserName,
-            post,
+
+            postID,
+            postAuthorID,
+            postAuthorName,
+            postPublishedAt,
+            postText,
+            postImageURL,
+            postLikes,
+            postComments,
+            postShares,
+            postIsLiked,
+
             handleLikePost,
             handleDeletePost,
             handleDeleteComment,
@@ -29,41 +40,40 @@ class SocialCard extends React.Component {
             handleAddComment
         } = this.props
 
-        const postIsLiked = post.likes.find(
-            client => client.userID === currentUserID
-        ) ? true : false
+        // const postIsLiked = postLikes.find(
+        //     client => client.userID === currentUserID
+        // ) ? true : false
 
         return (
             <div className="post-wrapper">
                 <CardHead
-                    postID={post.id}
-                    authorID={post.authorID}
-                    authorName={post.authorName}
-                    publishedAt={post.publishedAt}
+                    postID={postID}
+                    authorID={postAuthorID}
+                    authorName={postAuthorName}
+                    publishedAt={postPublishedAt}
                     currentUserID={currentUserID}
                     handleDeletePost={handleDeletePost}
                 />
                 <CardBody
-                    text={post.text}
-                    imageURL={post.imageURL}
+                    text={postText}
+                    imageURL={postImageURL}
                 />
                 <CardStatus
                     isLiked={postIsLiked}
-                    likes={post.likes}
-                    commentCount={post.comments.length}
-                    shareCount={post.shares.length}
+                    likes={postLikes}
+                    commentCount={postComments.length}
+                    shareCount={postShares.length}
                 />
                 <CardAction
                     isLiked={postIsLiked}
-                    postID={post.id}
+                    postID={postID}
                     handleLikePost={handleLikePost}
                     startTyping={this.startTyping}
                 />
                 <CardComments
-                    comments={post.comments}
-                    currentUserName={currentUserName}
+                    comments={postComments}
                     currentUserID={currentUserID}
-                    postID={post.id}
+                    postID={postID}
                     handleDeleteComment={handleDeleteComment}
                     handleLikeComment={handleLikeComment}
                 />
@@ -71,7 +81,7 @@ class SocialCard extends React.Component {
                     inputType='comment'
                     currentUserName={currentUserName}
                     currentUserID={currentUserID}
-                    postID={post.id}
+                    postID={postID}
                     handleUserSubmit={handleAddComment}
                     attemptingToType={this.state.attemptingToType}
                     startTyping={this.startTyping}

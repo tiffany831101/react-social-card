@@ -3,7 +3,7 @@ import moment from 'moment'
 import 'moment/locale/zh-tw'
 moment.locale('zh-tw')
 
-class SingleComment extends React.Component {
+class SingleComment extends React.PureComponent {
     state = {
         isHidden: false,
         confirmDelete: false
@@ -13,13 +13,18 @@ class SingleComment extends React.Component {
     }
     render() {
         const {
-            comment,
+            commentID,
+            commentText,
+            commentAuthorID,
+            commentAuthorName,
+            commentPublishedAt,
+            commentLikes,
+            commentIsLiked,
             currentUserID,
             handleDeleteComment,
             handleLikeComment,
             postID
         } = this.props
-        const isLiked = comment.likes.find(client => client.userID === currentUserID)
         return (
             <div
                 className={
@@ -27,28 +32,28 @@ class SingleComment extends React.Component {
                 }
             >
                 <a className="comment__author-avatar" href="#">
-                    {comment.authorName.slice(0, 1).toUpperCase()}
+                    {commentAuthorName.slice(0, 1).toUpperCase()}
                 </a>
                 <div>
                     <div className="comment__body">
                     <p className="comment__text-section">
                         <a className="comment__author-name" href="#">
-                            {comment.authorName}
+                            {commentAuthorName}
                         </a>
-                        <span className="comment__text">{comment.text}</span>
+                        <span className="comment__text">{commentText}</span>
                     </p>
-                    {(comment.likes.length > 0) ? (
+                    {(commentLikes.length > 0) ? (
                         <span
                             className="comment__like-count"
-                            title={comment.likes.map(obj => obj.userName).join('\n')}
+                            title={commentLikes.map(obj => obj.userName).join('\n')}
                         >
                             <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
-                            <span>{comment.likes.length}</span>
+                            <span>{commentLikes.length}</span>
                         </span>
                     ) : (
                         <span className="comment__like-count comment__like-count--hidden">
                             <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
-                            <span>{comment.likes.length}</span>
+                            <span>{commentLikes.length}</span>
                         </span>
                     )}
                     </div>
@@ -57,11 +62,11 @@ class SingleComment extends React.Component {
                         style={{display: this.state.confirmDelete ? 'none' : 'flex'}}
                     >
                         <span
-                            className={isLiked ?
+                            className={commentIsLiked ?
                                 "comment-action__like comment-action__like--liked" :
                                 "comment-action__like"
                             }
-                            onClick={() => {handleLikeComment(comment.id, postID)}}
+                            onClick={() => {handleLikeComment(commentID, postID)}}
                         >
                             讚
                         </span>
@@ -72,7 +77,7 @@ class SingleComment extends React.Component {
                         >
                             隱藏
                         </span>
-                        {comment.authorID === currentUserID && (
+                        {commentAuthorID === currentUserID && (
                             <React.Fragment>
                                 <span>．</span>
                                 <span
@@ -88,16 +93,16 @@ class SingleComment extends React.Component {
                         <span>．</span>
                         <span
                             className="comment-action__timestamp"
-                            title={moment.unix(comment.publishedAt).format('LLL')}
+                            title={moment.unix(commentPublishedAt).format('LLL')}
                         >
-                            {moment.unix(comment.publishedAt).fromNow()}
+                            {moment.unix(commentPublishedAt).fromNow()}
                         </span>
-                        {(comment.likes.length > 0) && (
+                        {(commentLikes.length > 0) && (
                             <div className="comnment-action__inline-like-count">
                                 <span>．</span>
                                 <span>
                                     <i className="fab fa-gratipay" style={{color: '#5b8cf8'}} />
-                                    <span>{comment.likes.length}</span>
+                                    <span>{commentLikes.length}</span>
                                 </span>
                             </div>
                         )}
@@ -117,7 +122,7 @@ class SingleComment extends React.Component {
                             <span>．</span>
                             <span
                                 className="comment-action__delete"
-                                onClick={() => {handleDeleteComment(comment.id, postID)}}
+                                onClick={() => {handleDeleteComment(commentID, postID)}}
                             >
                                 確定
                             </span>

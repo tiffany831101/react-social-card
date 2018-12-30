@@ -13,7 +13,7 @@ class NewsFeed extends React.Component {
     state = {
         // 頁面狀態
         isLoading: null,
-        isRequesting: null,
+        // isRequesting: null,
         loadingError: null,
         // 使用者狀態
         currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
@@ -23,7 +23,7 @@ class NewsFeed extends React.Component {
         postsFromServer: []
     }
     sendRequest = async (url, method='GET', data=null) => {
-        this.setState(() => ({isRequesting: true}))
+        // this.setState(() => ({isRequesting: true}))  // Causing re-rendering
         try {
             const requestOptions = {
                 method,
@@ -36,13 +36,13 @@ class NewsFeed extends React.Component {
                     body: JSON.stringify(data)
                 })
             if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-            this.setState(() => ({isRequesting: false}))
+            // this.setState(() => ({isRequesting: false})) // Causing re-rendering
             return await resp.json()
         } catch(err) {
             console.log(err)
             this.setState(() => ({
-                loadingError: true,
-                isRequesting: false
+                // isRequesting: false, // Causing re-rendering
+                loadingError: true
             }))
         }
     }
@@ -146,7 +146,7 @@ class NewsFeed extends React.Component {
         }
         const updatedPosts = [...postsFromServer]
         const post = updatedPosts.find(post => post.id === postID)
-        if (post) {post.comments.push(newComment)}
+        if (post) {post.comments = [...post.comments, newComment]}
 
         // 更新狀態
         this.setState(() => ({postsFromServer: updatedPosts}))
@@ -179,16 +179,22 @@ class NewsFeed extends React.Component {
     }
     handleLikeComment = async (commentID, postID) => {
         const {postsFromServer, currentUserID, currentUserName} = this.state
-        // 複製一個新的陣列再修改
-        const updatedPosts = [...postsFromServer]
-        const post = updatedPosts.find(post => post.id === postID)
-        const comment = post.comments.find(comment => comment.id === commentID)
+
+        // 複製一個新的陣列，再複製目標貼文，最後修改裡面內容
+        const originalPost = [...postsFromServer].find(post => post.id === postID)
+        const updatedPost = JSON.parse(JSON.stringify(originalPost))    // Deep copy
+        const comment = updatedPost.comments.find(comment => comment.id === commentID)
         const isLiked = comment.likes.find(client => client.userID === currentUserID)
         comment.likes = isLiked ?
             // 已按讚 -> 取消讚
             comment.likes.filter(client => client.userID !== currentUserID) :
             // 未按讚 -> 已按讚
             [...comment.likes, {userID: currentUserID, userName: currentUserName}]
+
+        // 創造一個新的陣列，把目標貼文置換成複製＋修改過後的貼文
+        const updatedPosts = [...postsFromServer].map(
+            post => (post.id === postID) ? updatedPost : post
+        )
 
         // 更新狀態
         this.setState(() => ({postsFromServer: updatedPosts}))
@@ -197,7 +203,7 @@ class NewsFeed extends React.Component {
         this.sendRequest(
             `${serverURL}/posts/${postID}`,
             'PATCH',
-            {comments: post.comments}
+            {comments: updatedPost.comments}
         )
     }
     async componentDidMount() {
@@ -208,7 +214,7 @@ class NewsFeed extends React.Component {
         try {
             // 伺服器先「由新到舊」排序文章，之後再回傳最前面 15 筆
             const url = `${serverURL}/posts`
-            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=15'
+            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=300'
             const posts = await this.sendRequest(`${url}?${queryString}`)
 
             // 伺服器連不到時會回傳 undefined
@@ -231,7 +237,14 @@ class NewsFeed extends React.Component {
             return <Loading />
         } else if (this.state.loadingError || this.state.postsFromServer.length == 0) {
             // 顯示錯誤頁面
-            return <h1 className="status-icon-container">Error</h1>
+            return (
+                <h1
+                    className="status-icon-container"
+                    style={{color: '#62676f'}}
+                >
+                    Error
+                </h1>
+            )
         } else if (this.state.postsFromServer.length > 0) {
             return (
                 <React.Fragment>
@@ -251,13 +264,39 @@ class NewsFeed extends React.Component {
                         />
                     </div>
                     <div>
-                        {this.state.postsFromServer.map((post, index) => {
+                        {this.state.postsFromServer.map(post => {
+                            const {
+                                id: postID,
+                                authorID: postAuthorID,
+                                authorName: postAuthorName,
+                                publishedAt: postPublishedAt,
+                                text: postText,
+                                imageURL: postImageURL,
+                                likes: postLikes,
+                                comments: postComments,
+                                shares: postShares
+                            } = post
+                            const postIsLiked = postLikes.find(
+                                client => client.userID === this.state.currentUserID
+                            ) ? true : false
                             return (
                                 <SocialCard
-                                    key={post.id}
+                                    key={postID}
                                     currentUserID={this.state.currentUserID}
                                     currentUserName={this.state.currentUserName}
-                                    post={post}
+                                    // post={post}
+
+                                    postID={postID}
+                                    postAuthorID={postAuthorID}
+                                    postAuthorName={postAuthorName}
+                                    postPublishedAt={postPublishedAt}
+                                    postText={postText}
+                                    postImageURL={postImageURL}
+                                    postLikes={postLikes}
+                                    postComments={postComments}
+                                    postShares={postShares}
+                                    postIsLiked={postIsLiked}
+
                                     sendRequest={this.sendRequest}
                                     handleLikePost={this.handleLikePost}
                                     handleDeletePost={this.handleDeletePost}
@@ -271,7 +310,10 @@ class NewsFeed extends React.Component {
                             style={{textAlign: 'center', color: '#4868ad'}}
                             onClick={this.handleMorePosts}
                         >
-                            {this.state.isRequesting ? <p>載入中</p> : (<p>載入更多貼文</p>)}
+                            {this.state.isRequesting ?
+                                <p style={{visibility: 'hidden'}}>載入中</p> :
+                                <p>載入更多貼文</p>
+                            }
                         </div>
                     </div>
                 </React.Fragment>

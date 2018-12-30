@@ -1,7 +1,7 @@
 import React from 'react'
 import SingleComment from './SingleComment'
 
-class CardComments extends React.Component {
+class CardComments extends React.PureComponent {
     state = {
         isFolded: null,
         initCommentsLength: null
@@ -26,7 +26,7 @@ class CardComments extends React.Component {
                 {(comments.length > 5 && isFolded) && (
                     <p
                         className="all-comments__unfold"
-                        style={{display: this.state.isFolded || 'none'}}
+                        style={{display: isFolded || 'none'}}
                         onClick={() => {this.setState(() => ({isFolded: false}))}}
                     >
                         查看其他{comments.length - 5}則留言
@@ -36,10 +36,27 @@ class CardComments extends React.Component {
                     if (isFolded && initCommentsLength - index > 5) {
                         return null  // 舊的留言不渲染
                     }
+                    const {
+                        id: commentID,
+                        text: commentText,
+                        authorID: commentAuthorID,
+                        authorName: commentAuthorName,
+                        publishedAt: commentPublishedAt,
+                        likes: commentLikes
+                    } = comment
+                    const isLiked = commentLikes.find(client => client.userID === currentUserID)
                     return (
                         <SingleComment
-                            key={comment.id}
-                            comment={comment}
+                            key={commentID}
+
+                            commentID={commentID}
+                            commentText={commentText}
+                            commentAuthorID={commentAuthorID}
+                            commentAuthorName={commentAuthorName}
+                            commentPublishedAt={commentPublishedAt}
+                            commentLikes={commentLikes}
+                            commentIsLiked={isLiked}
+
                             currentUserID={currentUserID}
                             handleDeleteComment={handleDeleteComment}
                             handleLikeComment={handleLikeComment}

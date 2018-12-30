@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CardInput extends React.Component {
+class CardInput extends React.PureComponent {
     state = {
         inputRows: 1,
         inputValue: ''

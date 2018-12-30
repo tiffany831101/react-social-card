@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CardAction = ({postID, isLiked, startTyping, handleLikePost}) => (
+const CardAction = React.memo(({postID, isLiked, startTyping, handleLikePost}) => (
     <div className="post-action">
         <div
             className={isLiked ?
@@ -24,6 +24,6 @@ const CardAction = ({postID, isLiked, startTyping, handleLikePost}) => (
             <span>分享</span>
         </div>
     </div>
-)
+))
 
 export default CardAction
