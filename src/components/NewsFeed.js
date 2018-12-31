@@ -3,6 +3,7 @@ import uuid from 'uuid/v4'
 import moment from 'moment'
 
 import Loading from './Loading'
+import LoadingError from './LoadingError'
 import CardInput from './CardInput'
 import SocialCard from './SocialCard'
 
@@ -219,12 +220,18 @@ class NewsFeed extends React.Component {
         try {
             // 伺服器先「由新到舊」排序文章，之後再回傳最前面 15 筆
             const url = `${serverURL}/posts`
-            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=15'
-            const posts = await this.sendRequest(`${url}?${queryString}`)
+            const queryString = this.props.match.params.id ?
+                `/${this.props.match.params.id}` :
+                '?_sort=publishedAt&_order=desc&_start=0&_end=15'
+            let posts = await this.sendRequest(`${url}${queryString}`)
 
             // 伺服器連不到時會回傳 undefined
             if (!posts) {throw new Error('無法建立連線')}
 
+            // 如果是直接抓某則貼文資料的話，就把物件塞進陣列
+            if (typeof posts === 'object' && !Array.isArray(posts)) {
+                posts = [posts]
+            }
             // 狀態 -> 讀取完畢、無錯誤、更新貼文
             this.setState(() => ({
                 isLoading: false,
@@ -242,28 +249,23 @@ class NewsFeed extends React.Component {
             return <Loading />
         } else if (this.state.loadingError || this.state.postsFromServer.length == 0) {
             // 顯示錯誤頁面
-            return (
-                <h1
-                    className="status-icon-container"
-                    style={{color: '#62676f'}}
-                >
-                    Error
-                </h1>
-            )
+            return <LoadingError errMsg="連線失敗" />
         } else if (this.state.postsFromServer.length > 0) {
             return (
                 <React.Fragment>
-                    <div>
-                        <CardInput
-                            inputType='post'
-                            currentUserName={this.state.currentUserName}
-                            currentUserID={this.state.currentUserID}
-                            handleUserSubmit={this.handleAddPost}
-                            attemptingToType={this.state.attemptingToType}
-                            startTyping={this.startTyping}
-                            quitTyping={this.quitTyping}
-                        />
-                    </div>
+                    {!this.props.match.params.id && (
+                        <div>
+                            <CardInput
+                                inputType='post'
+                                currentUserName={this.state.currentUserName}
+                                currentUserID={this.state.currentUserID}
+                                handleUserSubmit={this.handleAddPost}
+                                attemptingToType={this.state.attemptingToType}
+                                startTyping={this.startTyping}
+                                quitTyping={this.quitTyping}
+                            />
+                        </div>
+                    )}
                     <div>
                         {this.state.postsFromServer.map(post => {
                             const {
@@ -306,14 +308,16 @@ class NewsFeed extends React.Component {
                                 />
                             )
                         })}
-                        <div
-                            className="load-more-posts"
-                            onClick={this.handleMorePosts}
-                        >
-                            <p>
-                                {this.state.loadingTextHidden ? '載入更多貼文' : '載入中'}
-                            </p>
-                        </div>
+                        {!this.props.match.params.id && (
+                            <div
+                                className="load-more-posts"
+                                onClick={this.handleMorePosts}
+                            >
+                                <p>
+                                    {this.state.loadingTextHidden ? '載入更多貼文' : '載入中'}
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </React.Fragment>
             )   // End of return()

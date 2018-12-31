@@ -18,12 +18,6 @@
     text-decoration: none;
 }
 
-.post-meta__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
 .post-meta__author-name {
     font-weight: bold;
 }
@@ -31,6 +25,7 @@
 .post-meta__timestamp {
     color: $grey;
     font-size: $s-size;
+    display: inline-block;
 }
 
 .post-meta__delete-icon {

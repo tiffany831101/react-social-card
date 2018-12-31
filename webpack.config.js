@@ -4,7 +4,8 @@ module.exports = {
     entry: ['@babel/polyfill', './src/index.js'],
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     module: {
         rules: [{
@@ -46,6 +47,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         watchContentBase: true,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
+        historyApiFallback: true
     }
 }
