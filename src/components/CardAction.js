@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CardAction = React.memo(({postID, isLiked, startTyping, handleLikePost}) => (
+const CardAction = React.memo(({postID, postIsLiked, startTyping, handleLikePost}) => (
     <div className="post-action">
         <div
-            className={isLiked ?
+            className={postIsLiked ?
                 "post-action__like post-action__like--liked" :
                 "post-action__like"
             }

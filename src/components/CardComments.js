@@ -7,14 +7,15 @@ class CardComments extends React.PureComponent {
         initCommentsLength: null
     }
     componentDidMount() {
+        const {postComments} = this.props
         this.setState(() => ({
-            isFolded: (this.props.comments.length > 5) ? true : false,
-            initCommentsLength: this.props.comments.length
+            isFolded: (postComments.length > 5) ? true : false,
+            initCommentsLength: postComments.length
         }))
     }
     render() {
         const {
-            comments,
+            postComments,
             currentUserID,
             handleDeleteComment,
             handleLikeComment,
@@ -23,16 +24,16 @@ class CardComments extends React.PureComponent {
         const {isFolded, initCommentsLength} = this.state
         return (
             <div className="all-comments">
-                {(comments.length > 5 && isFolded) && (
+                {(postComments.length > 5 && isFolded) && (
                     <p
                         className="all-comments__unfold"
                         style={{display: isFolded || 'none'}}
                         onClick={() => {this.setState(() => ({isFolded: false}))}}
                     >
-                        查看其他{comments.length - 5}則留言
+                        查看其他{postComments.length - 5}則留言
                     </p>
                 )}
-                {(comments.length > 0) && comments.map((comment, index) => {
+                {(postComments.length > 0) && postComments.map((comment, index) => {
                     if (isFolded && initCommentsLength - index > 5) {
                         return null  // 舊的留言不渲染
                     }

@@ -13,7 +13,7 @@ class NewsFeed extends React.Component {
     state = {
         // 頁面狀態
         isLoading: null,
-        // isRequesting: null,
+        isRequesting: null,
         loadingError: null,
         // 使用者狀態
         currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
@@ -22,8 +22,10 @@ class NewsFeed extends React.Component {
         // 儲存的貼文
         postsFromServer: []
     }
+    startTyping = () => {this.setState(() => ({attemptingToType: true}))}
+    quitTyping = () => {this.setState(() => ({attemptingToType: false}))}
     sendRequest = async (url, method='GET', data=null) => {
-        // this.setState(() => ({isRequesting: true}))  // Causing re-rendering
+        this.setState(() => ({isRequesting: true}))
         try {
             const requestOptions = {
                 method,
@@ -36,14 +38,36 @@ class NewsFeed extends React.Component {
                     body: JSON.stringify(data)
                 })
             if (!resp.ok) {throw new Error(`${resp.status} ${resp.statusText}`)}
-            // this.setState(() => ({isRequesting: false})) // Causing re-rendering
+            this.setState(() => ({isRequesting: false}))
             return await resp.json()
         } catch(err) {
             console.log(err)
             this.setState(() => ({
-                // isRequesting: false, // Causing re-rendering
-                loadingError: true
+                loadingError: true,
+                isRequesting: false
             }))
+        }
+    }
+    handleMorePosts = async () => {
+        try {
+            // 跟伺服器要資料
+            const {postsFromServer} = this.state
+            const url = `${serverURL}/posts`
+            const [start, end] = [postsFromServer.length, postsFromServer.length + 15]
+            const queryString = `_sort=publishedAt&_order=desc&_start=${start}&_end=${end}`
+            const posts = await this.sendRequest(`${url}?${queryString}`)
+
+            // 伺服器連不到時會回傳 undefined
+            if (!posts) {throw new Error('無法建立連線')}
+
+            // 狀態：讀取完畢、更新陣列
+            this.setState(prevState => ({
+                postsFromServer: [...prevState.postsFromServer, ...posts]
+            }))
+        } catch(err) {
+            console.log(err)
+            // 狀態 -> 發生錯誤
+            this.setState(() => ({loadingError: true}))
         }
     }
     handleAddPost = async (text) => {
@@ -68,17 +92,17 @@ class NewsFeed extends React.Component {
         // 上傳新的留言陣列
         this.sendRequest(`${serverURL}/posts`, 'POST', newPost)
     }
-    handleDeletePost = async (id) => {
+    handleDeletePost = async (postID) => {
         try {
             // 更新狀態的貼文陣列
             this.setState(prevState => ({
                 postsFromServer: prevState.postsFromServer.filter(
-                    post => post.id !== id
+                    post => post.id !== postID
                 )
             }))
             // 上傳新的留言陣列
             const url = `${serverURL}/posts`
-            const posts = await this.sendRequest(`${url}/${id}`, 'DELETE')
+            const posts = await this.sendRequest(`${url}/${postID}`, 'DELETE')
 
             // 伺服器連不到時會回傳 undefined
             if (!posts) {throw new Error('無法建立連線')}
@@ -89,49 +113,27 @@ class NewsFeed extends React.Component {
             this.setState(() => ({loadingError: true}))
         }
     }
-    handleLikePost = async (id) => {
+    handleLikePost = async (postID) => {
         const {postsFromServer, currentUserID, currentUserName} = this.state
         // 複製一個新的陣列再修改
         const updatedPosts = [...postsFromServer]
-        const post = updatedPosts.find(post => post.id === id)
-        const isLiked = post.likes.find(client => client.userID === currentUserID)
-        post.likes = isLiked ?
+        const updatedPost = updatedPosts.find(post => post.id === postID)
+        const isLiked = updatedPost.likes.find(client => client.userID === currentUserID)
+        updatedPost.likes = isLiked ?
             // 已按讚 -> 取消讚
-            post.likes.filter(client => client.userID !== currentUserID) :
+            updatedPost.likes.filter(client => client.userID !== currentUserID) :
             // 未按讚 -> 已按讚
-            [...post.likes, {userID: currentUserID, userName: currentUserName}]
+            [...updatedPost.likes, {userID: currentUserID, userName: currentUserName}]
 
         // 更新狀態
         this.setState(() => ({postsFromServer: updatedPosts}))
 
         // 上傳新的留言陣列
         this.sendRequest(
-            `${serverURL}/posts/${id}`,
+            `${serverURL}/posts/${postID}`,
             'PATCH',
-            {likes: post.likes}
+            {likes: updatedPost.likes}
         )
-    }
-    handleMorePosts = async () => {
-        try {
-            // 跟伺服器要資料
-            const {postsFromServer} = this.state
-            const url = `${serverURL}/posts`
-            const [start, end] = [postsFromServer.length, postsFromServer.length + 15]
-            const queryString = `_sort=publishedAt&_order=desc&_start=${start}&_end=${end}`
-            const posts = await this.sendRequest(`${url}?${queryString}`)
-
-            // 伺服器連不到時會回傳 undefined
-            if (!posts) {throw new Error('無法建立連線')}
-
-            // 狀態：讀取完畢、更新陣列
-            this.setState(prevState => ({
-                postsFromServer: [...prevState.postsFromServer, ...posts]
-            }))
-        } catch(err) {
-            console.log(err)
-            // 狀態 -> 發生錯誤
-            this.setState(() => ({loadingError: true}))
-        }
     }
     handleAddComment = async (text, postID) => {
         const {currentUserID, currentUserName, postsFromServer} = this.state
@@ -214,7 +216,7 @@ class NewsFeed extends React.Component {
         try {
             // 伺服器先「由新到舊」排序文章，之後再回傳最前面 15 筆
             const url = `${serverURL}/posts`
-            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=300'
+            const queryString = '_sort=publishedAt&_order=desc&_start=0&_end=15'
             const posts = await this.sendRequest(`${url}?${queryString}`)
 
             // 伺服器連不到時會回傳 undefined
@@ -255,12 +257,8 @@ class NewsFeed extends React.Component {
                             currentUserID={this.state.currentUserID}
                             handleUserSubmit={this.handleAddPost}
                             attemptingToType={this.state.attemptingToType}
-                            startTyping={() => {
-                                this.setState(() => ({attemptingToType: true}))
-                            }}
-                            quitTyping={() => {
-                                this.setState(() => ({attemptingToType: false}))
-                            }}
+                            startTyping={this.startTyping}
+                            quitTyping={this.quitTyping}
                         />
                     </div>
                     <div>
@@ -284,7 +282,6 @@ class NewsFeed extends React.Component {
                                     key={postID}
                                     currentUserID={this.state.currentUserID}
                                     currentUserName={this.state.currentUserName}
-                                    // post={post}
 
                                     postID={postID}
                                     postAuthorID={postAuthorID}
@@ -310,10 +307,7 @@ class NewsFeed extends React.Component {
                             style={{textAlign: 'center', color: '#4868ad'}}
                             onClick={this.handleMorePosts}
                         >
-                            {this.state.isRequesting ?
-                                <p style={{visibility: 'hidden'}}>載入中</p> :
-                                <p>載入更多貼文</p>
-                            }
+                        <p>{this.state.isRequesting ? '載入中' : '載入更多貼文'}</p>
                         </div>
                     </div>
                 </React.Fragment>

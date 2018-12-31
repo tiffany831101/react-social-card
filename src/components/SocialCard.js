@@ -7,7 +7,7 @@ import CardComments from './CardComments'
 import CardInput from './CardInput'
 
 
-class SocialCard extends React.Component {
+class SocialCard extends React.PureComponent {
     state = {
         attemptingToType: false
     }
@@ -40,10 +40,6 @@ class SocialCard extends React.Component {
             handleAddComment
         } = this.props
 
-        // const postIsLiked = postLikes.find(
-        //     client => client.userID === currentUserID
-        // ) ? true : false
-
         return (
             <div className="post-wrapper">
                 <CardHead
@@ -55,23 +51,23 @@ class SocialCard extends React.Component {
                     handleDeletePost={handleDeletePost}
                 />
                 <CardBody
-                    text={postText}
-                    imageURL={postImageURL}
+                    postText={postText}
+                    postImageURL={postImageURL}
                 />
                 <CardStatus
-                    isLiked={postIsLiked}
-                    likes={postLikes}
-                    commentCount={postComments.length}
-                    shareCount={postShares.length}
+                    postIsLiked={postIsLiked}
+                    postLikes={postLikes}
+                    postCommentCount={postComments.length}
+                    postShareCount={postShares.length}
                 />
                 <CardAction
-                    isLiked={postIsLiked}
+                    postIsLiked={postIsLiked}
                     postID={postID}
                     handleLikePost={handleLikePost}
                     startTyping={this.startTyping}
                 />
                 <CardComments
-                    comments={postComments}
+                    postComments={postComments}
                     currentUserID={currentUserID}
                     postID={postID}
                     handleDeleteComment={handleDeleteComment}

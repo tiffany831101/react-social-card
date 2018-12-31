@@ -5,7 +5,7 @@ import 'normalize.css/normalize.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import './styles/styles.scss'
 
-
+// Debugging:
 // if (process.env.NODE_ENV !== 'production') {
 //   const {whyDidYouUpdate} = require('why-did-you-update');
 //   whyDidYouUpdate(React);

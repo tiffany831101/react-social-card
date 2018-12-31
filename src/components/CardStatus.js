@@ -22,31 +22,31 @@ const whoLikesIt = (arr, meIncluded=false) => {
     }
 }
 
-const CardStatus = React.memo(({isLiked, likes, commentCount, shareCount}) => (
+const CardStatus = React.memo(({postIsLiked, postLikes, postCommentCount, postShareCount}) => (
     <div>
-        {(likes.length + commentCount + shareCount > 0) && (
+        {(postLikes.length + postCommentCount + postShareCount > 0) && (
             <div className="post-status">
                 <p className={
-                    (likes.length > 0) ?
+                    (postLikes.length > 0) ?
                     'post-status__like-count' :
                     'post-status__like-count post-status__like-count--hidden'
                 }>
                     <i className="fab fa-gratipay" style={{color: '#4c82f7'}} />
-                    <span className="post-status__like-count-text">{likes.length}</span>
+                    <span className="post-status__like-count-text">{postLikes.length}</span>
                     <span
                         className="post-status__like-count post-status__like-count--expanded"
                     >
-                        {isLiked ? whoLikesIt(likes, true) : whoLikesIt(likes)}
+                        {postIsLiked ? whoLikesIt(postLikes, true) : whoLikesIt(postLikes)}
                     </span>
                 </p>
-                {(commentCount > 0) && (
+                {(postCommentCount > 0) && (
                     <p className="post-status__comment-count">
-                        <span>{`${commentCount}則留言`}</span>
+                        <span>{`${postCommentCount}則留言`}</span>
                     </p>
                 )}
-                {(shareCount > 0) && (
+                {(postShareCount > 0) && (
                     <p className="post-status__share-count">
-                        <span>{`${shareCount}次分享`}</span>
+                        <span>{`${postShareCount}次分享`}</span>
                     </p>
                 )}
             </div>

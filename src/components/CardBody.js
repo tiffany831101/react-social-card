@@ -1,14 +1,14 @@
 import React from 'react'
 
-const CardBody = React.memo(({text, imageURL}) => (
+const CardBody = React.memo(({postText, postImageURL}) => (
     <div>
-        <p className="post-content__text">{text}</p>
-        {imageURL && (
+        <p className="post-content__text">{postText}</p>
+        {postImageURL && (
             <div
                 className="post-content__image"
                 style={{
                     backgroundImage: `
-                        url(${imageURL}),
+                        url(${postImageURL}),
                         url('/assets/images/image-not-found.png')
                     `
                 }}
