@@ -57,8 +57,8 @@ class SocialCard extends React.PureComponent {
                 <CardStatus
                     postIsLiked={postIsLiked}
                     postLikes={postLikes}
-                    postCommentCount={postComments.length}
-                    postShareCount={postShares.length}
+                    postComments={postComments}
+                    postShares={postShares}
                 />
                 <CardAction
                     postIsLiked={postIsLiked}

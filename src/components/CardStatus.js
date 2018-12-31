@@ -22,9 +22,11 @@ const whoLikesIt = (arr, meIncluded=false) => {
     }
 }
 
-const CardStatus = React.memo(({postIsLiked, postLikes, postCommentCount, postShareCount}) => (
+const CardStatus = React.memo(({
+    postIsLiked, postLikes, postComments, postShares
+}) => (
     <div>
-        {(postLikes.length + postCommentCount + postShareCount > 0) && (
+        {(postLikes.length + postComments.length + postShares.length > 0) && (
             <div className="post-status">
                 <p className={
                     (postLikes.length > 0) ?
@@ -35,18 +37,25 @@ const CardStatus = React.memo(({postIsLiked, postLikes, postCommentCount, postSh
                     <span className="post-status__like-count-text">{postLikes.length}</span>
                     <span
                         className="post-status__like-count post-status__like-count--expanded"
+                        title={postLikes.map(client => client.userName).join('\n')}
                     >
                         {postIsLiked ? whoLikesIt(postLikes, true) : whoLikesIt(postLikes)}
                     </span>
                 </p>
-                {(postCommentCount > 0) && (
-                    <p className="post-status__comment-count">
-                        <span>{`${postCommentCount}則留言`}</span>
+                {(postComments.length > 0) && (
+                    <p
+                        className="post-status__comment-count"
+                        title={postComments.map(client => client.authorName).join('\n')}
+                    >
+                        <span>{`${postComments.length}則留言`}</span>
                     </p>
                 )}
-                {(postShareCount > 0) && (
-                    <p className="post-status__share-count">
-                        <span>{`${postShareCount}次分享`}</span>
+                {(postShares.length > 0) && (
+                    <p
+                        className="post-status__share-count"
+                        title={postShares.map(client => client.userName).join('\n')}
+                    >
+                        <span>{`${postShares.length}次分享`}</span>
                     </p>
                 )}
             </div>
