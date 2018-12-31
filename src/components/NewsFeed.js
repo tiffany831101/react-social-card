@@ -15,6 +15,7 @@ class NewsFeed extends React.Component {
         isLoading: null,
         isRequesting: null,
         loadingError: null,
+        loadingTextHidden: true,
         // 使用者狀態
         currentUserID: 'b763ae61-6891-46cc-a049-c1c6a8871d96',
         currentUserName: '測試員',
@@ -49,6 +50,7 @@ class NewsFeed extends React.Component {
         }
     }
     handleMorePosts = async () => {
+        this.setState(() => ({loadingTextHidden: false}))
         try {
             // 跟伺服器要資料
             const {postsFromServer} = this.state
@@ -62,12 +64,13 @@ class NewsFeed extends React.Component {
 
             // 狀態：讀取完畢、更新陣列
             this.setState(prevState => ({
-                postsFromServer: [...prevState.postsFromServer, ...posts]
+                postsFromServer: [...prevState.postsFromServer, ...posts],
+                loadingTextHidden: true
             }))
         } catch(err) {
             console.log(err)
             // 狀態 -> 發生錯誤
-            this.setState(() => ({loadingError: true}))
+            this.setState(() => ({loadingError: true, loadingTextHidden: true}))
         }
     }
     handleAddPost = async (text) => {
@@ -304,10 +307,12 @@ class NewsFeed extends React.Component {
                             )
                         })}
                         <div
-                            style={{textAlign: 'center', color: '#4868ad'}}
+                            className="load-more-posts"
                             onClick={this.handleMorePosts}
                         >
-                        <p>{this.state.isRequesting ? '載入中' : '載入更多貼文'}</p>
+                            <p>
+                                {this.state.loadingTextHidden ? '載入更多貼文' : '載入中'}
+                            </p>
                         </div>
                     </div>
                 </React.Fragment>

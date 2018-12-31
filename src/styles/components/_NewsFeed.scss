@@ -1,0 +1,13 @@
+.load-more-posts {
+    text-align: center;
+    color: $fb-blue;
+    // 防止反白
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.load-more-posts:hover {
+    cursor: pointer;
+}
